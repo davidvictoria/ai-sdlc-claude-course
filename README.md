@@ -1,75 +1,76 @@
-# AI-SDLC Claude Course — Laboratorio de pagos
+# AI-SDLC con Claude Code — repositorio de laboratorio
 
-Repositorio de práctica para el curso de AI-SDLC dirigido a desarrolladores
-de una fintech. Simula un servicio de pagos **ficticio**: no contiene datos
-reales, secretos, llamadas de red ni dependencias de producción (solo
-`devDependencies`). El objetivo es que los participantes exploren, depuren y
-extiendan el código con la ayuda de un agente de IA.
+Repositorio de práctica del programa **AI-SDLC con Claude Code** (Colectivo23 × Izipay).
+Contiene un servicio de pagos ficticio con datos sintéticos. No incluye código, datos ni
+sistemas reales de Izipay.
 
-## Qué es este repositorio
+## Estructura
 
-Un servicio de pagos minimalista en TypeScript con tres capas:
+```text
+sesiones/
+  sesion-1/   Fundamentos de Claude Code
+  sesion-2/   Del brief ambiguo al cambio verificado
+  sesion-3/   Context engineering, skills y MCP
+  sesion-4/   Agentes, controles y quality gates
+  sesion-5/   Laboratorio integrado (capstone)
+```
 
-- `src/domain`: tipos y errores del dominio (estado del pago, errores
-  tipados).
-- `src/service`: `PaymentService`, con un store en memoria (sin persistencia
-  real).
-- `src/provider`: adaptador de notificaciones entrantes del proveedor de
-  pagos (ficticio).
+Cada carpeta es un proyecto autónomo con su propio código, pruebas, `CLAUDE.md` y
+configuración de Claude Code. Empiezas cada sesión desde un estado limpio y no dependes
+de haber terminado la sesión anterior.
 
-El flujo completo, capa por capa, está documentado en
-[`docs/payment-flow.md`](./docs/payment-flow.md).
-
-## Prerrequisitos
-
-- Node.js 22 o superior (`node --version`).
-- npm (incluido con Node).
-- Git.
-
-## Preflight (primera vez)
+## Preparación (una sola vez, antes de la sesión 1)
 
 ```bash
-git clone <url-del-repo-local>
+git clone <url-del-repositorio>
 cd ai-sdlc-claude-course
 npm ci
 npm run verify
 ```
 
-`npm run verify` encadena `typecheck`, `lint` y `test`. Si termina en verde,
-el entorno está listo para trabajar.
+`npm ci` instala las dependencias de las cinco sesiones de una vez.
+`npm run verify` en la raíz ejecuta la verificación de todas; debe terminar en verde.
 
-## Scripts disponibles
+Requisitos: Node.js 22 o superior, npm, Git y Claude Code autenticado.
 
-| Script      | Qué hace                                   |
-| ----------- | ------------------------------------------- |
-| `typecheck` | `tsc --noEmit`, sin generar artefactos      |
-| `lint`      | ESLint sobre todo el repositorio            |
-| `test`      | Ejecuta la suite de tests con Vitest        |
-| `verify`    | `typecheck` + `lint` + `test`, en ese orden |
+## Cómo trabajar en una sesión
 
-## Modelo de ramas por sesión
-
-Cada sesión del curso tiene dos ramas:
-
-- `session-N-start`: punto de partida del ejercicio de la sesión N.
-- `session-N-solution`: solución de referencia de la sesión N.
-
-Los participantes trabajan sobre una rama nueva creada a partir de
-`session-N-start` (por ejemplo `session-1-mi-nombre`). `main` refleja el
-estado base del repositorio, previo a cualquier sesión.
-
-Antes de empezar una sesión:
+**Abre la terminal y Claude Code dentro de la carpeta de tu sesión**, no en la raíz:
 
 ```bash
-git checkout session-N-start
-git checkout -b session-N-mi-nombre
+cd sesiones/sesion-1
+claude
+```
+
+Esto importa: Claude Code toma como proyecto el directorio donde lo abres. Si lo abres en
+la raíz, explorará las cinco sesiones a la vez y la configuración de `.claude/` de tu
+sesión no se aplicará.
+
+## Verificar tu trabajo
+
+Dentro de la carpeta de tu sesión:
+
+```bash
 npm run verify
 ```
 
-Al terminar, cada participante puede comparar su solución contra
-`session-N-solution` para revisar diferencias de enfoque.
+Ejecuta type-check, lint y pruebas. Es el gate único del repositorio: mientras no termine
+en verde, el trabajo no está listo. Una afirmación del agente no sustituye su salida.
+
+Desde la raíz puedes verificar una sesión concreta:
+
+```bash
+npm run verify:s1
+```
+
+## Soluciones
+
+Las soluciones de referencia no están en esta rama, a propósito: tenerlas al lado
+invalidaría los laboratorios. El practitioner las comparte al cerrar cada sesión.
 
 ## Convenciones
 
-Ver [`CLAUDE.md`](./CLAUDE.md) para las convenciones de trabajo del
-repositorio y la definición de "terminado" (definition of done).
+- Datos exclusivamente sintéticos. Nunca agregues secretos, credenciales ni datos reales.
+- No agregues dependencias salvo que el ejercicio lo autorice explícitamente.
+- No elimines ni debilites pruebas existentes para hacer pasar un cambio.
+- Actualiza la documentación relacionada cuando cambies comportamiento.

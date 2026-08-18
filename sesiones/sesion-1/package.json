@@ -1,0 +1,16 @@
+{
+  "name": "sesion-1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sesion 1: fundamentos de Claude Code. Estado inicial con el bug de PROCESSING.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "verify": "npm run typecheck && npm run lint && npm run test"
+  }
+}

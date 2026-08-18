@@ -1,0 +1,16 @@
+{
+  "name": "sesion-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sesion 2: del brief ambiguo al cambio verificado. El servicio permite regresiones de estado.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "verify": "npm run typecheck && npm run lint && npm run test"
+  }
+}

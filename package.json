@@ -2,16 +2,21 @@
   "name": "ai-sdlc-claude-course",
   "version": "1.0.0",
   "private": true,
-  "description": "Repositorio de laboratorio para el curso de AI-SDLC: servicio de pagos ficticio para practicar exploracion de codigo con agentes de IA.",
+  "description": "Repositorio de laboratorio del curso AI-SDLC con Claude Code. Cada sesion es un proyecto autonomo dentro de sesiones/.",
   "type": "module",
   "engines": {
     "node": ">=22"
   },
+  "workspaces": [
+    "sesiones/*"
+  ],
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "verify": "npm run typecheck && npm run lint && npm run test"
+    "verify": "npm run verify --workspaces --if-present",
+    "verify:s1": "npm run verify --workspace sesion-1",
+    "verify:s2": "npm run verify --workspace sesion-2",
+    "verify:s3": "npm run verify --workspace sesion-3",
+    "verify:s4": "npm run verify --workspace sesion-4",
+    "verify:s5": "npm run verify --workspace sesion-5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
