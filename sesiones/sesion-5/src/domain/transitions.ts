@@ -13,10 +13,11 @@ import { DomainError } from './errors.js';
  * `PENDING` nor `DECLINED` can reach `REVERSED`.
  */
 export const ALLOWED_TRANSITIONS: Readonly<Record<PaymentStatus, readonly PaymentStatus[]>> = {
-  PENDING: ['APPROVED', 'DECLINED'],
+  PENDING: ['APPROVED', 'DECLINED', 'CANCELLED'],
   APPROVED: ['REVERSED'],
   DECLINED: [],
   REVERSED: [],
+  CANCELLED: [],
   UNKNOWN: [],
 };
 

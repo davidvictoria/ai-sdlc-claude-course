@@ -4,7 +4,13 @@
  * added in session 4 (`PAY-104`): it is only reachable from `APPROVED` and is
  * terminal. See `domain/transitions.ts` for the transition rules.
  */
-export type PaymentStatus = 'PENDING' | 'APPROVED' | 'DECLINED' | 'REVERSED' | 'UNKNOWN';
+export type PaymentStatus =
+  | 'PENDING'
+  | 'APPROVED'
+  | 'DECLINED'
+  | 'REVERSED'
+  | 'CANCELLED'
+  | 'UNKNOWN';
 
 /**
  * Normalizes a raw status string coming from the payment provider into a
