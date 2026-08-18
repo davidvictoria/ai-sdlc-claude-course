@@ -131,3 +131,25 @@ reconocido sobre un pago existente).
   verificado en la sesión 4 (`PAY-104`), y llega ya resuelto a la sesión 5:
   el capstone `PAY-105` construye sobre un dominio donde `REVERSED` existe y
   funciona, no lo modifica.
+
+## Cancelación de pagos (PAY-105)
+
+`CANCELLED` no proviene del proveedor: es una acción interna del equipo de
+operaciones, expuesta por `PaymentService.cancelPayment`. Por eso no aparece en
+`normalizeProviderStatus`.
+
+| Desde | Hacia `CANCELLED` |
+|---|---|
+| `PENDING` | Permitida |
+| `APPROVED` | Rechazada |
+| `DECLINED` | Rechazada |
+| `REVERSED` | Rechazada |
+| `CANCELLED` | Idempotente con la misma razón; conflicto con una razón distinta |
+
+`CANCELLED` es un estado terminal: un pago cancelado rechaza cualquier
+actualización posterior del proveedor.
+
+La razón de cancelación es obligatoria, se normaliza (recorte de extremos y
+colapso de espacios) y admite como máximo 200 caracteres. Se conserva junto al
+pago para auditoría operativa y **nunca se escribe completa en los logs**: la
+línea de auditoría registra el identificador, la longitud y un prefijo corto.
