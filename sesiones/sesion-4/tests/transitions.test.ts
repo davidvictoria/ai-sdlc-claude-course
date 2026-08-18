@@ -62,8 +62,21 @@ describe('assertValidTransition', () => {
       expect(() => assertValidTransition('APPROVED', 'REVERSED')).not.toThrow();
     });
 
+    // Acceptance criterion 5: REVERSED is not an exception to the general
+    // idempotency rule. A duplicate REVERSED notification from the provider
+    // (at-least-once delivery) must be a no-op, not an error.
+    it('allows REVERSED -> REVERSED (idempotent)', () => {
+      expect(() => assertValidTransition('REVERSED', 'REVERSED')).not.toThrow();
+    });
+
     it('rejects PENDING -> REVERSED', () => {
       expect(() => assertValidTransition('PENDING', 'REVERSED')).toThrow(InvalidTransitionError);
+    });
+
+    // Acceptance criterion 3: this case must be verified explicitly, not
+    // merely inferred from DECLINED being terminal.
+    it('rejects DECLINED -> REVERSED', () => {
+      expect(() => assertValidTransition('DECLINED', 'REVERSED')).toThrow(InvalidTransitionError);
     });
 
     it('rejects REVERSED -> APPROVED (REVERSED is terminal)', () => {
@@ -72,6 +85,20 @@ describe('assertValidTransition', () => {
 
     it('rejects REVERSED -> PENDING (REVERSED is terminal)', () => {
       expect(() => assertValidTransition('REVERSED', 'PENDING')).toThrow(InvalidTransitionError);
+    });
+
+    it('rejects REVERSED -> DECLINED (REVERSED is terminal)', () => {
+      expect(() => assertValidTransition('REVERSED', 'DECLINED')).toThrow(InvalidTransitionError);
+    });
+
+    it('rejects a transition to UNKNOWN from REVERSED', () => {
+      expect(() => assertValidTransition('REVERSED', 'UNKNOWN')).toThrow(InvalidTransitionError);
+    });
+
+    it('includes from/to in the error message for PENDING -> REVERSED', () => {
+      expect(() => assertValidTransition('PENDING', 'REVERSED')).toThrow(
+        'Invalid payment status transition: PENDING -> REVERSED',
+      );
     });
   });
 });
