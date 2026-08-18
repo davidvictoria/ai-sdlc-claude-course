@@ -1,0 +1,16 @@
+{
+  "name": "sesion-4",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sesion 4: agentes, controles y quality gates. Parte del servicio de pagos con las transiciones de sesion 2 resueltas; el laboratorio revisa y verifica PAY-104 (estado REVERSED) con un reviewer de solo lectura y un hook de proteccion de archivos.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "verify": "npm run typecheck && npm run lint && npm run test"
+  }
+}

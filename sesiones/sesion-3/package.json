@@ -1,0 +1,16 @@
+{
+  "name": "sesion-3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sesion 3: context engineering, skills y MCP. Parte del servicio de pagos con las transiciones de estado ya resueltas (sesion 2); el laboratorio construye la arquitectura de contexto del equipo y usa una fuente MCP local de solo lectura para preparar PAY-103.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "verify": "npm run typecheck && npm run lint && npm run test"
+  }
+}

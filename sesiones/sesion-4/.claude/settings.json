@@ -1,0 +1,3 @@
+{
+  "_comment": "Fase B del laboratorio: agrega aqui el bloque \"hooks\" con el evento PreToolUse (matcher Edit|Write) que ejecuta .claude/hooks/protect-files.mjs. El bloque exacto a copiar esta documentado en README.md, seccion 'Hook de proteccion'. Este archivo se deja sin ese bloque a proposito: se completa en clase."
+}
