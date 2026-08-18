@@ -27,6 +27,8 @@ export function normalizeProviderStatus(raw: string | null | undefined): Payment
   switch (trimmed) {
     case 'PENDING':
       return 'PENDING';
+    case 'PROCESSING':
+      return 'PENDING';
     case 'APPROVED':
       return 'APPROVED';
     case 'DECLINED':

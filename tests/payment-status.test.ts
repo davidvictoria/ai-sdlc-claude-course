@@ -2,8 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { normalizeProviderStatus } from '../src/domain/payment-status.js';
 
 describe('normalizeProviderStatus', () => {
-  it('maps PENDING to PENDING', () => {
+  it('maps PENDING to PENDING (still PENDING after the PROCESSING fix)', () => {
     expect(normalizeProviderStatus('PENDING')).toBe('PENDING');
+  });
+
+  it('maps PROCESSING to PENDING (session 1 fix)', () => {
+    expect(normalizeProviderStatus('PROCESSING')).toBe('PENDING');
   });
 
   it('maps APPROVED to APPROVED', () => {

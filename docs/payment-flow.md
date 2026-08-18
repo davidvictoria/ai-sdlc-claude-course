@@ -63,9 +63,15 @@ el campo `status` de un `ProviderNotification`:
 | Valor crudo (trim + comparación exacta en mayúsculas) | `PaymentStatus` resultante |
 | ------------------------------------------------------- | ---------------------------- |
 | `PENDING`                                                | `PENDING`                    |
+| `PROCESSING`                                             | `PENDING`                    |
 | `APPROVED`                                               | `APPROVED`                   |
 | `DECLINED`                                               | `DECLINED`                   |
 | `''`, `null`, `undefined`, o cualquier otro valor no listado arriba | `UNKNOWN` |
+
+> Nota de la sesión 1: originalmente `PROCESSING` no estaba mapeado y caía
+> en `UNKNOWN` por el `default` del switch, a pesar de que la tabla de
+> "estados que el proveedor puede enviar" ya lo listaba. El fix de la
+> sesión 1 agrega el caso `PROCESSING -> PENDING`.
 
 ## Estados internos del dominio
 
