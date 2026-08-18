@@ -112,6 +112,26 @@ describe('PaymentService', () => {
       expect(service.getPayment('pay-1').status).toBe('PENDING');
     });
 
+    it('rejects DECLINED -> REVERSED and leaves the stored status untouched', () => {
+      const service = new PaymentService();
+      service.createPayment('pay-1');
+      service.applyProviderUpdate('pay-1', 'DECLINED');
+      expect(() => service.applyProviderUpdate('pay-1', 'REVERSED')).toThrow(
+        InvalidTransitionError,
+      );
+      expect(service.getPayment('pay-1').status).toBe('DECLINED');
+    });
+
+    it('is idempotent when REVERSED is reported again', () => {
+      const service = new PaymentService();
+      service.createPayment('pay-1');
+      service.applyProviderUpdate('pay-1', 'APPROVED');
+      service.applyProviderUpdate('pay-1', 'REVERSED');
+      const repeated = service.applyProviderUpdate('pay-1', 'REVERSED');
+      expect(repeated.status).toBe('REVERSED');
+      expect(service.getPayment('pay-1').status).toBe('REVERSED');
+    });
+
     it('rejects any further update once a payment is REVERSED', () => {
       const service = new PaymentService();
       service.createPayment('pay-1');

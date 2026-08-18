@@ -118,6 +118,25 @@ aprobada.
 Ejemplos de transiciones inválidas (lanzan `InvalidTransitionError`):
 `APPROVED -> PENDING`, `APPROVED -> DECLINED`, `DECLINED -> PENDING`,
 `DECLINED -> APPROVED`, `PENDING -> REVERSED`, `DECLINED -> REVERSED`,
-`REVERSED -> APPROVED` (o cualquier otro destino, `REVERSED` es terminal),
+`REVERSED -> APPROVED`, `REVERSED -> PENDING`, `REVERSED -> DECLINED`,
 cualquier `-> UNKNOWN` (por ejemplo, si el proveedor envía un valor no
 reconocido sobre un pago existente).
+
+### `REVERSED` y la regla de idempotencia (`PAY-104`)
+
+`REVERSED` es terminal, pero **terminal no significa "cerrado a sí mismo"**.
+La regla `to === from` se evalúa antes que cualquier otra en
+`assertValidTransition`, así que `REVERSED -> REVERSED` es idempotente igual
+que `PENDING -> PENDING`, `APPROVED -> APPROVED` o `DECLINED -> DECLINED`:
+no lanza error, no modifica el registro almacenado y devuelve el pago con
+`status: 'REVERSED'`.
+
+Esto importa porque el proveedor puede reenviar la misma notificación
+(entrega *at-least-once*): una reversión duplicada es un no-op esperado, no
+un error de integración.
+
+La terminalidad de `REVERSED` se expresa en un solo lugar, su lista vacía
+en `ALLOWED_TRANSITIONS`. Codificarla además como una comprobación
+anticipada dentro de `assertValidTransition` (`if (from === 'REVERSED')
+throw`) rompería la idempotencia sin que ninguna de las pruebas de las
+sesiones anteriores lo detectara.
