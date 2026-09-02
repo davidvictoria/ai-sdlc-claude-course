@@ -26,6 +26,9 @@ aplica lo que el proveedor envía, sin más. El brief pide cambiar eso.
 - `src/provider`: adaptador de notificaciones del proveedor (ficticio).
 - `docs/payment-flow.md`: flujo completo y tablas de estados. Incluye una
   nota sobre el cambio de la sesión 1.
+- `docs/portafolio.md`: plantilla de tu portafolio de evidencias (Spec
+  ready, Plan ready y Done with evidence). Es la entrega individual de la
+  sesión.
 - `tests/`: suite de Vitest.
 - `CLAUDE.md`: convenciones del repositorio y definición de "terminado".
 
@@ -44,6 +47,11 @@ verde antes de empezar. Si no lo hace, avisa al practitioner antes de
 continuar.
 
 ## Cómo trabajar la sesión
+
+El laboratorio es individual: trabajas en tu propio clon y entregas tu
+propio archivo. Cada gate que superes lo registras en `docs/portafolio.md`,
+con una captura y una respuesta breve.
+
 
 1. **Lee el brief y separa lo que dice de lo que supone.** Antes de abrir
    Claude Code, escribe en una lista: hechos que el brief afirma,
@@ -104,6 +112,16 @@ docs/payment-flow.md actualizado y npm run verify en verde. No hagas
 commit. Termina con un resumen de 5 líneas.
 ```
 
+## Entrega
+
+El laboratorio es **individual**: cada persona trabaja en su propio clon y
+entrega su propio archivo. Puedes comentar dudas con quien tengas al lado,
+pero el trabajo y la entrega son tuyos.
+
+Al terminar, completa [`docs/portafolio.md`](./docs/portafolio.md),
+renómbralo como `portafolio-sesion-2-<nombre-apellido>.md` y envíalo por
+el canal del programa.
+
 ## Scripts disponibles
 
 | Script      | Qué hace                                    |
@@ -116,7 +134,7 @@ commit. Termina con un resumen de 5 líneas.
 ## Solución de referencia
 
 No está en esta carpeta ni en esta rama. El practitioner la comparte al
-cerrar la sesión, y entonces cada equipo compara su enfoque contra ella.
+cerrar la sesión, y entonces comparas tu enfoque contra ella.
 
 ## Convenciones y definición de terminado
 

@@ -8,7 +8,7 @@ contexto que recibe el agente: qué va en `CLAUDE.md`, qué va en una rule
 acotada por ruta, qué se convierte en una skill reutilizable y qué debe
 vivir fuera del repositorio, detrás de una fuente MCP.
 
-El caso narrativo: el equipo recibe la solicitud `PAY-103`, que propone un
+El caso narrativo: recibes la solicitud `PAY-103`, que propone un
 nuevo estado `REVERSED` para pagos aprobados. Esta sesión **no implementa**
 `REVERSED`; la misión termina en un artefacto `Plan ready`
 (`docs/changes/PAY-103-spec.md`).
@@ -20,7 +20,7 @@ nuevo estado `REVERSED` para pagos aprobados. Esta sesión **no implementa**
 - `.claude/rules/payments.md`: invariantes del dominio de pagos, acotadas a
   `src/domain/**` y `tests/**`.
 - `.claude/skills/payment-change/SKILL.md`: **esqueleto incompleto** de la
-  skill que el equipo completa durante el laboratorio (fase B).
+  skill que completas durante el laboratorio (fase B).
 - `scripts/course-mcp-server.mjs`: servidor MCP local, de solo lectura,
   construido en Node puro (sin dependencias externas). Expone la tool
   `get_change_request`.
@@ -30,7 +30,9 @@ nuevo estado `REVERSED` para pagos aprobados. Esta sesión **no implementa**
   respuesta de `PAY-103`, para el plan B si el registro de MCP falla.
 - `docs/changes/`: destino de los artefactos que produce la skill
   (`<id>-spec.md`).
-- `docs/lab-notes.md`: bitácora libre del equipo.
+- `docs/lab-notes.md`: bitácora libre para tus notas de trabajo.
+- `docs/portafolio.md`: plantilla de tu portafolio de evidencias (fases A,
+  B y C). Es la entrega individual de la sesión.
 - `context-candidates.md`: hoja de trabajo de la fase A del laboratorio.
 
 ## Preflight
@@ -113,6 +115,16 @@ con ellas.
 Si estás en el plan B, reemplaza la primera frase por "Lee
 `scripts/fixtures/PAY-103-mcp-response.json` como si fuera la respuesta de
 la tool get_change_request".
+
+## Entrega
+
+El laboratorio es **individual**: cada persona trabaja en su propio clon y
+entrega su propio archivo. Puedes comentar dudas con quien tengas al lado,
+pero el trabajo y la entrega son tuyos.
+
+Al terminar, completa [`docs/portafolio.md`](./docs/portafolio.md),
+renómbralo como `portafolio-sesion-3-<nombre-apellido>.md` y envíalo por
+el canal del programa.
 
 ## Convenciones y definición de terminado
 

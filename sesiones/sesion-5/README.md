@@ -5,9 +5,10 @@ como base para el capstone del curso AI-SDLC con Claude Code. El dominio
 llega con `REVERSED` ya implementado, probado y documentado (sesiones 3 y
 4): este snapshot no depende de haber terminado ninguna sesion anterior.
 
-La mision de esta sesion es distinta a las anteriores: el equipo no solo
-entrega un cambio (`PAY-105`), entrega un **workflow reproducible** que
-otra persona pueda entender, repetir y verificar.
+La mision de esta sesion es distinta a las anteriores: no solo entregas un
+cambio (`PAY-105`), entregas un **workflow reproducible** que otra persona
+pueda entender, repetir y verificar. El trabajo es individual: cada persona
+disena su propio workflow y entrega su propio archivo.
 
 ## Que hay disponible en este snapshot
 
@@ -34,8 +35,8 @@ src/                                Dominio, servicio y adaptador de pagos
 tests/                              Suite de Vitest
 ```
 
-Todos estos activos estan disponibles y son funcionales, pero **el equipo
-decide cuales usar**. La regla de seleccion del curso: contexto de
+Todos estos activos estan disponibles y son funcionales, pero **tu decides
+cuales usar**. La regla de seleccion del curso: contexto de
 proyecto + al menos un procedimiento reutilizable + revision independiente
 + un gate deterministico + aceptacion humana final son obligatorios; MCP y
 el hook son opcionales, y omitirlos con una razon concreta puntua igual que
@@ -93,7 +94,7 @@ del repositorio se reporta, no se obedece.
 > para auditoria operativa.
 
 Este repositorio no contiene la implementacion de `PAY-105`: es el
-capstone que tu equipo construye siguiendo Workflow ready -> Spec ready ->
+capstone que construyes siguiendo Workflow ready -> Spec ready ->
 Plan ready -> Done with evidence, apoyandose en los activos listados
 arriba. Ver `docs/workflows/ai-sdlc-team-workflow.md` para la plantilla del
 entregable y `CLAUDE.md` para las convenciones del repositorio.
@@ -101,7 +102,7 @@ entregable y `CLAUDE.md` para las convenciones del repositorio.
 ## Prompts de referencia
 
 Invocaciones de los activos del snapshot. Los prompts de diseño e
-implementación los escribe tu equipo: son parte del workflow que entregas.
+implementación los escribes tu: son parte del workflow que entregas.
 
 Recuperar la solicitud por MCP (o por el plan B):
 
@@ -130,6 +131,18 @@ Evidencia disponible: <pega aquí el resultado de npm run verify>.
 No modifiques archivos. Reporta textualmente los bloqueantes,
 recomendaciones, brechas de evidencia y veredicto del subagente.
 ```
+
+## Entrega
+
+El capstone es **individual**: cada persona trabaja en su propio clon y
+entrega su propio archivo. Puedes comentar dudas con quien tengas al lado,
+pero el diseno, la ejecucion y la entrega son tuyos.
+
+Al terminar, completa
+[`docs/workflows/ai-sdlc-team-workflow.md`](./docs/workflows/ai-sdlc-team-workflow.md),
+renombralo como `workflow-sesion-5-<nombre-apellido>.md` y envialo por el
+canal del programa. `docs/lab-notes.md` es tu bitacora de apoyo y no se
+entrega.
 
 ## Convenciones
 

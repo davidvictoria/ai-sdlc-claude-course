@@ -1,30 +1,29 @@
 # Portafolio de evidencias — sesión 1
 
-Un portafolio por equipo. Si el practitioner indicó un documento o slides
-compartidos, usen ese formato con estas mismas secciones; este archivo es
-la versión en texto y sirve como respaldo. No es un artefacto evaluado por
-`npm run verify`.
+**Entrega individual.** Completa este archivo, renómbralo como
+`portafolio-sesion-1-<nombre-apellido>.md` y envíalo por el canal del
+programa. Si el practitioner indicó un documento o slides compartidos, usa
+ese formato con estas mismas secciones; este archivo es la versión en texto
+y sirve como respaldo. No es un artefacto evaluado por `npm run verify`.
 
 Regla para todas las capturas: sin secretos, sin tokens, sin rutas
 personales completas y sin datos reales. Todo el dominio de este
 repositorio es sintético.
 
-## Equipo
-
-- Integrantes (nombres o iniciales):
-- Driver por fase (1 / 2 / 3):
+- Nombre:
+- Fecha:
 
 ## Checkpoint 1 — Plan aprobado
 
 - Captura: Plan Mode con la parte relevante del plan (archivos, cambio,
   pruebas, restricciones, verificación).
-- ¿Qué decisión revisó o modificó el equipo antes de aprobar el plan?
+- ¿Qué decisión revisaste o modificaste antes de aprobar el plan?
 
 ## Checkpoint 2 — Cambio con alcance
 
 - Captura: `git diff --stat` o el panel de Source Control con los archivos
   modificados.
-- ¿Claude modificó únicamente lo acordado? ¿Qué corrigió el equipo?
+- ¿Claude modificó únicamente lo acordado? ¿Qué corregiste tú?
 
 ## Checkpoint 3 — Verificación
 
@@ -34,8 +33,8 @@ repositorio es sintético.
 
 ## Mapa priorizado de oportunidades
 
-Actividades reales del SDLC del equipo. Solo el nombre de la actividad:
-sin sistemas internos, código ni datos de la empresa.
+Actividades reales del SDLC de tu equipo de trabajo. Solo el nombre de la
+actividad: sin sistemas internos, código ni datos de la empresa.
 
 Modos de colaboración: consultar, co-crear, ejecutar, automatizar, gate
 humano. Impacto y esfuerzo: alto o bajo.
@@ -56,12 +55,12 @@ humano. Impacto y esfuerzo: alto o bajo.
 | | | |
 
 Un quick win sin forma de verificación no cuenta. Este mapa se retoma en
-la sesión 5 como insumo de la adopción acotada del equipo.
+la sesión 5 como insumo de tu propuesta de adopción acotada.
 
 ## Reflexión final
 
-¿Qué decidió el humano, qué ejecutó Claude y qué capacidad de Claude Code
-debería aprender el equipo después?
+¿Qué decidiste tú, qué ejecutó Claude y qué capacidad de Claude Code
+deberías aprender después?
 
 >
 

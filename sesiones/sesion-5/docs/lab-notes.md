@@ -1,16 +1,17 @@
 # Bitacora del laboratorio (sesion 5)
 
-Registro breve de tu equipo durante el capstone. No reemplaza
-`docs/workflows/ai-sdlc-team-workflow.md` (el entregable); es el respaldo de
-evidencia de los tres checkpoints y de las decisiones tomadas en el momento.
+Tu bitacora personal durante el capstone. No se entrega y no reemplaza
+`docs/workflows/ai-sdlc-team-workflow.md` (el entregable individual); es tu
+respaldo de evidencia de los tres checkpoints y de las decisiones que vayas
+tomando.
 
 No incluyas datos sensibles, secretos ni nada real de Izipay: todo el
 dominio de este repositorio es sintetico.
 
-## Equipo
+## Identificacion
 
-- Roles: Driver / Product-Scope owner / Quality owner / Evidence keeper.
-- Nombres (o iniciales):
+- Nombre:
+- Fecha:
 
 ## Checkpoint 1 -- Workflow ready
 

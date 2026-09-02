@@ -33,6 +33,10 @@ El flujo completo, capa por capa, está documentado en
 `PAY-104` está en
 [`docs/changes/PAY-104-spec.md`](./docs/changes/PAY-104-spec.md).
 
+El laboratorio es individual: trabajas en tu propio clon y entregas tu
+propio archivo. Registra las evidencias de cada fase en
+[`docs/portafolio.md`](./docs/portafolio.md).
+
 ## Prerrequisitos
 
 - Node.js 22 o superior (`node --version`).
@@ -228,6 +232,16 @@ herramientas y la revisión humana.
 
 No está en esta carpeta ni en esta rama. El practitioner la comparte al
 cerrar la sesión.
+
+## Entrega
+
+El laboratorio es **individual**: cada persona trabaja en su propio clon y
+entrega su propio archivo. Puedes comentar dudas con quien tengas al lado,
+pero el trabajo y la entrega son tuyos.
+
+Al terminar, completa [`docs/portafolio.md`](./docs/portafolio.md),
+renómbralo como `portafolio-sesion-4-<nombre-apellido>.md` y envíalo por
+el canal del programa.
 
 ## Convenciones
 

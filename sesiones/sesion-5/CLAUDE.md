@@ -2,7 +2,7 @@
 
 Guia breve para trabajar en este repositorio con un agente de IA. Sesion 5:
 laboratorio integrado (capstone). El dominio ya incluye `REVERSED` completo
-y probado (sesiones 3-4). El equipo construye `PAY-105` sobre esta base.
+y probado (sesiones 3-4). Construyes `PAY-105` sobre esta base.
 
 ## Comandos
 
@@ -34,8 +34,8 @@ y probado (sesiones 3-4). El equipo construye `PAY-105` sobre esta base.
 
 ## Activos disponibles en este snapshot
 
-Estan disponibles, pero el equipo decide cuales usar y debe registrar la
-decision incluso si los omite (ver `docs/workflows/ai-sdlc-team-workflow.md`,
+Estan disponibles, pero tu decides cuales usar y debes registrar la
+decision incluso si los omites (ver `docs/workflows/ai-sdlc-team-workflow.md`,
 seccion C):
 
 - Skill `.claude/skills/payment-change/SKILL.md`: convierte una solicitud
@@ -54,7 +54,7 @@ seccion C):
 ## El caso `PAY-105`
 
 Este repositorio **no** contiene la implementacion de `PAY-105`: es lo que
-el equipo construye en el laboratorio siguiendo el flujo Workflow ready ->
+construyes en el laboratorio siguiendo el flujo Workflow ready ->
 Spec ready -> Plan ready -> Done with evidence. No inventes el
 comportamiento de `PAY-105` a partir de este archivo; el punto de partida
 es la solicitud (via MCP o `scripts/fixtures/PAY-105-brief.md`) y la

@@ -48,8 +48,9 @@ verificar, manteniendo el control sobre el alcance y las decisiones.
   pagos (ficticio).
 - `docs/payment-flow.md`: el flujo completo, capa por capa, y las tablas
   de estados. Es la fuente de verdad documental del dominio.
-- `docs/portafolio.md`: plantilla del portafolio de evidencias del equipo
-  (tres checkpoints, mapa priorizado de oportunidades y reflexión).
+- `docs/portafolio.md`: plantilla de tu portafolio de evidencias (tres
+  checkpoints, mapa priorizado de oportunidades y reflexión). Es la entrega
+  individual de la sesión.
 - `tests/`: suite de Vitest.
 - `CLAUDE.md`: convenciones del repositorio y definición de "terminado".
 
@@ -70,10 +71,11 @@ continuar.
 
 ## Cómo trabajar la sesión
 
-Trabajan en equipos. El driver comparte pantalla y rota entre fases. Cada
-fase termina en un checkpoint que se registra en `docs/portafolio.md`
-(captura más una respuesta breve). Una afirmación de Claude ("ya está
-corregido", "los tests pasan") no sustituye la salida real del comando.
+El laboratorio es individual: trabajas en tu propio clon y entregas tu
+propio archivo. Cada fase termina en un checkpoint que registras en
+`docs/portafolio.md`, con una captura y una respuesta breve. Una afirmación
+de Claude ("ya está corregido", "los tests pasan") no sustituye la salida
+real del comando: ejecútalo tú.
 
 ### Fase 1: explorar y planificar (12 min)
 
@@ -117,9 +119,9 @@ documentación? ¿preserva el contrato público? ¿limitó el alcance? ¿incluy�
 `npm run verify`?
 
 **Checkpoint 1.** Captura del plan en Plan Mode y respuesta a: ¿qué
-decisión revisó o modificó el equipo antes de aprobar el plan? Avanzan
-cuando el plan identifica archivos, cambio esperado, pruebas, restricciones
-y verificación.
+decisión revisaste o modificaste antes de aprobar el plan? Avanzas cuando
+el plan identifica archivos, cambio esperado, pruebas, restricciones y
+verificación.
 
 ### Fase 2: implementar con alcance (13 min)
 
@@ -148,9 +150,9 @@ Si Claude amplía el alcance, deténganlo (Escape), revisen el diff y
 vuelvan al plan.
 
 **Checkpoint 2.** Captura de `git diff --stat` y respuesta a: ¿Claude
-modificó únicamente lo acordado? ¿qué corrigió el equipo? Avanzan cuando
-existe el cambio y su prueba, sin tests debilitados, sin dependencias
-nuevas y sin archivos inesperados.
+modificó únicamente lo acordado? ¿qué corregiste tú? Avanzas cuando existe
+el cambio y su prueba, sin tests debilitados, sin dependencias nuevas y sin
+archivos inesperados.
 
 ### Fase 3: verificar con evidencia (8 min)
 
@@ -170,7 +172,7 @@ Ejecuten también `npm run verify` ustedes mismos en la terminal.
 
 **Checkpoint 3.** Captura de `npm run verify` exitoso y respuesta a: ¿qué
 evidencia demuestra que el cambio funciona sin romper el comportamiento
-existente? Terminan cuando typecheck, lint y tests pasan y los doce
+existente? Terminas cuando typecheck, lint y tests pasan y los doce
 criterios están cubiertos.
 
 ### Mapa priorizado de oportunidades (10 min)
@@ -178,14 +180,16 @@ criterios están cubiertos.
 Es el entregable del módulo y se retoma en la sesión 5. Se registra en la
 sección correspondiente de `docs/portafolio.md`:
 
-1. Listen de tres a cinco actividades reales del SDLC de su equipo. Solo el
-   nombre de la actividad: sin sistemas internos, código ni datos.
-2. Asignen a cada una un modo de colaboración: consultar, co-crear,
+1. Lista de tres a cinco actividades reales del SDLC de tu equipo de
+   trabajo. Solo el nombre de la actividad: sin sistemas internos, código ni
+   datos.
+2. Asigna a cada una un modo de colaboración: consultar, co-crear,
    ejecutar, automatizar o gate humano.
-3. Ubíquenla en impacto y esfuerzo, con valores alto o bajo.
-4. Marquen dos quick wins: alto impacto, bajo esfuerzo y resultado
+3. Ubícala en impacto y esfuerzo, con valores alto o bajo.
+4. Marca dos quick wins: alto impacto, bajo esfuerzo y resultado
    verificable.
-5. Para cada quick win, una frase con la forma de verificación esperada.
+5. Para cada quick win, escribe una frase con la forma de verificación
+   esperada.
 
 Un quick win sin forma de verificación no cuenta como quick win.
 
@@ -193,11 +197,21 @@ Un quick win sin forma de verificación no cuenta como quick win.
 
 | Problema | Acción |
 | --- | --- |
-| Claude Code no inicia | Trabaja en pareja con otro equipo; la remediación individual se hace después de la sesión |
+| Claude Code no inicia | Sigue la sesión desde la pantalla de alguien cercano y avisa al practitioner; completa tu laboratorio y tu entrega después |
 | Claude toca más archivos de los acordados | Escape, revisar `git diff`, revertir lo indebido y volver al plan con el alcance reducido |
 | Claude cambió un test para que pase | Revertir, repetir la restricción de no debilitar pruebas y revisar las aserciones |
 | `npm run verify` falla | Pasarle a Claude la salida completa, pedir la causa raíz y corregir solo el alcance del cambio |
 | La captura muestra rutas o datos sensibles | No pegarla; repetir la captura sobre un área acotada |
+
+## Entrega
+
+El laboratorio es **individual**: cada persona trabaja en su propio clon y
+entrega su propio archivo. Puedes comentar dudas con quien tengas al lado,
+pero el trabajo y la entrega son tuyos.
+
+Al terminar, completa [`docs/portafolio.md`](./docs/portafolio.md),
+renómbralo como `portafolio-sesion-1-<nombre-apellido>.md` y envíalo por
+el canal del programa.
 
 ## Scripts disponibles
 
@@ -211,7 +225,7 @@ Un quick win sin forma de verificación no cuenta como quick win.
 ## Solución de referencia
 
 No está en esta carpeta ni en esta rama. El practitioner la comparte al
-cerrar la sesión, y entonces cada equipo compara su enfoque contra ella.
+cerrar la sesión, y entonces comparas tu enfoque contra ella.
 
 ## Convenciones y definición de terminado
 

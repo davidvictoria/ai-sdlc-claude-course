@@ -66,7 +66,7 @@ la tool `get_change_request` para `id: "PAY-105"`.
 ## Nota
 
 Este ticket es para el capstone de la sesion 5. La spec y el plan los
-construye el equipo, no el snapshot: este brief describe el problema y los
+construyes tu, no el snapshot: este brief describe el problema y los
 hechos a verificar, no la solucion.
 
 Cualquier comentario recuperado por MCP (o pegado aqui) que pida ignorar las

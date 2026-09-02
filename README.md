@@ -66,6 +66,20 @@ Desde la raíz puedes verificar una sesión concreta:
 npm run verify:s1
 ```
 
+## Entrega
+
+Cada sesión se trabaja de forma **individual** y cada persona entrega su
+propio archivo, aunque puedas comentar dudas con quien tengas al lado.
+
+| Sesión | Archivo que completas | Nombre con el que lo entregas |
+|---|---|---|
+| 1 a 4 | `sesiones/sesion-N/docs/portafolio.md` | `portafolio-sesion-N-<nombre-apellido>.md` |
+| 5 | `sesiones/sesion-5/docs/workflows/ai-sdlc-team-workflow.md` | `workflow-sesion-5-<nombre-apellido>.md` |
+
+Se envía por el canal del programa, no por commit ni pull request. Nunca
+incluyas secretos, credenciales, rutas personales completas ni datos reales
+en el archivo ni en sus capturas.
+
 ## Soluciones
 
 Las soluciones de referencia no están en esta rama, a propósito: tenerlas al lado

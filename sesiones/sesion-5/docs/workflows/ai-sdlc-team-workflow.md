@@ -1,14 +1,19 @@
 # AI-SDLC Team Workflow
 
-> Plantilla vacia. Completa cada seccion con las decisiones reales de tu
-> equipo para `PAY-105`. No copies texto de otra sesion ni inventes
-> respuestas: cada campo vacio es una decision que tu equipo debe tomar.
-> No se evalua cuanta IA usaron, sino si otro equipo puede repetir el
-> workflow y verificar el resultado.
+> Plantilla vacia y **entrega individual**. Completa cada seccion con tus
+> propias decisiones para `PAY-105`. No copies texto de otra sesion ni
+> inventes respuestas: cada campo vacio es una decision que tienes que
+> tomar. No se evalua cuanta IA usaste, sino si otra persona puede repetir
+> el workflow y verificar el resultado.
+>
+> Al terminar, renombra este archivo como
+> `workflow-sesion-5-<nombre-apellido>.md` y envialo por el canal del
+> programa.
 
-- Equipo:
+- Nombre:
 - Fecha:
-- Roles (Driver / Product-Scope owner / Quality owner / Evidence keeper):
+- Roles del workflow (quien decide alcance, quien verifica, quien acepta el
+  diff) y a que puesto real corresponden en tu equipo de trabajo:
 
 ---
 
@@ -41,15 +46,14 @@ tecnico de este workflow.*
 
 - Contexto de proyecto usado y su ubicacion (`CLAUDE.md`, `.claude/rules/`,
   otros):
-- Capacidades seleccionadas (marca las que tu equipo usa y donde vive cada
-  una):
+- Capacidades seleccionadas (marca las que usas y donde vive cada una):
   - [ ] Skill: `.claude/skills/payment-change/SKILL.md`
   - [ ] Agente de revision: `.claude/agents/payment-reviewer.md`
   - [ ] Hook de proteccion: `.claude/hooks/protect-files.mjs`
   - [ ] MCP local: `scripts/course-mcp-server.mjs`
   - [ ] Otro (especificar):
 - Capacidades omitidas y motivo (al menos una, con una razon concreta, no
-  "no nos alcanzo el tiempo"):
+  "no me alcanzo el tiempo"):
 - Tools y permisos habilitados para cada mecanismo (por ejemplo, tools del
   agente de revision, alcance del hook):
 - Trust boundaries: que contenido se trata como dato no confiable (por
@@ -60,7 +64,7 @@ tecnico de este workflow.*
 
 Completa la tabla con las etapas minimas: intake, exploracion, spec,
 diseno/plan, implementacion, tests/checks, review y cierre. Agrega filas si
-tu equipo usa etapas adicionales.
+usas etapas adicionales.
 
 | Etapa | Claude | Humano | Input | Output | Gate/check |
 |---|---|---|---|---|---|
@@ -91,16 +95,16 @@ tu equipo usa etapas adicionales.
 - Instruccion de inicio (el primer comando o accion que ejecuta otra
   persona):
 - Orden de los gates (Workflow ready -> Spec ready -> Plan ready -> Done
-  with evidence, o el orden real que uso tu equipo):
+  with evidence, o el orden real que usaste):
 - Comandos y resultado observable esperado en cada uno:
 - Que hacer si un paso falla (recuperacion):
 
 ## G. Adopcion acotada
 
-- Practica a probar en el equipo (retoma un quick win del mapa priorizado
-  de oportunidades de la sesion 1, `sesiones/sesion-1/docs/portafolio.md`;
-  si el equipo no tiene ese mapa, elige una actividad real de su SDLC y
-  justificala en dos frases):
+- Practica a probar en tu equipo de trabajo (retoma un quick win del mapa
+  priorizado de oportunidades de la sesion 1,
+  `sesiones/sesion-1/docs/portafolio.md`; si no tienes ese mapa, elige una
+  actividad real de tu SDLC y justificala en dos frases):
 - Tipo y cantidad de tareas donde se probara:
 - Senal a observar para saber si funciona:
 - Condicion para ajustar el workflow o abandonarlo:
@@ -109,7 +113,7 @@ tu equipo usa etapas adicionales.
 
 ## Reflexion (maximo 100 palabras)
 
-Una decision que el equipo no delego a Claude, el control que resulto mas
-util, y la practica que probaran despues de esta sesion.
+Una decision que no delegaste a Claude, el control que te resulto mas
+util, y la practica que probaras despues de esta sesion.
 
 >
