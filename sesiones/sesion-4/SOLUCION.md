@@ -86,3 +86,12 @@ dejar la clase sin poder editar.
 | Solo encuentran el defecto B | Revisaron pruebas pero no compararon contra la spec | Pedir el mapeo criterio → implementación → prueba |
 | El hook bloquea todo | Comparación contra la raíz del proyecto en vez de la ruta destino | Restaurar el script de esta rama |
 | El hook no dispara | JSON inválido en `settings.json` o matcher incorrecto | Verificar con `/hooks` |
+
+## Nota para el debrief del hook
+
+En una corrida de prueba, Claude Code respondió a "agrega una línea a
+`fixtures/protected/demo.env`" escribiendo con `Bash` (`printf >>`) en vez
+de `Edit`, y el hook no intervino porque su matcher es `Edit|Write`. Con
+`Edit` el bloqueo funciona y el mensaje de política aparece. Úsalo en el
+debrief: el control protege exactamente lo que declara; lo demás lo cubren
+los permisos de herramientas y la aceptación humana del diff.
