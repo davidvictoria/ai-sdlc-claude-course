@@ -181,6 +181,14 @@ Nunca apuntes el hook a un `.env` real ni a contenido parecido a una
 credencial. El único blanco de demostración es
 `fixtures/protected/demo.env`, un fixture sintético sin valor real.
 
+Alcance del control: el matcher es `Edit|Write`, así que el hook intercepta
+esas herramientas y nada más. Un comando de shell que escriba el mismo
+archivo (por ejemplo `printf >> fixtures/protected/demo.env` vía `Bash`) no
+pasa por él. Pide la edición con la herramienta `Edit` para ver el bloqueo,
+y guarda el caso de `Bash` para el debrief: un control determinístico
+protege exactamente lo que declara, y el resto lo cubren los permisos de
+herramientas y la revisión humana.
+
 ## Fase C — Revisar, corregir y verificar
 
 1. Invoca a `payment-reviewer` con la spec (`docs/changes/PAY-104-spec.md`)

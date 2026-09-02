@@ -73,6 +73,11 @@ claude mcp remove course-context
 La conexión MCP es configuración local del participante, no un artefacto
 compartido del repositorio: no se versiona ni se commitea.
 
+Mientras siga registrado, `/mcp` en las carpetas de otras sesiones también
+lo listará: conectado donde exista `scripts/course-mcp-server.mjs` (sesión
+5) y como fallido donde no (sesiones 1, 2 y 4). Es esperado y no afecta a
+esos laboratorios; desaparece al desregistrarlo.
+
 ## Plan B (si MCP no está disponible)
 
 Si el registro falla por permisos, proxy o versión, usar directamente

@@ -12,9 +12,12 @@ comportamiento reportado y cerrar el cambio con evidencia.
 Operaciones reporta que algunas notificaciones del proveedor de pagos dejan
 el pago en estado `UNKNOWN`, aunque el valor que envía el proveedor está
 documentado como válido en `docs/payment-flow.md`. Nadie ha revisado
-todavía dónde ocurre ni por qué. Tu equipo recibe ese reporte y tiene que
-llegar a un cambio verificado: diagnóstico, corrección, prueba que lo cubra,
-documentación al día y `npm run verify` en verde.
+todavía dónde ocurre ni por qué. Para operaciones, un pago que el proveedor
+todavía está procesando es un pago que sigue esperando resolución: no piden
+un estado nuevo del dominio, piden que deje de quedar en `UNKNOWN`. Tu
+equipo recibe ese reporte y tiene que llegar a un cambio verificado:
+diagnóstico, corrección, prueba que lo cubra, documentación al día y
+`npm run verify` en verde.
 
 No hay más pistas en este archivo a propósito. El diagnóstico es parte del
 laboratorio.
