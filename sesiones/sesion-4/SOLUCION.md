@@ -54,7 +54,7 @@ a la otra.
 1. El diff de `assertValidTransition` antes y después, señalando que el orden de
    dos comprobaciones es todo el defecto.
 2. El informe `docs/changes/PAY-104-review.md`, comparándolo con los que
-   produjeron los equipos. Lo que importa es que aparezcan los dos hallazgos y
+   produjeron los participantes. Lo que importa es que aparezcan los dos hallazgos y
    que estén trazados a un criterio de aceptación, no la redacción.
 3. La sección "Brechas de evidencia" del informe: el reviewer declara que no
    ejecutó comandos porque no tiene `Bash`. Es la consecuencia visible del
@@ -76,7 +76,7 @@ El control es específico: bloquea una lista explícita y permite el resto. Ante
 entrada de la que no puede deducir la ruta, permite en lugar de bloquear, para no
 dejar la clase sin poder editar.
 
-## Errores frecuentes de los equipos
+## Errores frecuentes
 
 | Síntoma | Causa habitual | Qué hacer |
 |---|---|---|
