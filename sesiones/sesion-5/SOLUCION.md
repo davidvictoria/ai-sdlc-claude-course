@@ -17,7 +17,7 @@ Material del practitioner. No se comparte antes del cierre.
 
 ## Las dos decisiones humanas
 
-El capstone está construido para que el equipo **no pueda terminar sin decidir**.
+El capstone está construido para que **no se pueda terminar sin decidir**.
 Ninguna de las dos se infiere del código, y Claude debe presentarlas como
 preguntas después de explorar, no resolverlas por su cuenta:
 
@@ -26,14 +26,14 @@ preguntas después de explorar, no resolverlas por su cuenta:
 | Longitud máxima de la razón | 200 caracteres tras normalizar | Cualquier límite razonable es válido si queda registrado y probado |
 | Segundo intento con razón distinta | `CancellationConflictError` | Sobrescribir en silencio es la respuesta incorrecta: destruye la evidencia de auditoría |
 
-Si un equipo implementó un límite distinto y lo justificó, cumple. Si lo dejó sin
+Si alguien implementó un límite distinto y lo justificó, cumple. Si lo dejó sin
 definir o lo inventó el agente sin aprobación, no cumple: es el gate que la
 sesión evalúa.
 
 ## Decisiones de diseño que conviene señalar en el cierre
 
 - **`CANCELLED` no está en `normalizeProviderStatus`.** La cancelación es una
-  acción interna del equipo, no una notificación del proveedor. Un equipo que la
+  acción interna del equipo, no una notificación del proveedor. Quien la
   agregó al normalizador amplió el alcance sin necesidad; conviene señalarlo con
   cuidado: no es un error grave, es una oportunidad de hablar de fronteras.
 - **El logger se inyecta y su default es no-op.** El dominio no decide dónde va la
@@ -53,9 +53,9 @@ sesión evalúa.
 | Spec y trazabilidad | 20 | Cada criterio mapeado a archivo, prueba y comando |
 | Implementación y verificación | 20 | Diff acotado, pruebas negativas y gate en verde |
 | Review y evidencia | 10 | Hallazgos verificados contra el código, no aceptados por venir del agente |
-| Reproducibilidad y adopción | 5 | Otro equipo responde las cinco preguntas de la revisión cruzada |
+| Reproducibilidad y adopción | 5 | Otro participante responde las cinco preguntas de la revisión cruzada |
 
-El error más común es acumular mecanismos: un equipo que conecta MCP, habilita el
+El error más común es acumular mecanismos: quien conecta MCP, habilita el
 hook y crea tres agentes "porque los aprendimos" **pierde puntos** en Contexto y
 capacidades. La competencia evaluada es elegir la menor complejidad que cubre el
 riesgo.
@@ -66,13 +66,13 @@ riesgo.
 |---|---|---|
 | 1 · Dirección | Exploran sin encontrar el punto de entrada | "Revisen las transiciones y la idempotencia existentes antes de proponer archivos" |
 | 2 · Estructura | Tienen la spec pero no saben dónde tocar | Los módulos relevantes, sin código |
-| 3 · Recuperación | Faltan menos de 25 minutos y no hay implementación | Parche con la implementación base; el equipo aún escribe las pruebas negativas, ejecuta la review y documenta |
+| 3 · Recuperación | Faltan menos de 25 minutos y no hay implementación | Parche con la implementación base; aún se escriben las pruebas negativas, ejecuta la review y documenta |
 
 Registrar el uso del Hint 3: no recibe puntaje completo en Implementación.
 
 ## Revisión cruzada
 
-El equipo receptor recibe **solo el documento**, sin explicación oral, y responde:
+Quien revisa recibe **solo el documento**, sin explicación oral, y responde:
 
 1. ¿Cuándo se usa este workflow y cuándo no?
 2. ¿Cuál es el primer comando?
@@ -85,6 +85,6 @@ no sustituye a la documentación: ese es justamente el criterio de reproducibili
 
 ## Cierre honesto
 
-Un equipo que llega al minuto final con un check en rojo, lo muestra y declara
+Quien llega al minuto final con un check en rojo, lo muestra y declara
 "no done" demuestra mejor criterio que uno que oculta el resultado. Conviene
 decirlo en voz alta durante el cierre: la evidencia negativa también es evidencia.
