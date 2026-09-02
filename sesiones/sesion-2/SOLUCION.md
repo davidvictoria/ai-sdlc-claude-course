@@ -17,7 +17,27 @@ conducir el debrief con material concreto en pantalla.
 
 `src/domain/payment-status.ts` y `src/provider` **no cambian**.
 
-## 2. Las decisiones que el brief no toma
+## 2. El brief que entregas en clase
+
+No está en ningún archivo visible para los participantes. Entrégalo en
+pantalla o en papel, tal cual, sin aclaraciones:
+
+```text
+Brief PAY-102 (ops): "Estamos viendo pagos que pasan de APPROVED a PENDING
+cuando el proveedor reenvía notificaciones viejas. Eso no debería pasar.
+Necesitamos que el servicio no acepte cambios de estado que no tienen
+sentido. Urgente para el cierre de mes."
+```
+
+Es corto a propósito. Deja fuera todo lo que la tabla siguiente lista: si
+un equipo no te pregunta, asume, y eso es lo que el debrief pone en
+evidencia. Cuando pregunten, responde con la columna "Respuesta en esta
+solución". Si un equipo propone una respuesta distinta y la defiende
+(por ejemplo, permitir `APPROVED -> DECLINED` por una disputa), acéptala
+como decisión de producto documentada; la solución de referencia es una
+de las respuestas válidas, no la única.
+
+## 3. Las decisiones que el brief no toma
 
 El brief que entregas en clase es corto a propósito. Estas son las
 decisiones que la solución de referencia toma, y que cada equipo debió
@@ -33,7 +53,7 @@ solución o el brief, no ambos a medias.
 | ¿Qué error se lanza? | `InvalidTransitionError extends DomainError`, con `from -> to` en el mensaje | `transitions.ts` |
 | ¿Cambia la firma de `applyProviderUpdate`? | No | `payment-service.ts` |
 
-## 3. Qué mostrar en el debrief
+## 4. Qué mostrar en el debrief
 
 1. **La lista de preguntas de cada equipo.** Antes de mirar código,
    compara cuántas de las seis decisiones de arriba preguntaron y cuántas
@@ -50,7 +70,7 @@ solución o el brief, no ambos a medias.
    documento; si un equipo no lo actualizó, su siguiente sesión empieza
    con la documentación mintiendo.
 
-## 4. Errores frecuentes
+## 5. Errores frecuentes
 
 - **Implementar antes de preguntar.** El síntoma: reglas de transición
   distintas entre equipos, todas "correctas" según su propio supuesto.
