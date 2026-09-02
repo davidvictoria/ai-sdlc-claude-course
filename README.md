@@ -21,8 +21,11 @@ de haber terminado la sesión anterior.
 
 ## Preparación (una sola vez, antes de la sesión 1)
 
+Los pasos completos, incluida la instalación y autenticación de Claude Code,
+están en [`PREFLIGHT.md`](./PREFLIGHT.md). En resumen:
+
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/davidvictoria/ai-sdlc-claude-course.git
 cd ai-sdlc-claude-course
 npm ci
 npm run verify

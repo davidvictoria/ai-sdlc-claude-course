@@ -97,8 +97,10 @@ tu equipo usa etapas adicionales.
 
 ## G. Adopcion acotada
 
-- Practica a probar en el equipo (retoma un quick win del mapa de
-  oportunidades de la sesion 1):
+- Practica a probar en el equipo (retoma un quick win del mapa priorizado
+  de oportunidades de la sesion 1, `sesiones/sesion-1/docs/portafolio.md`;
+  si el equipo no tiene ese mapa, elige una actividad real de su SDLC y
+  justificala en dos frases):
 - Tipo y cantidad de tareas donde se probara:
 - Senal a observar para saber si funciona:
 - Condicion para ajustar el workflow o abandonarlo:
