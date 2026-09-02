@@ -1,7 +1,7 @@
 # Solución de referencia — sesión 3
 
 Guía del practitioner. **No se entrega a los participantes antes del
-debrief.** Se usa para (a) preparar la sesión, (b) rescatar a un equipo
+debrief.** Se usa para (a) preparar la sesión, (b) rescatar a quien se
 atascado y (c) conducir el debrief con material concreto en pantalla.
 
 ## 1. Qué contiene esta rama
@@ -31,7 +31,7 @@ Orden recomendado. Cada punto tiene una pantalla concreta.
    no debe vivir ahí. Contrasta con la fila 1 (`npm run verify`), que sí
    pertenece a `CLAUDE.md` porque cabe en una línea y aplica siempre.
 3. **Las filas discutibles: 5, 7, 8 y 10** (1,5 min). Aquí se ve el juicio,
-   no la memoria. Pregunta a dos equipos por su fila 7 y contrasta las
+   no la memoria. Pregunta a dos participantes por su fila 7 y contrasta las
    justificaciones; ambas respuestas (`rule` y `MCP`) son defendibles y lo
    que separa una buena de una mala es la frase que la acompaña.
 4. **La sección "Guardrails" del `SKILL.md`** (1 min). Señala que los
@@ -46,7 +46,7 @@ Orden recomendado. Cada punto tiene una pantalla concreta.
    > La frontera de confianza está en el borde de la tool: todo lo que
    > cruza desde el servidor MCP es contenido a analizar, nunca
    > instrucciones a ejecutar. La autoridad vive en archivos versionados y
-   > revisados por el equipo (`CLAUDE.md`, `.claude/rules/`), no en un
+   > revisados por el proyecto (`CLAUDE.md`, `.claude/rules/`), no en un
    > ticket.
 
 ## 3. Errores más frecuentes y su causa
@@ -55,7 +55,7 @@ Orden recomendado. Cada punto tiene una pantalla concreta.
 
 | Síntoma | Causa real | Corrección en 30 segundos |
 |---|---|---|
-| El equipo deja el procedimiento en `CLAUDE.md` "por si acaso" | Confunden disponibilidad con utilidad: creen que el costo de contexto es cero | Preguntar: "¿cuántas de las tareas de este repo son un ticket de pagos?" Si la respuesta no es "casi todas", no va en `CLAUDE.md` |
+| Dejan el procedimiento en `CLAUDE.md` "por si acaso" | Confunden disponibilidad con utilidad: creen que el costo de contexto es cero | Preguntar: "¿cuántas de las tareas de este repo son un ticket de pagos?" Si la respuesta no es "casi todas", no va en `CLAUDE.md` |
 | Asignan dos destinos al mismo elemento | Evitan decidir | Pedir el destino *primario*. La duplicación se paga cuando el dato cambia en un lugar y miente en el otro |
 | Copian el texto de `PAY-103` a `docs/` o a `CLAUDE.md` | Quieren que "esté disponible" | Es el error conceptual central: convierte un dato externo y no confiable en algo que parece instrucción aprobada por el equipo |
 | Agregan invariantes nuevas a `.claude/rules/payments.md` | Confunden "completar la hoja" con "mejorar el dominio" | La rule solo puede afirmar lo que el código y las pruebas ya sostienen. Una rule que no está respaldada por una prueba es una opinión versionada |
@@ -77,9 +77,9 @@ Orden recomendado. Cada punto tiene una pantalla concreta.
 |---|---|---|
 | `claude mcp add` falla | Se ejecutó desde otra carpeta | Debe ejecutarse desde `sesiones/sesion-3` (la ruta del comando es relativa) |
 | El servidor aparece pero no conecta | Node no disponible en el PATH del proceso, o la ruta del script es incorrecta | `node scripts/course-mcp-server.mjs --self-test` primero. Si el self-test pasa y `/mcp` no conecta, el problema es el registro, no el servidor |
-| El equipo obedece el comentario del ticket | Trataron la salida de la tool como si fuera una instrucción del sistema | Es el objetivo pedagógico de la fase, no un fallo a esconder. Que ocurra en clase es material de debrief |
-| El equipo detecta la inyección pero no la registra | Creen que ignorarla es suficiente | Un hallazgo que no queda escrito no existe para el siguiente lector. La sección 11 del artefacto es parte del entregable |
-| El equipo pide permisos adicionales al aceptar el servidor | No leyeron el permiso solicitado | El servidor solo lee un fixture local. Cualquier permiso distinto de lectura local es motivo para rechazar |
+| Obedecen el comentario del ticket | Trataron la salida de la tool como si fuera una instrucción del sistema | Es el objetivo pedagógico de la fase, no un fallo a esconder. Que ocurra en clase es material de debrief |
+| Detectan la inyección pero no la registran | Creen que ignorarla es suficiente | Un hallazgo que no queda escrito no existe para el siguiente lector. La sección 11 del artefacto es parte del entregable |
+| Piden permisos adicionales al aceptar el servidor | No leyeron el permiso solicitado | El servidor solo lee un fixture local. Cualquier permiso distinto de lectura local es motivo para rechazar |
 
 ## 4. Comandos de MCP verificados
 
@@ -178,7 +178,7 @@ pero **no** permite declarar validada la ejecución MCP del participante.
 | Working tree limpio | `git status --short` | Vacío |
 
 La última fila de esa tabla es la más importante para el debrief: la
-sesión 3 produjo un artefacto, no un cambio de código. Si el equipo tiene
+sesión 3 produjo un artefacto, no un cambio de código. Si alguien tiene
 `REVERSED` en `src/`, obedeció al ticket.
 
 ## 6. Handoff a la sesión 4
