@@ -1,7 +1,6 @@
 // @ts-check
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import globals from 'globals';
 
 export default tseslint.config(
   {
@@ -19,7 +18,13 @@ export default tseslint.config(
     // of the TS-project type-aware config above.
     files: ['.claude/**/*.mjs'],
     languageOptions: {
-      globals: globals.node,
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        URL: 'readonly',
+        TextEncoder: 'readonly',
+        TextDecoder: 'readonly',
+      },
     },
   },
 );
