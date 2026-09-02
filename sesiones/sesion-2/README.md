@@ -69,6 +69,41 @@ Regla de la sesión: la firma pública de `applyProviderUpdate` y de
 `handleProviderNotification` no cambia, y ninguna prueba existente se
 debilita para hacer pasar el cambio.
 
+## Prompts de referencia
+
+Paso 2, explorar sin implementar:
+
+```text
+Voy a pegarte un brief. No implementes nada. Dime qué archivos tocaría el
+cambio y por qué, qué pruebas existen hoy sobre ese comportamiento, y qué
+decisiones deja abiertas el brief que yo tendría que confirmar con el
+dueño del producto antes de escribir código. Separa hechos, inferencias y
+decisiones pendientes.
+
+Brief: <pega aquí el brief del practitioner>
+```
+
+Paso 4, implementar con el brief cerrado. Completa las decisiones con las
+respuestas que obtuviste del practitioner; no dejes ninguna en blanco:
+
+```text
+Brief cerrado con el dueño del producto: <resumen del brief>.
+Decisiones cerradas:
+1. Transiciones válidas: <...>
+2. Estados terminales: <...>
+3. Si el proveedor repite el mismo estado: <...>
+4. Si el estado normalizado es UNKNOWN: <...>
+5. Tipo de error y formato del mensaje: <...>
+6. Firmas públicas de applyProviderUpdate y handleProviderNotification:
+   no cambian.
+
+Sigue el README y CLAUDE.md de esta carpeta: primero los criterios de
+aceptación como tests (caso positivo, cada caso inválido, idempotencia),
+después la implementación con una única fuente de verdad para las reglas,
+docs/payment-flow.md actualizado y npm run verify en verde. No hagas
+commit. Termina con un resumen de 5 líneas.
+```
+
 ## Scripts disponibles
 
 | Script      | Qué hace                                    |

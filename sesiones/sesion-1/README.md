@@ -72,6 +72,41 @@ la raíz del repositorio durante la preparación.
 Una afirmación del agente ("ya está corregido", "los tests pasan") no
 sustituye la salida real del comando. Ejecútalo tú.
 
+## Prompts de referencia
+
+Úsalos tal cual o adáptalos. Lo que importa es el orden: explorar, test
+que falla, corrección, documentación, verify.
+
+Paso 1, explorar:
+
+```text
+Explícame cómo viaja una notificación del proveedor desde
+handleProviderNotification hasta la respuesta, capa por capa, citando el
+archivo y la función en cada paso. Compara lo que hace el código con lo que
+dice docs/payment-flow.md y señala cualquier diferencia. No modifiques
+archivos.
+```
+
+Paso 2, reproducir con un test:
+
+```text
+Operaciones reporta que algunas notificaciones del proveedor dejan el pago
+en UNKNOWN aunque el valor enviado está documentado como válido en
+docs/payment-flow.md. Escribe un test en tests/ que reproduzca ese reporte y
+falle con el código actual. Ejecuta solo ese test y muéstrame la salida. No
+corrijas nada todavía.
+```
+
+Pasos 3 a 5, corregir y cerrar:
+
+```text
+Corrige el comportamiento en el lugar correcto según docs/payment-flow.md,
+sin cambiar reglas ya documentadas ni debilitar tests existentes. Actualiza
+docs/payment-flow.md en el mismo cambio. Ejecuta npm run verify y muéstrame
+la salida completa. No hagas commit. Termina con un resumen de qué
+encontraste y qué archivos tocaste.
+```
+
 ## Scripts disponibles
 
 | Script      | Qué hace                                    |

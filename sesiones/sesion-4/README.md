@@ -89,13 +89,19 @@ Guarda el archivo, reinicia Claude Code si el agente no aparece en
 `/agents`, y verifica que aparece con la responsabilidad y la allowlist de
 solo lectura correctas.
 
-Invocación de referencia:
+Invocación de referencia. Nota que en este snapshot `PAY-104` ya está
+commiteado, así que `git diff` está vacío: hay que decirle al reviewer qué
+archivos revisar.
 
 ```text
-Delegate an independent review to the payment-reviewer.
-Use docs/changes/PAY-104-spec.md as the approved contract.
-Review the current diff, do not modify files, and report blockers,
-recommendations, evidence gaps, and a verdict.
+Delega una revisión independiente al subagente payment-reviewer.
+Contrato aprobado: docs/changes/PAY-104-spec.md.
+Cambio a revisar: la implementación de REVERSED en
+src/domain/payment-status.ts, src/domain/transitions.ts, tests/ y
+docs/payment-flow.md.
+Evidencia disponible: npm run verify pasó con 42 tests.
+No modifiques archivos. Reporta textualmente los bloqueantes,
+recomendaciones, brechas de evidencia y veredicto del subagente.
 ```
 
 ## Fase B — Hook de protección
@@ -171,11 +177,26 @@ echo '{"tool_name":"Edit","tool_input":{"file_path":"docs/lab-notes.md"}}' \
 
 Dentro de Claude Code, con el hook habilitado en `settings.json`:
 
-1. Pide una edición simple a `fixtures/protected/demo.env` (por ejemplo,
-   agregar un comentario). Confirma que la operación se bloquea y que el
-   mensaje identifica la política del curso.
-2. Pide una edición a `docs/lab-notes.md`. Confirma que se aplica sin
-   problema — el control es específico, no bloquea todo.
+1. Pide una edición a la ruta protegida, nombrando la herramienta:
+
+   ```text
+   Usa la herramienta Edit para agregar al final de
+   fixtures/protected/demo.env la línea "# hook test". No uses Bash. Si
+   Edit es bloqueado, reporta el mensaje de bloqueo textual y detente.
+   ```
+
+   Confirma que la operación se bloquea y que el mensaje identifica la
+   política del curso.
+2. Pide una edición a la ruta permitida:
+
+   ```text
+   Agrega al final de docs/lab-notes.md la línea "- Intento permitido:
+   docs/lab-notes.md, aplicado sin bloqueo." Reporta en una línea si se
+   aplicó.
+   ```
+
+   Confirma que se aplica sin problema: el control es específico, no
+   bloquea todo.
 
 Nunca apuntes el hook a un `.env` real ni a contenido parecido a una
 credencial. El único blanco de demostración es
@@ -192,7 +213,8 @@ herramientas y la revisión humana.
 ## Fase C — Revisar, corregir y verificar
 
 1. Invoca a `payment-reviewer` con la spec (`docs/changes/PAY-104-spec.md`)
-   y el diff actual.
+   y los archivos de la implementación, usando la invocación de referencia
+   de la fase A.
 2. Lee todos los bloqueantes antes de pedir cambios; verifica cada
    hallazgo contra el repositorio, no lo aceptes solo por venir del
    agente.
