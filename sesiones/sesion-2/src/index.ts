@@ -1,6 +1,7 @@
 export type { PaymentStatus } from './domain/payment-status.js';
 export { normalizeProviderStatus } from './domain/payment-status.js';
 export { DomainError, PaymentNotFoundError } from './domain/errors.js';
+export { ALLOWED_TRANSITIONS, InvalidTransitionError } from './domain/transitions.js';
 export type { Payment } from './service/payment-service.js';
 export { PaymentService } from './service/payment-service.js';
 export type {

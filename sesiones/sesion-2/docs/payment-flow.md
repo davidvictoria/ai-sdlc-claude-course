@@ -23,9 +23,16 @@ service/payment-service.ts
 domain/payment-status.ts
   normalizeProviderStatus(raw) -> PaymentStatus
         │
-        │  el resultado se guarda como el nuevo estado del pago
+        │  valida que la transición (status actual -> status normalizado)
+        │  esté permitida
+        ▼
+domain/transitions.ts
+  assertValidTransition(from, to)
+        │  transición inválida -> lanza InvalidTransitionError (no cambia nada)
+        │  transición válida    -> continúa
         ▼
 PaymentService (store en memoria) actualiza el registro
+  (si `to === from`, es idempotente: no hay error ni cambio)
         │
         ▼
 handleProviderNotification devuelve { paymentId, status }
@@ -41,6 +48,8 @@ Cada capa tiene una responsabilidad única:
   memoria.
 - **`domain/payment-status.ts`**: contiene la única fuente de verdad para
   traducir el vocabulario del proveedor al vocabulario interno del dominio.
+- **`domain/transitions.ts`**: contiene la única fuente de verdad sobre qué
+  cambios de estado son válidos (`ALLOWED_TRANSITIONS`).
 
 ## Estados que el proveedor puede enviar
 
@@ -80,3 +89,24 @@ type PaymentStatus = 'PENDING' | 'APPROVED' | 'DECLINED' | 'UNKNOWN';
 ```
 
 Un pago nuevo (`PaymentService.createPayment`) siempre inicia en `PENDING`.
+
+## Reglas de transición (`ALLOWED_TRANSITIONS`)
+
+Desde la sesión 2, `PaymentService.applyProviderUpdate` ya no sobrescribe el
+estado sin más: valida que la transición del estado actual al estado
+normalizado esté permitida. Si no lo está, lanza `InvalidTransitionError`
+(sin modificar el estado almacenado). La firma pública de
+`applyProviderUpdate` no cambia.
+
+| Estado actual (`from`) | Puede pasar a (`to`)      | Notas                                   |
+| ------------------------ | --------------------------- | ---------------------------------------- |
+| `PENDING`                 | `APPROVED`, `DECLINED`      | Únicas transiciones "hacia adelante"     |
+| `APPROVED`                 | (ninguno)                    | Estado terminal                          |
+| `DECLINED`                 | (ninguno)                    | Estado terminal                          |
+| cualquiera                | mismo estado (`from === to`) | Idempotente: no error, no cambio         |
+| cualquiera                | `UNKNOWN`                    | Siempre inválido como destino de una transición |
+
+Ejemplos de transiciones inválidas (lanzan `InvalidTransitionError`):
+`APPROVED -> PENDING`, `APPROVED -> DECLINED`, `DECLINED -> PENDING`,
+`DECLINED -> APPROVED`, cualquier `-> UNKNOWN` (por ejemplo, si el proveedor
+envía un valor no reconocido sobre un pago existente).
