@@ -194,11 +194,10 @@ credencial. El único blanco de demostración es
 5. Revisa `git diff` contra los criterios de aceptación numerados en la
    spec.
 
-## Modelo de ramas por sesión
+## Solución de referencia
 
-Igual que en sesiones anteriores: `session-N-start` es el punto de partida
-y `session-N-solution` la solución de referencia. Los participantes
-trabajan sobre una rama nueva creada a partir de `session-4-start`.
+No está en esta carpeta ni en esta rama. El practitioner la comparte al
+cerrar la sesión.
 
 ## Convenciones
 
