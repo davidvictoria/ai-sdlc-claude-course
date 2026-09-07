@@ -31,6 +31,16 @@ npm ci
 npm run verify
 ```
 
+El repositorio está publicado en dos hosts con el mismo contenido. Usa el
+que puedas alcanzar desde tu red:
+
+| Host | Comando de clonado |
+| --- | --- |
+| GitHub | `git clone https://github.com/davidvictoria/ai-sdlc-claude-course.git` |
+| Bitbucket | `git clone https://bitbucket.org/davidvictoriamx/ai-sdlc-claude-course.git` |
+
+Da igual cuál elijas: el resto del curso es idéntico.
+
 `npm ci` instala las dependencias de las cinco sesiones de una vez.
 `npm run verify` en la raíz ejecuta la verificación de todas; debe terminar en verde.
 
