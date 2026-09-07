@@ -126,6 +126,25 @@ Al terminar, completa [`docs/portafolio.md`](./docs/portafolio.md),
 renómbralo como `portafolio-sesion-3-<nombre-apellido>.md` y envíalo por
 el canal del programa.
 
+## Scripts disponibles
+
+| Script      | Qué hace                                    |
+| ----------- | ------------------------------------------- |
+| `typecheck` | `tsc --noEmit`, sin generar artefactos      |
+| `lint`      | ESLint sobre toda la carpeta                |
+| `test`      | Ejecuta la suite de tests con Vitest        |
+| `verify`    | `typecheck` + `lint` + `test`, en ese orden |
+
+## Solución de referencia
+
+No está en esta carpeta ni en esta rama. El practitioner la comparte al
+cerrar la sesión, y entonces comparas tu enfoque contra ella.
+
 ## Convenciones y definición de terminado
 
-Ver [`CLAUDE.md`](./CLAUDE.md).
+Ver [`CLAUDE.md`](./CLAUDE.md). En esta sesión ese archivo es
+deliberadamente más corto que el de las demás: es el ejemplo trabajado de
+la sesión. El contexto que aplica solo a una parte del repositorio vive en
+`.claude/rules/payments.md` (acotada a `src/domain/**` y `tests/**`), y el
+procedimiento repetible vive en la skill, no en `CLAUDE.md`. Compara los
+tres archivos durante la fase A.

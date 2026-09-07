@@ -66,8 +66,21 @@ pareja, pero la remediación tiene que quedar programada.
 
 ## 4. Repositorio del curso
 
+El repositorio está publicado en GitHub y en Bitbucket con el mismo
+contenido. Clona desde el host que puedas alcanzar desde tu red; si tu
+empresa bloquea uno de los dos, usa el otro y sigue igual.
+
 ```bash
+# Opción A — GitHub
 git clone https://github.com/davidvictoria/ai-sdlc-claude-course.git
+
+# Opción B — Bitbucket (mismo contenido)
+git clone https://bitbucket.org/davidvictoriamx/ai-sdlc-claude-course.git
+```
+
+Después, desde cualquiera de los dos:
+
+```bash
 cd ai-sdlc-claude-course
 npm ci
 npm run verify

@@ -2,6 +2,13 @@
 
 Guía breve para trabajar en este repositorio con un agente de IA.
 
+Este archivo es más corto que el de las otras sesiones a propósito: es el
+ejemplo trabajado de la sesión 3. Aquí queda solo lo que aplica a todo el
+repositorio y en todo momento. Lo que aplica a una ruta concreta está en
+`.claude/rules/payments.md`; el procedimiento repetible está en
+`.claude/skills/payment-change/SKILL.md`; y los datos que cambian con cada
+solicitud llegan por MCP, no viven aquí.
+
 ## Comandos
 
 - `npm run verify` — **gate único de verificación** (typecheck + lint + test
