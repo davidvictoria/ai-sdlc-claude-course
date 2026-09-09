@@ -222,15 +222,17 @@ veces.
 
 ### Actividad 1 — Aclarar y especificar (23')
 
-1. Clasifica la ruta y escribe una frase de justificación.
-2. Entrega el brief a Claude pidiéndole que investigue el repositorio
-   **antes** de preguntar, y que no modifique archivos.
-3. Marca cada conclusión como hecho, inferencia o decisión humana.
-4. Responde solo lo preguntado, desde la tarjeta.
-5. Pide la especificación con sus nueve secciones.
-6. Reléela buscando reglas que nunca acordaste.
+Seis pasos. Los pasos 2, 4 y 5 son turnos con Claude; los otros tres los
+haces tú, leyendo.
 
-Prompt de entrevista:
+#### Paso 1 — Clasifica la ruta (fuera de la terminal)
+
+Rápida, estándar o reforzada, y una frase de por qué. Escríbela en tu
+portafolio antes de abrir Claude. Es la primera línea del checkpoint 1.
+
+#### Paso 2 — Turno 1: la entrevista
+
+Pega esto tal cual:
 
 ```text
 No modifiques ningún archivo en este turno.
@@ -252,7 +254,45 @@ cualquier brief: quién necesita el cambio, qué comportamiento actual es
 incorrecto, cuáles son entradas y salidas, qué casos límite existen, qué
 errores son esperables, qué no debe cambiar y cómo se demuestra el éxito.
 
-Prompt de especificación, cuando ya respondiste desde la tarjeta:
+#### Paso 3 — Revisa la clasificación que hizo Claude
+
+Claude te devolvió las tres listas. Tu trabajo es corregirlas, porque va a
+equivocarse en la frontera. Lee la lista de inferencias y muévete a la de
+decisiones todo lo que **solo el negocio puede contestar**: si aprobado es
+final, qué pasa con una notificación repetida, qué error se devuelve.
+
+Un atajo para saber a qué lista pertenece algo: si puedes responderlo
+abriendo un archivo, es un hecho. Si lo estás deduciendo, es una
+inferencia. Si hace falta que alguien decida, es una decisión humana, y esa
+no la toma Claude.
+
+Copia las tres listas corregidas a tu portafolio ahora. Después de la
+implementación ya no vas a acordarte de qué asumiste.
+
+#### Paso 4 — Turno 2: responde desde la tarjeta
+
+Abre la tarjeta y busca **solo** las preguntas que Claude te hizo. Responde
+con este formato, numerando igual que él:
+
+```text
+Respuestas a tus preguntas:
+
+1. <respuesta>
+2. <respuesta>
+3. <respuesta>
+
+Eso es todo lo que te puedo responder ahora. Si necesitas alguna decisión
+más para escribir la spec, pregúntamela antes de escribirla; no la asumas.
+```
+
+Si Claude preguntó tres cosas, respondes tres. Lo que no preguntó no se lo
+regalas, aunque lo tengas delante en la tarjeta: eso es justo lo que el
+debrief va a mirar.
+
+Si Claude asume una regla que no preguntó, anótalo. Vale tanto como una
+respuesta.
+
+#### Paso 5 — Turno 3: la especificación
 
 ```text
 Con las decisiones que acabo de responder, escribe la especificación en
@@ -263,9 +303,26 @@ comando. No inventes reglas que yo no haya acordado: si falta una decisión,
 déjala marcada como PENDIENTE y pregúntamela.
 ```
 
-Antes de aprobarla, pásale la prueba de fuego: ¿alcanza para arrancar una
-sesión limpia de Claude Code sin volver a explicar nada de viva voz? Si hay
-que aclarar algo hablando, todavía no está lista.
+Las nueve secciones son problema, alcance, fuera de alcance, reglas, casos
+idempotentes, errores, criterios de aceptación, casos límite y evidencia de
+finalización. Ya están en la plantilla de
+[`docs/changes/PAY-102-spec.md`](./docs/changes/PAY-102-spec.md); si Claude
+te devuelve ocho, pídele la que falta.
+
+#### Paso 6 — Relee la spec antes de aprobarla
+
+Abre el archivo y ve a la sección 4, reglas. **Cada regla tiene que salir de
+una respuesta tuya del paso 4.** La que no, sobra o es un supuesto que
+Claude metió sin avisar.
+
+```text
+Para cada regla de la sección 4 de la spec, dime de qué respuesta mía sale.
+Las que no salgan de ninguna, márcalas como supuesto tuyo o quítalas.
+```
+
+Y pásale la prueba de fuego: ¿alcanza esta spec para arrancar una sesión
+limpia de Claude Code sin volver a explicar nada de viva voz? Si hay que
+aclarar algo hablando, todavía no está lista.
 
 **Checkpoint 1 — Spec ready.** Captura que muestre ruta y justificación,
 reglas acordadas, criterios de aceptación, casos límite y fuera de alcance.
@@ -278,7 +335,7 @@ compatibilidad y un "terminado" verificable.
 
 | Si pasa esto | Haz esto |
 |---|---|
-| Claude inventa reglas | Pídanle la lista explícita de supuestos y resuélvanlos antes de seguir |
+| Claude inventa reglas | Pídele la lista explícita de supuestos y resuélvelos antes de seguir |
 | Hace demasiadas preguntas | "Investiga primero lo que el repo puede responder, y agrupa" |
 | Se ofrece a implementar | Recuérdenle que no debe modificar archivos |
 | Van tarde | Cierra con criterios y casos límite; el resto es ganancia |
