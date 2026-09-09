@@ -4,6 +4,11 @@ Guía del practitioner. **No se entrega a los participantes antes del
 debrief.** Se usa para preparar la sesión, rescatar a quien se atasque y
 conducir el debrief con material concreto en pantalla.
 
+Cómo se corre la sesión momento por momento está en
+[`GUION-PRACTITIONER.md`](./GUION-PRACTITIONER.md). Este archivo es el
+contenido: qué resuelve la solución, qué responde la tarjeta y qué
+errores esperar.
+
 ## 1. Qué contiene esta rama
 
 | Archivo | Qué resuelve |
