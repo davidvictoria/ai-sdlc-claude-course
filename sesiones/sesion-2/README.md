@@ -468,12 +468,18 @@ las pruebas relevantes mientras trabajas y muéstrame la salida. No hagas commit
 En **otra terminal**, en esta misma carpeta:
 
 ```bash
+git add -N .
 git diff --stat
 ```
 
-Eso te dice qué archivos tocó y cuánto creció cada uno. Compáralo con la
-columna "archivo" de tu plan. Si aparece un archivo que no está en el plan,
-detén a Claude y pregúntale por qué lo tocó.
+Esa primera línea no es opcional. `git diff` **no muestra los archivos
+nuevos**, y el archivo más importante de este cambio probablemente sea uno
+que Claude acaba de crear. `git add -N .` los hace visibles sin commitear
+nada; córrela cada vez, antes de cada diff.
+
+`git diff --stat` te dice qué archivos tocó y cuánto creció cada uno.
+Compáralo con la columna "archivo" de tu plan. Si aparece un archivo que no
+está en el plan, detén a Claude y pregúntale por qué lo tocó.
 
 Para leer el cambio completo:
 
@@ -488,8 +494,18 @@ git diff tests/
 ```
 
 Las líneas que empiezan con `-` en un archivo de `tests/` son aserciones que
-desaparecieron. Ninguna prueba existente se debilita para hacer pasar el
-cambio: si ves una, revierte y repite la restricción.
+desaparecieron. Míralas una por una.
+
+**Reescribir no es debilitar.** Si tu spec cambió el comportamiento
+esperado, la prueba que afirmaba el comportamiento viejo tiene que cambiar:
+se reescribe para afirmar el nuevo, y queda igual de estricta o más. Eso es
+correcto y va anotado en el portafolio.
+
+Debilitar es otra cosa: borrar la aserción sin poner nada en su lugar,
+aflojarla para que pase, o esquivarla con `skip` o `todo`. Eso no, nunca.
+
+La pregunta que zanja el caso: **¿qué regla de mi spec justifica este
+cambio en la prueba?** Si no puedes señalarla, revierte.
 
 #### Paso 4 — Cierra el turno
 
@@ -536,7 +552,8 @@ y a continuación, el prompt del paso 2.
 Actúas como revisor independiente. No implementaste este cambio y no tienes
 que defenderlo.
 
-Lee docs/changes/PAY-102-spec.md, ejecuta git diff y ejecuta npm run verify.
+Lee docs/changes/PAY-102-spec.md. Ejecuta git add -N . y después git diff, para
+que los archivos nuevos aparezcan en el diff. Ejecuta npm run verify.
 
 Busca únicamente: criterios de la spec sin cubrir, reglas mal aplicadas,
 fallas de idempotencia, rupturas de compatibilidad, manejo de errores
@@ -604,9 +621,9 @@ me la digas.
 #### Paso 2 — Turno: compara el diff contra la spec
 
 ```text
-Compara git diff contra docs/changes/PAY-102-spec.md, criterio por criterio.
-Dime qué archivo cubre cada criterio y qué parte del diff no responde a
-ninguno.
+Ejecuta git add -N . y después compara git diff contra
+docs/changes/PAY-102-spec.md, criterio por criterio. Dime qué archivo cubre
+cada criterio y qué parte del diff no responde a ninguno.
 
 Si docs/payment-flow.md quedó desalineado con el comportamiento nuevo,
 actualízalo en el mismo cambio.
@@ -619,6 +636,7 @@ el comando que lo demuestran.
 
 ```bash
 npm run verify      # que se vea el verde y el número de tests
+git add -N .        # para que los archivos nuevos entren en el resumen
 git diff --stat     # el resumen del cambio
 ```
 
@@ -652,16 +670,27 @@ git restore <ruta/del/archivo>
 ```
 
 **Quieres volver el código al punto de partida** sin perder tu spec ni tu
-plan, que viven en `docs/changes/`:
+plan, que viven en `docs/changes/`. Son tres comandos, y los tres hacen
+falta:
 
 ```bash
-git restore src tests
-npm run verify        # debe volver a los 16 tests en verde
+git restore --staged src tests   # saca del índice lo que marcó git add -N
+git restore src tests            # deshace lo modificado
+git clean -n src tests           # LISTA lo que Claude creó, sin borrar nada
+git clean -f src tests           # bórralo, si estás de acuerdo con la lista
+npm run verify                   # vuelve a los 16 tests del inicio
 ```
 
-**No sabes qué cambió.** `git status` te dice qué archivos están tocados y
-`git diff` qué les pasó. Si el archivo aparece como `??`, es nuevo y
-`git restore` no lo borra: bórralo tú.
+Los cuatro hacen falta y el orden importa. `git restore` por sí solo no
+toca los archivos nuevos, y `git clean` no los ve mientras sigan en el
+índice por el `git add -N` de la Actividad 3: te quedarías con medio cambio
+puesto y un `verify` que engaña.
+
+Los cuatro comandos apuntan solo a `src` y `tests`, así que tu spec y tu
+plan no corren peligro.
+
+**No sabes qué cambió.** `git status --short` te lo dice: ` M` es un archivo
+modificado, `??` es uno que Claude creó.
 
 **Claude se ofrece a hacer commit.** Dile que no. Hoy nadie commitea.
 
