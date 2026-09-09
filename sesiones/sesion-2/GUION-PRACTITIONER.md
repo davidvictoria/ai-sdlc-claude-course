@@ -5,7 +5,8 @@ participantes.** Lo que ellos ven está en el `README.md` de la carpeta, que
 tiene las mismas consignas sin las respuestas ni las notas de facilitación.
 
 Material del día: este archivo, [`SOLUCION.md`](./SOLUCION.md) y
-[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), una copia por equipo.
+[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), que compartes en
+digital, una copia por equipo.
 
 ## El reloj
 
@@ -20,7 +21,7 @@ Material del día: este archivo, [`SOLUCION.md`](./SOLUCION.md) y
 | Programación defensiva | S29–S31 | 6 | Exponer, recoger dos riesgos, anunciar el break |
 | Break 1 | S32 | 5 | Hora absoluta en pantalla |
 | Demo | S33–S36 | 15 | Compartir pantalla, detenerte en el plan aprobado |
-| Misión y salas | S37–S40 | 6 | Repartir la tarjeta, abrir salas |
+| Misión y salas | S37–S40 | 6 | Compartir la tarjeta, abrir salas |
 | Laboratorio | S41–S51 | 88 | Recorrer salas, avisar minutos, cerrar puntual |
 | Cierre | S52–S54 | 4 | Debrief y entrega |
 
@@ -162,7 +163,7 @@ no repitas: recorre salas.
 | 4 · Review independiente | — | Equipos que corrigen hallazgos por obediencia, sin verificarlos |
 | 5 · Verificar y documentar | Minuto 5 | Capturas maquilladas |
 
-Antes de abrir salas, reparte la tarjeta (una por equipo) y repite en voz
+Antes de abrir salas, comparte la tarjeta (una copia por equipo) y repite en voz
 alta la regla de uso: no la peguen completa, ábranla solo cuando Claude
 pregunte, respondan solo lo preguntado. Quien la vuelca de golpe pierde la
 mitad del aprendizaje.
@@ -201,6 +202,7 @@ el laboratorio queda como remediación pendiente, no como completado.
 - Producir las capturas reales del ensayo: S26, S36, S47, S50 y B1–B6.
 - Confirmar las horas absolutas de los dos breaks y de los cinco cortes.
 - Confirmar fecha y hora de entrega del portafolio (S54).
-- Imprimir una tarjeta por equipo.
+- Dejar lista una copia de la tarjeta por equipo, con el enlace a mano
+  para pegarlo en el chat de cada sala.
 - Auditar que ninguna slide montada muestre el modelo de transiciones ni
   código de la solución.

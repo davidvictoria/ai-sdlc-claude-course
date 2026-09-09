@@ -37,9 +37,9 @@ la razón de ser del laboratorio.
 ## 3. La tarjeta de decisiones de negocio
 
 Las respuestas del dueño del producto no las das tú en vivo: van en
-[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), un archivo por equipo,
-impreso o compartido aparte. Nunca dentro del repositorio de los
-participantes.
+[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), que compartes en digital
+al abrir las salas, una copia por equipo. Nunca dentro del repositorio de
+los participantes.
 
 La regla de uso que anuncias en S38 y que conviene repetir en voz alta: no
 peguen la tarjeta completa en el prompt, ábranla solo cuando Claude

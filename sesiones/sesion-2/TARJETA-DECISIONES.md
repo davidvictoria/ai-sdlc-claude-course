@@ -1,7 +1,8 @@
 # Tarjeta de decisiones de negocio — PAY-102
 
-**Una por equipo. Se entrega impresa o en un archivo aparte, nunca en el
-repositorio de los participantes.**
+Se comparte en digital, un enlace o un archivo por equipo, al abrir las
+salas. No va en el repositorio de los participantes: ahí las respuestas
+quedarían a la vista antes de la entrevista.
 
 ---
 
