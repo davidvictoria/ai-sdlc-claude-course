@@ -1,30 +1,29 @@
 # Tarjeta de decisiones de negocio — PAY-102
 
-Se comparte en digital, un enlace o un archivo por equipo, al abrir las
-salas. No va en el repositorio de los participantes: ahí las respuestas
-quedarían a la vista antes de la entrevista.
+Se comparte en digital al abrir las salas, una copia para cada participante.
+No va en el repositorio de los participantes: ahí las respuestas quedarían a
+la vista antes de la entrevista.
 
 ---
 
 ## Cómo se usa
 
-Ustedes son el dueño del producto de este caso. Estas son sus respuestas.
+Estas son las respuestas del dueño del producto de este caso.
 
-**No peguen esta tarjeta completa en el prompt.** Ábranla solo cuando
-Claude pregunte, y respondan únicamente lo que preguntó. Si Claude nunca
-pregunta algo, no se lo regalen: eso es exactamente lo que el debrief va a
-mirar.
+**No pegues esta tarjeta completa en el prompt.** Ábrela solo cuando Claude
+pregunte, y responde únicamente lo que preguntó. Si Claude nunca pregunta
+algo, no se lo regales: eso es exactamente lo que el debrief va a mirar.
 
-Si Claude asume una regla sin preguntarla, anótenlo. Vale tanto como una
+Si Claude asume una regla sin preguntarla, anótalo. Vale tanto como una
 respuesta.
 
 ---
 
-## El brief, tal como lo recibieron
+## El brief, tal como lo recibiste
 
 > "Evitar que un pago pueda regresar a un estado anterior."
 
-Contexto que pueden dar si Claude pregunta quién necesita el cambio:
+Contexto que puedes dar si Claude pregunta quién necesita el cambio:
 operaciones está viendo pagos que vuelven a un estado anterior cuando el
 proveedor reenvía notificaciones viejas. Es urgente para el cierre de mes.
 
@@ -65,8 +64,8 @@ No. Quien ya integra con este servicio no se entera del cambio.
 
 ---
 
-## Si preguntan algo que no está aquí
+## Si Claude pregunta algo que no está aquí
 
-Decidan ustedes, anótenlo como decisión del equipo y déjenlo escrito en la
-spec. Una decisión documentada es válida; una decisión que Claude tomó solo
-y nadie revisó, no.
+Decide tú, anótalo como decisión propia y déjalo escrito en la spec. Una
+decisión documentada es válida; una decisión que Claude tomó solo y nadie
+revisó, no.

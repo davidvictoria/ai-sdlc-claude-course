@@ -38,8 +38,8 @@ la razón de ser del laboratorio.
 
 Las respuestas del dueño del producto no las das tú en vivo: van en
 [`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), que compartes en digital
-al abrir las salas, una copia por equipo. Nunca dentro del repositorio de
-los participantes.
+al abrir las salas, una copia para cada participante. Nunca dentro del
+repositorio de los participantes.
 
 La regla de uso que anuncias en S38 y que conviene repetir en voz alta: no
 peguen la tarjeta completa en el prompt, ábranla solo cuando Claude
@@ -57,8 +57,8 @@ solución de referencia y dónde se ve en el código:
 | ¿Qué error se lanza? | `InvalidTransitionError extends DomainError`, con `from -> to` en el mensaje | `transitions.ts` |
 | ¿Cambia la firma de `applyProviderUpdate`? | No | `payment-service.ts` |
 
-La tarjeta está redactada en lenguaje de negocio, sin nombres de archivos
-ni de tipos: los equipos tienen que traducirla. Si un equipo propone una
+La tarjeta está redactada en lenguaje de negocio, sin nombres de archivos ni
+de tipos: cada participante tiene que traducirla. Si alguien propone una
 respuesta distinta y la defiende (permitir `APPROVED -> DECLINED` por una
 disputa, por ejemplo), es una decisión de producto documentada y vale. La
 solución de referencia es una de las respuestas válidas, no la única.

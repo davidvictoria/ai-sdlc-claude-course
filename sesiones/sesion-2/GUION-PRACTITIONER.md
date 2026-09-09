@@ -5,8 +5,8 @@ participantes.** Lo que ellos ven está en el `README.md` de la carpeta, que
 tiene las mismas consignas sin las respuestas ni las notas de facilitación.
 
 Material del día: este archivo, [`SOLUCION.md`](./SOLUCION.md) y
-[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), que compartes en
-digital, una copia por equipo.
+[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), que compartes en digital
+al abrir las salas, una copia para cada participante.
 
 ## El reloj
 
@@ -69,7 +69,7 @@ corrijas de frente: pregúntale qué pasa si se equivoca en la regla de
 transición y déjalo llegar solo.
 
 **Cierre:** esa frase de justificación es la primera línea del checkpoint 1
-de cada equipo. Dilo explícitamente. Saltarse una etapa es una decisión, no
+de cada quien. Dilo explícitamente. Saltarse una etapa es una decisión, no
 un olvido.
 
 ### S19–S20 · Encuentra los vacíos (4')
@@ -151,20 +151,21 @@ capturas, nunca como ejecución en vivo.
 
 ## Durante el laboratorio
 
-Las slides S41 a S51 quedan fijas en pantalla; los equipos las leen sin que
-nadie se las explique. Las mismas consignas están en el `README.md`, así que
-no repitas: recorre salas.
+Las salas son para que se hablen, no para que trabajen en conjunto: cada
+participante corre su propia sesión de Claude Code y entrega su propio
+portafolio. Las slides S41 a S51 quedan fijas en pantalla y las mismas
+consignas están en el `README.md`, así que no repitas: recorre salas.
 
 | Actividad | Qué avisas por chat | Qué buscas al recorrer |
 |---|---|---|
-| 1 · Aclarar y especificar | Minutos 10 y 18 | Equipos que volcaron la tarjeta completa en el prompt |
+| 1 · Aclarar y especificar | Minutos 10 y 18 | Quien volcó la tarjeta completa en el prompt |
 | 2 · Diseñar y planificar | Nadie sale al break sin la captura del checkpoint 2 | Dos opciones que en realidad son la misma |
 | 3 · Implementar | Minuto 18: el cierre es duro, la Actividad 4 no se recorta | Diffs inflados y pruebas modificadas. Es el error más formativo del día |
-| 4 · Review independiente | — | Equipos que corrigen hallazgos por obediencia, sin verificarlos |
+| 4 · Review independiente | — | Quien corrige hallazgos por obediencia, sin verificarlos |
 | 5 · Verificar y documentar | Minuto 5 | Capturas maquilladas |
 
-Antes de abrir salas, comparte la tarjeta (una copia por equipo) y repite en voz
-alta la regla de uso: no la peguen completa, ábranla solo cuando Claude
+Antes de abrir salas, comparte la tarjeta con cada participante y repite en
+voz alta la regla de uso: no la peguen completa, ábranla solo cuando Claude
 pregunte, respondan solo lo preguntado. Quien la vuelca de golpe pierde la
 mitad del aprendizaje.
 
@@ -176,7 +177,7 @@ El copiloto entra a la primera sala en el minuto 2.
 
 Cuatro cosas, en este orden:
 
-1. **Las preguntas de cada equipo, antes de mirar código.** Cuántas de las
+1. **Las preguntas de cada quien, antes de mirar código.** Cuántas de las
    seis decisiones preguntaron y cuántas asumieron. Ese es el resultado de
    la sesión, no el diff. Recupera el tablero de S20.
 2. **La única fuente de verdad de las reglas**, contra quienes las
@@ -202,7 +203,7 @@ el laboratorio queda como remediación pendiente, no como completado.
 - Producir las capturas reales del ensayo: S26, S36, S47, S50 y B1–B6.
 - Confirmar las horas absolutas de los dos breaks y de los cinco cortes.
 - Confirmar fecha y hora de entrega del portafolio (S54).
-- Dejar lista una copia de la tarjeta por equipo, con el enlace a mano
-  para pegarlo en el chat de cada sala.
+- Dejar lista la tarjeta en digital, con el enlace a mano para pegarlo en el
+  chat de cada sala.
 - Auditar que ninguna slide montada muestre el modelo de transiciones ni
   código de la solución.
