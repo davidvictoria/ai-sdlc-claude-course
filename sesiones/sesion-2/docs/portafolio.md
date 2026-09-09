@@ -1,58 +1,111 @@
 # Portafolio de evidencias — sesión 2
 
-**Entrega individual.** Completa este archivo, renómbralo como
+**Entrega individual.** El trabajo del laboratorio es en equipo, pero este
+archivo lo completa y lo entrega cada persona. Renómbralo como
 `portafolio-sesion-2-<nombre-apellido>.md` y envíalo por el canal del
-programa. No es un artefacto evaluado por `npm run verify`.
+programa. No lo evalúa `npm run verify`.
 
 Regla para todas las capturas: sin secretos, sin rutas personales completas
 y sin datos reales.
 
 - Nombre:
+- Equipo:
 - Fecha:
 
-## Gate 1 — Spec ready
+---
 
-Antes de escribir código.
+## Checkpoint 1 — Spec ready
 
-- **Hechos que el brief afirma:**
-- **Inferencias que hiciste tú** (marcadas como inferencias, no como
-  hechos):
-- **Decisiones que el brief no toma** y que preguntaste al dueño del
-  producto. Una fila por decisión:
+**Captura** que muestre ruta y justificación, reglas acordadas, criterios
+de aceptación, casos límite y fuera de alcance.
 
-| # | Decisión abierta | Respuesta recibida | Quién la resolvió |
+> Pega aquí la captura.
+
+**Ruta elegida** (rápida, estándar o reforzada) y la frase de
+justificación:
+
+**Tus tres listas**, antes de que Claude propusiera nada:
+
+| Categoría | Qué pusiste ahí |
+|---|---|
+| Hechos observados en código o documentación | |
+| Inferencias que necesitaban validación | |
+| Decisiones de negocio que no podías tomar tú | |
+
+**Las decisiones que preguntaste**, una fila por decisión. Anota también
+las que la tarjeta ya respondía y tú no llegaste a preguntar.
+
+| # | Decisión | Respuesta recibida | ¿La preguntaste o la asumiste? |
 |---|---|---|---|
 | 1 | | | |
 | 2 | | | |
 | 3 | | | |
 
-- ¿Alguna decisión quedó sin respuesta? ¿Cómo la manejaste?
+**Responde:** ¿qué ambigüedad habría causado un error si Claude
+implementaba directo?
 
-## Gate 2 — Plan ready
+>
 
-- **Criterios de aceptación**, numerados y verificables. Cada uno con la
-  prueba o el comando que lo demuestra:
+---
 
-| # | Criterio de aceptación | Archivo(s) esperados | Prueba que lo cubre |
-|---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+## Checkpoint 2 — Plan ready
 
-- Captura del plan o del resumen que aprobaste antes de implementar.
-- ¿Qué corregiste del plan antes de aprobarlo?
+**Captura** que muestre opción aprobada, archivos afectados, estrategia de
+pruebas, riesgos y comando de verificación.
 
-## Gate 3 — Done with evidence
+> Pega aquí la captura.
 
-- Captura de `git diff --stat`.
-- Captura de `npm run verify` en verde.
-- ¿Qué criterio de aceptación estuvo a punto de quedarse sin prueba?
-- ¿Hubo algún cambio propuesto por Claude que eliminaste por no responder a
-  ningún criterio? ¿Cuál?
+**La cadena, criterio por criterio:**
 
-## Reflexión final
+| # | Criterio | Archivo | Prueba | Comando |
+|---|---|---|---|---|
+| 1 | | | | |
+| 2 | | | | |
+| 3 | | | | |
+
+**Responde:** ¿qué alternativa descartaron y por qué?
+
+>
+
+---
+
+## Checkpoint 3 — Done with evidence
+
+**Capturas** de `npm run verify` en verde, del resumen del diff
+(`git diff --stat`) y del review sin bloqueantes abiertos.
+
+> Pega aquí las capturas.
+
+**Del review independiente:**
+
+| | Hallazgo | Motivo |
+|---|---|---|
+| Uno que aceptaron | | |
+| Uno que rechazaron | | |
+
+**Responde:** ¿qué hallazgo aceptó o rechazó el equipo, y por qué?
+
+>
+
+¿Hubo algún cambio propuesto por Claude que eliminaron por no responder a
+ningún criterio? ¿Cuál?
+
+>
+
+---
+
+## Cierre
+
+¿Qué decisión de negocio jamás debió delegarse?
+
+>
 
 ¿En qué momento el brief dejó de ser ambiguo, y qué lo cerró: una pregunta
-al dueño del producto, una lectura del código, o una decisión tuya?
+al dueño del producto, una lectura del código, o una decisión de ustedes?
+
+>
+
+**Insumo para la sesión 3:** anota una instrucción que hayas repetido tres
+veces hoy. En la sesión 3 la conviertes en un activo del equipo.
 
 >
