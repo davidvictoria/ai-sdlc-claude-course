@@ -1,7 +1,7 @@
 # Portafolio de evidencias — sesión 2
 
-**Entrega individual.** El trabajo del laboratorio es en equipo, pero este
-archivo lo completa y lo entrega cada persona. Renómbralo como
+**Entrega individual.** Trabajas en una sala con otras tres personas, pero el
+trabajo y la entrega son tuyos. Renómbralo como
 `portafolio-sesion-2-<nombre-apellido>.md` y envíalo por el canal del
 programa. No lo evalúa `npm run verify`.
 
@@ -9,7 +9,7 @@ Regla para todas las capturas: sin secretos, sin rutas personales completas
 y sin datos reales.
 
 - Nombre:
-- Equipo:
+- Sala:
 - Fecha:
 
 ---
@@ -63,7 +63,7 @@ pruebas, riesgos y comando de verificación.
 | 2 | | | | |
 | 3 | | | | |
 
-**Responde:** ¿qué alternativa descartaron y por qué?
+**Responde:** ¿qué alternativa descartaste y por qué?
 
 >
 
@@ -80,14 +80,14 @@ pruebas, riesgos y comando de verificación.
 
 | | Hallazgo | Motivo |
 |---|---|---|
-| Uno que aceptaron | | |
-| Uno que rechazaron | | |
+| Uno que aceptaste | | |
+| Uno que rechazaste | | |
 
-**Responde:** ¿qué hallazgo aceptó o rechazó el equipo, y por qué?
+**Responde:** ¿qué hallazgo aceptaste y cuál rechazaste, y por qué?
 
 >
 
-¿Hubo algún cambio propuesto por Claude que eliminaron por no responder a
+¿Hubo algún cambio propuesto por Claude que eliminaste por no responder a
 ningún criterio? ¿Cuál?
 
 >
@@ -101,7 +101,7 @@ ningún criterio? ¿Cuál?
 >
 
 ¿En qué momento el brief dejó de ser ambiguo, y qué lo cerró: una pregunta
-al dueño del producto, una lectura del código, o una decisión de ustedes?
+al dueño del producto, una lectura del código, o una decisión tuya?
 
 >
 

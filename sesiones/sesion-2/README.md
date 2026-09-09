@@ -36,22 +36,20 @@ validar nada. El brief pide cambiar eso.
 
 ## Cómo se trabaja
 
-Equipos de 4 en salas. El driver rota en cada actividad: quien escribe en
-la terminal cambia cinco veces, y quien no escribe revisa el diff.
+Salas de 4 personas, y **cada quien hace su propio trabajo**: tu clon, tu
+sesión de Claude Code, tu spec, tu portafolio. La sala está para que se
+hablen: comparar cómo preguntó Claude, discutir una decisión que no
+convence, pedir ayuda cuando algo no corre. No hay driver ni pantalla
+compartida.
 
-Cada equipo recibe una **tarjeta de decisiones de negocio** con las
-respuestas del dueño del producto. Regla de uso, y es la que más se
-incumple:
+Vas a recibir una **tarjeta de decisiones de negocio** con las respuestas
+del dueño del producto. Regla de uso, y es la que más se incumple:
 
-> No peguen la tarjeta completa en el prompt. Ábranla solo cuando Claude
-> pregunte, y respondan únicamente lo que preguntó.
+> No pegues la tarjeta completa en el prompt. Ábrela solo cuando Claude
+> pregunte, y responde únicamente lo que preguntó.
 
 Quien vuelca la tarjeta de golpe se salta la entrevista, que es la mitad
 del aprendizaje del día.
-
-**La entrega es individual.** Trabajan en equipo, discuten en equipo y
-comparten pantalla, pero cada persona completa y envía su propio
-`docs/portafolio.md`.
 
 Regla de capturas, para todo el día: sin secretos, sin rutas personales
 completas y sin datos reales.
@@ -127,7 +125,7 @@ Se clasifica con tres preguntas, en menos de tres minutos: qué tan ambigua
 es la solicitud, qué impacto tiene equivocarse, y qué tan fácil es revertir
 y verificar.
 
-Guarden esa frase. Es la primera línea del checkpoint 1.
+Guarda esa frase. Es la primera línea de tu checkpoint 1.
 
 ### 4. Encuentra los vacíos (4')
 
@@ -147,10 +145,10 @@ columnas:
 |---|---|
 | Hecho | Observado en el código o en la documentación |
 | Inferencia | Suposición razonable que todavía hay que validar |
-| Decisión humana | Le corresponde al equipo, no a Claude |
+| Decisión humana | Le corresponde a un humano, no a Claude |
 
 Lo que cae en la tercera columna es exactamente lo que Claude no debe
-decidir por ustedes. Guarden ese tablero: se retoma en el cierre.
+decidir por ti. El tablero se retoma en el cierre.
 
 ### 5. Traza el criterio (4')
 
@@ -186,7 +184,7 @@ con la mejor intención y sin avisar.
 
 ### 7. Durante la demo (15')
 
-El practitioner le entrega a Claude la misma frase que ustedes vieron, sin
+El practitioner le entrega a Claude la misma frase que viste, sin
 contexto adicional y sin reglas. Van a ver seis pasos:
 
 0. Clasificar la ruta.
@@ -204,8 +202,8 @@ Miren estas cuatro cosas mientras corre:
 - ¿Dónde nos detenemos, y por qué ahí?
 
 La demo termina en un plan aprobado. No se implementa: entre "el plan me
-convence" y "ejecuta" hay una decisión humana, y hoy la van a tomar en voz
-alta cinco veces.
+convence" y "ejecuta" hay una decisión humana, y hoy la vas a tomar cinco
+veces.
 
 ---
 
@@ -224,13 +222,13 @@ alta cinco veces.
 
 ### Actividad 1 — Aclarar y especificar (23')
 
-1. Clasifiquen la ruta y escriban una frase de justificación.
-2. Entreguen el brief a Claude pidiendo que investigue el repositorio
+1. Clasifica la ruta y escribe una frase de justificación.
+2. Entrega el brief a Claude pidiéndole que investigue el repositorio
    **antes** de preguntar, y que no modifique archivos.
-3. Marquen cada conclusión como hecho, inferencia o decisión humana.
-4. Respondan solo lo preguntado, desde la tarjeta.
-5. Pidan la especificación con sus nueve secciones.
-6. Reléanla buscando reglas que ustedes nunca acordaron.
+3. Marca cada conclusión como hecho, inferencia o decisión humana.
+4. Responde solo lo preguntado, desde la tarjeta.
+5. Pide la especificación con sus nueve secciones.
+6. Reléela buscando reglas que nunca acordaste.
 
 Prompt de entrevista:
 
@@ -249,12 +247,12 @@ Brief del negocio: "evitar que un pago pueda regresar a un estado anterior".
    preguntes nada que el repositorio ya responda.
 ```
 
-Si Claude se queda corto de preguntas, contrasten con las siete que abren
+Si Claude se queda corto de preguntas, contrasta con las siete que abren
 cualquier brief: quién necesita el cambio, qué comportamiento actual es
 incorrecto, cuáles son entradas y salidas, qué casos límite existen, qué
 errores son esperables, qué no debe cambiar y cómo se demuestra el éxito.
 
-Prompt de especificación, cuando ya respondieron desde la tarjeta:
+Prompt de especificación, cuando ya respondiste desde la tarjeta:
 
 ```text
 Con las decisiones que acabo de responder, escribe la especificación en
@@ -265,7 +263,7 @@ comando. No inventes reglas que yo no haya acordado: si falta una decisión,
 déjala marcada como PENDIENTE y pregúntamela.
 ```
 
-Antes de aprobarla, pásenle la prueba de fuego: ¿alcanza para arrancar una
+Antes de aprobarla, pásale la prueba de fuego: ¿alcanza para arrancar una
 sesión limpia de Claude Code sin volver a explicar nada de viva voz? Si hay
 que aclarar algo hablando, todavía no está lista.
 
@@ -275,27 +273,27 @@ reglas acordadas, criterios de aceptación, casos límite y fuera de alcance.
 **Responde en el portafolio:** ¿qué ambigüedad habría causado un error si
 Claude implementaba directo?
 
-Avanzan si están definidos estados, transiciones, idempotencia, error,
+Avanzas si están definidos estados, transiciones, idempotencia, error,
 compatibilidad y un "terminado" verificable.
 
-| Si pasa esto | Hagan esto |
+| Si pasa esto | Haz esto |
 |---|---|
 | Claude inventa reglas | Pídanle la lista explícita de supuestos y resuélvanlos antes de seguir |
 | Hace demasiadas preguntas | "Investiga primero lo que el repo puede responder, y agrupa" |
 | Se ofrece a implementar | Recuérdenle que no debe modificar archivos |
-| Van tarde | Cierren con criterios y casos límite; el resto es ganancia |
+| Van tarde | Cierra con criterios y casos límite; el resto es ganancia |
 
 ---
 
 ### Actividad 2 — Diseñar y planificar (20')
 
-1. Pidan a Claude explorar el repositorio con la spec aprobada, sin
+1. Pide a Claude explorar el repositorio con la spec aprobada, sin
    modificar archivos.
-2. Pidan dos opciones reales, con componentes afectados, ventajas, riesgos,
+2. Pide dos opciones reales, con componentes afectados, ventajas, riesgos,
    impacto en pruebas y compatibilidad.
-3. Elijan una y escriban por qué descartaron la otra.
-4. Pidan el plan trazable: criterio → archivo → cambio → prueba → comando.
-5. Verifiquen que cada criterio de la spec aparece en el plan.
+3. Elige una y escribe por qué descartaste la otra.
+4. Pide el plan trazable: criterio → archivo → cambio → prueba → comando.
+5. Verifica que cada criterio de la spec aparece en el plan.
 
 ```text
 Lee docs/changes/PAY-102-spec.md. No modifiques código en este turno.
@@ -315,9 +313,9 @@ El diseño cabe en seis líneas: responsabilidad del componente, opción
 seleccionada, alternativas descartadas, archivos o interfaces afectados,
 riesgos y estrategia de pruebas. Ni un documento arquitectónico, ni nada.
 
-Si las dos opciones que recibieron son en realidad la misma, pidan el
-trade-off explícito o quédense con una. Una segunda opción inventada para
-complacerlos es ruido, no diseño.
+Si las dos opciones que recibes son en realidad la misma, pide el trade-off
+explícito o quédate con una. Una segunda opción inventada para complacerte
+es ruido, no diseño.
 
 **Checkpoint 2 — Plan ready.** Captura que muestre opción aprobada,
 archivos afectados, estrategia de pruebas, riesgos y comando de
@@ -325,26 +323,26 @@ verificación.
 
 **Responde en el portafolio:** ¿qué alternativa descartaron y por qué?
 
-Avanzan si cada criterio tiene implementación o prueba, no hay cambios
+Avanzas si cada criterio tiene implementación o prueba, no hay cambios
 fuera de alcance, hay pruebas positivas y negativas, y `verify` está
 definido.
 
-| Si pasa esto | Hagan esto |
+| Si pasa esto | Haz esto |
 |---|---|
-| Plan demasiado amplio | Compárenlo con el fuera de alcance y pidan el slice mínimo |
-| Plan que no conecta pruebas | Pidan la tabla completa y no aprueben hasta que lo esté |
+| Plan demasiado amplio | Compáralo con el fuera de alcance y pide el slice mínimo |
+| Plan que no conecta pruebas | Pide la tabla completa y no la apruebes hasta que lo esté |
 | Aparecen refactors no pedidos | Fuera |
-| Van tarde | Aprueben con un criterio menos, pero nunca uno sin prueba |
+| Van tarde | Aprueba con un criterio menos, pero nunca uno sin prueba |
 
 ---
 
 ### Actividad 3 — Implementar (23')
 
-1. Pidan implementar la spec y el plan aprobados, nada más.
-2. Pasen las restricciones textuales.
-3. Exijan casos positivos, negativos, idempotentes y de regresión.
-4. Pidan que ejecute las pruebas relevantes durante el trabajo.
-5. Revisen el diff mientras avanza; si se sale del alcance, deténganlo.
+1. Pide implementar la spec y el plan aprobados, nada más.
+2. Pasa las restricciones textuales.
+3. Exige casos positivos, negativos, idempotentes y de regresión.
+4. Pide que ejecute las pruebas relevantes durante el trabajo.
+5. Revisa el diff mientras avanza; si se sale del alcance, detenlo.
 
 ```text
 Implementa docs/changes/PAY-102-spec.md siguiendo docs/changes/PAY-102-plan.md.
@@ -365,23 +363,23 @@ las pruebas relevantes mientras trabajas y muéstrame la salida. No hagas commit
 ```
 
 No hay checkpoint aquí. El resultado esperado es un cambio candidato con
-pruebas en verde y un diff que ustedes puedan explicar línea por línea.
+pruebas en verde y un diff que puedas explicar línea por línea.
 
-| Si pasa esto | Hagan esto |
+| Si pasa esto | Haz esto |
 |---|---|
-| Agrega una dependencia | Deténganlo, pregunten si el repo ya ofrece esa capacidad, reviertan |
-| Modificó un test para que pase | Reviertan y repitan la restricción |
-| El diff creció | `git diff --stat`, comparen con el plan y pidan revertir lo que sobra |
-| No termina a tiempo | Congelen el alcance en el criterio principal y pasen a review |
+| Agrega una dependencia | Detenlo, pregunta si el repo ya ofrece esa capacidad, revierte |
+| Modificó un test para que pase | Revierte y repite la restricción |
+| El diff creció | `git diff --stat`, compara con el plan y pide revertir lo que sobra |
+| No termina a tiempo | Congela el alcance en el criterio principal y pasa a review |
 
 ---
 
 ### Actividad 4 — Review independiente (14')
 
-Quien implementó tiene sesgo hacia sus propias decisiones. Abran **otra
-terminal en esta misma carpeta** y ejecuten `claude` para tener un contexto
-fresco, o pidan un subagente. Denle solo la spec, el diff y la salida de
-los checks.
+Quien implementó tiene sesgo hacia sus propias decisiones, y quien implementó
+eres tú. Abre **otra terminal en esta misma carpeta** y ejecuta `claude` para
+tener un contexto fresco, o pide un subagente. Dale solo la spec, el diff y
+la salida de los checks.
 
 ```text
 Actúas como revisor independiente. No implementaste este cambio y no tienes
@@ -401,30 +399,30 @@ con la frase de la spec que lo respalda.
 
 Después:
 
-1. Clasifiquen cada hallazgo en bloqueante o recomendación.
-2. **Verifiquen cada bloqueante contra el código antes de aceptarlo.** El
+1. Clasifica cada hallazgo en bloqueante o recomendación.
+2. **Verifica cada bloqueante contra el código antes de aceptarlo.** El
    revisor también se equivoca.
-3. Corrijan los confirmados.
-4. Registren uno que aceptaron y uno que rechazaron, con el motivo.
+3. Corrige los confirmados.
+4. Registra uno que aceptaste y uno que rechazaste, con el motivo.
 
 La aceptación final es humana. Ningún hallazgo se corrige por obediencia.
 
-| Si pasa esto | Hagan esto |
+| Si pasa esto | Haz esto |
 |---|---|
-| Solo devuelve estilo | Repitan la restricción y pidan gaps contra la spec |
-| Devuelve veinte hallazgos | Pidan los tres que afectan corrección |
+| Solo devuelve estilo | Repite la restricción y pide gaps contra la spec |
+| Devuelve veinte hallazgos | Pide los tres que afectan corrección |
 | No encuentra nada | Que verifique criterio por criterio contra el diff antes de declararlo limpio |
 
 ---
 
 ### Actividad 5 — Verificar y documentar (8')
 
-1. Ejecuten `npm run verify`.
-2. Si falla, pásenle el output completo a Claude y pidan causa raíz, no un
+1. Ejecuta `npm run verify`.
+2. Si falla, pásale el output completo a Claude y pide causa raíz, no un
    parche.
-3. Comparen el diff final contra la spec, criterio por criterio.
-4. Actualicen la documentación que quedó desalineada.
-5. Pidan el resumen de evidencia, criterio por criterio.
+3. Compara el diff final contra la spec, criterio por criterio.
+4. Actualiza la documentación que quedó desalineada.
+5. Pide el resumen de evidencia, criterio por criterio.
 
 ```text
 Ejecuta npm run verify y muéstrame la salida completa.
@@ -440,17 +438,17 @@ criterio, con la prueba y el comando que lo demuestran.
 **Checkpoint 3 — Done with evidence.** Capturas de `npm run verify` en
 verde, del resumen del diff y del review sin bloqueantes abiertos.
 
-**Responde en el portafolio:** ¿qué hallazgo aceptó o rechazó el equipo, y
+**Responde en el portafolio:** ¿qué hallazgo aceptaste y cuál rechazaste, y
 por qué?
 
-Cierran si los criterios están cubiertos, `tests`, `lint` y `typecheck`
+Cierras si los criterios están cubiertos, `tests`, `lint` y `typecheck`
 pasan, la documentación está actualizada, no hay bloqueantes y el diff está
 dentro del alcance.
 
-| Si pasa esto | Hagan esto |
+| Si pasa esto | Haz esto |
 |---|---|
-| `verify` en rojo al minuto 6 | Capturen el estado real y el error. Un checkpoint honesto vale más que uno maquillado |
-| No llegaron a implementar | Suban spec y plan; el debrief cierra el caso con la rama de solución |
+| `verify` en rojo al minuto 6 | Captura el estado real y el error. Un checkpoint honesto vale más que uno maquillado |
+| No llegaste a implementar | Sube spec y plan; el debrief cierra el caso con la rama de solución |
 
 ---
 
@@ -460,7 +458,7 @@ Tres preguntas al grupo, dos o tres respuestas al aire y el resto por
 escrito en el portafolio:
 
 - ¿En qué etapas Claude consultó, co-creó o ejecutó?
-- ¿Dónde fueron ustedes el gate?
+- ¿Dónde fuiste tú el gate?
 - ¿Qué decisión de negocio jamás debió delegarse?
 
 Y una tarea para la sesión 3: al entregar el portafolio, anoten **una
@@ -496,8 +494,7 @@ activos del equipo, con `CLAUDE.md`, rules, skills y MCP.
 
 Completa [`docs/portafolio.md`](./docs/portafolio.md), renómbralo como
 `portafolio-sesion-2-<nombre-apellido>.md` y envíalo por el canal del
-programa. Cada persona entrega el suyo, aunque el trabajo haya sido en
-equipo.
+programa. Cada persona entrega el suyo.
 
 ## Scripts disponibles
 
