@@ -4,6 +4,22 @@ Laboratorio del curso AI-SDLC. Mismo servicio de pagos **ficticio** de la
 sesión 1, con el comportamiento de esa sesión ya corregido. No dependes de
 haber terminado la sesión 1: este snapshot arranca desde un estado limpio.
 
+Este archivo tiene todo lo que se hace hoy, en orden, y todos los prompts
+listos para copiar y pegar.
+
+## Contenido
+
+- [Tu misión](#tu-misión)
+- [Cómo se trabaja](#cómo-se-trabaja)
+- [Preflight](#preflight)
+- [El reloj de la sesión](#el-reloj-de-la-sesión)
+- [Momentos en vivo](#momentos-en-vivo) — las siete cosas que se hacen con
+  todo el grupo, antes de abrir salas
+- [El laboratorio](#el-laboratorio) — cinco actividades, tres checkpoints
+- [Cierre](#cierre)
+- [Reglas duras de la sesión](#reglas-duras-de-la-sesión)
+- [Entrega](#entrega)
+
 ## Tu misión
 
 Convierte una solicitud ambigua sobre transiciones de estado en un cambio
@@ -37,6 +53,9 @@ del aprendizaje del día.
 comparten pantalla, pero cada persona completa y envía su propio
 `docs/portafolio.md`.
 
+Regla de capturas, para todo el día: sin secretos, sin rutas personales
+completas y sin datos reales.
+
 ## Preflight
 
 Abre la terminal **dentro de esta carpeta**, no en la raíz del repositorio:
@@ -48,10 +67,149 @@ claude
 ```
 
 `npm run verify` encadena `typecheck`, `lint` y `test`, y debe terminar en
-verde antes de empezar. Si no lo hace, avisa al practitioner antes del
-minuto 3.
+verde antes de empezar. Si no lo hace, avísalo antes del minuto 3.
 
-## El reloj
+## El reloj de la sesión
+
+| Bloque | Minutos |
+|---|---|
+| Apertura y recap del ciclo | 14 |
+| Fundamentos aplicados, con tres momentos participativos | 43 |
+| Break 1 | 5 |
+| Demo: del brief al plan aprobado | 15 |
+| Misión, tarjeta, roles y apertura de salas | 6 |
+| Laboratorio: cinco actividades, con el break 2 en medio | 88 |
+| Cierre | 4 |
+
+---
+
+## Momentos en vivo
+
+Siete cosas que se hacen con todo el grupo, no en sala. Ninguna necesita la
+terminal.
+
+### 1. Reconstruyamos el ciclo (4')
+
+Entre todos, sin mirar las notas de la sesión 1, por chat o en pizarra:
+
+- ¿Cuáles son los pasos del agentic loop?
+- ¿Cuáles fueron los tres checkpoints de la sesión 1?
+
+Nadie consulta sus notas primero. No es examen: sirve para saber desde
+dónde arranca el grupo.
+
+El ciclo, ordenado, para contrastar con lo que salió: intención humana →
+contexto → exploración → plan → acción → observación → verificación →
+evidencia. Y los tres checkpoints de la sesión 1: plan aprobado, cambio
+acotado, `verify` exitoso.
+
+### 2. Un ejemplo de cada extremo (1')
+
+Dos respuestas al aire, treinta segundos cada una:
+
+- Un proceso tan pesado que el equipo lo abandonó a las dos semanas.
+- Un cambio ambiguo que se trató como trivial y se pagó en producción.
+
+El error no es tener proceso. Es tener uno solo para todo.
+
+### 3. ¿Dónde cae el caso de hoy? (2')
+
+Con el brief en pantalla, voten: ¿ruta rápida, estándar o reforzada? Y
+escriban **una frase** de justificación.
+
+| Ruta | Cuándo |
+|---|---|
+| Rápida | Cambio localizado, reversible e inequívoco: explorar, cambiar, verificar |
+| Estándar | Varios archivos, reglas de negocio o ambigüedad: el workflow completo |
+| Reforzada | Seguridad, datos sensibles o baja reversibilidad: estándar más revisión especializada y aprobaciones extra |
+
+Se clasifica con tres preguntas, en menos de tres minutos: qué tan ambigua
+es la solicitud, qué impacto tiene equivocarse, y qué tan fácil es revertir
+y verificar.
+
+Guarden esa frase. Es la primera línea del checkpoint 1.
+
+### 4. Encuentra los vacíos (4')
+
+Con el brief de hoy en pantalla, en parejas o por chat. Dos minutos para
+escribir, dos para recoger:
+
+1. Listen qué **no** define este requisito.
+2. Escriban la primera pregunta que harían.
+
+Sin proponer soluciones. Cualquier respuesta que empiece a diseñar la
+solución se corta.
+
+Después se toman tres o cuatro respuestas del grupo y se ubican en tres
+columnas:
+
+| Categoría | Qué es |
+|---|---|
+| Hecho | Observado en el código o en la documentación |
+| Inferencia | Suposición razonable que todavía hay que validar |
+| Decisión humana | Le corresponde al equipo, no a Claude |
+
+Lo que cae en la tercera columna es exactamente lo que Claude no debe
+decidir por ustedes. Guarden ese tablero: se retoma en el cierre.
+
+### 5. Traza el criterio (4')
+
+Tres criterios de aceptación de un mini-caso distinto al de hoy. Elijan uno
+y complétenlo por chat: **archivo → prueba → comando**.
+
+1. El servicio rechaza montos negativos.
+2. Reintentar con el mismo identificador no duplica el pago.
+3. La respuesta conserva su formato actual.
+
+Se cierra en vivo una de las tres cadenas, con el comando exacto que
+produce la evidencia. La cadena completa tiene cinco eslabones y es el
+formato del checkpoint 2:
+
+```text
+criterio de aceptación → archivo o componente → cambio previsto → prueba → comando que produce la evidencia
+```
+
+Un plan sin esa cadena no se aprueba. Esto que acaban de hacer en cuatro
+minutos es lo que su plan tendrá que contener, criterio por criterio.
+
+### 6. Un riesgo en voz alta (2')
+
+Dos respuestas al aire:
+
+> En el caso de hoy, ¿qué es lo más peligroso que Claude podría hacer sin
+> que nos demos cuenta?
+
+Cualquier respuesta razonable sirve. El objetivo es entrar al laboratorio
+mirando el diff con sospecha, porque un agente que ejecuta también rompe:
+puede silenciar una prueba, agregar una dependencia o cambiar un contrato,
+con la mejor intención y sin avisar.
+
+### 7. Durante la demo (15')
+
+El practitioner le entrega a Claude la misma frase que ustedes vieron, sin
+contexto adicional y sin reglas. Van a ver seis pasos:
+
+0. Clasificar la ruta.
+1. Mostrar el brief.
+2. Pedir la entrevista, con investigación previa.
+3. Acordar las decisiones de negocio.
+4. Generar la especificación.
+5. Comparar dos opciones y crear el plan trazable.
+
+Miren estas cuatro cosas mientras corre:
+
+- ¿Qué investigó Claude solo, sin preguntar?
+- ¿Qué preguntas hizo, y cuáles no debía hacer?
+- ¿En qué momento decide el humano y no él?
+- ¿Dónde nos detenemos, y por qué ahí?
+
+La demo termina en un plan aprobado. No se implementa: entre "el plan me
+convence" y "ejecuta" hay una decisión humana, y hoy la van a tomar en voz
+alta cinco veces.
+
+---
+
+## El laboratorio
 
 | # | Actividad | Minutos | Checkpoint |
 |---|---|---|---|
@@ -64,10 +222,9 @@ minuto 3.
 
 ---
 
-## Actividad 1 — Aclarar y especificar (23')
+### Actividad 1 — Aclarar y especificar (23')
 
-1. Clasifiquen la ruta (rápida, estándar o reforzada) y escriban una frase
-   de justificación.
+1. Clasifiquen la ruta y escriban una frase de justificación.
 2. Entreguen el brief a Claude pidiendo que investigue el repositorio
    **antes** de preguntar, y que no modifique archivos.
 3. Marquen cada conclusión como hecho, inferencia o decisión humana.
@@ -92,7 +249,12 @@ Brief del negocio: "evitar que un pago pueda regresar a un estado anterior".
    preguntes nada que el repositorio ya responda.
 ```
 
-Prompt de especificación, cuando ya respondiste desde la tarjeta:
+Si Claude se queda corto de preguntas, contrasten con las siete que abren
+cualquier brief: quién necesita el cambio, qué comportamiento actual es
+incorrecto, cuáles son entradas y salidas, qué casos límite existen, qué
+errores son esperables, qué no debe cambiar y cómo se demuestra el éxito.
+
+Prompt de especificación, cuando ya respondieron desde la tarjeta:
 
 ```text
 Con las decisiones que acabo de responder, escribe la especificación en
@@ -103,9 +265,17 @@ comando. No inventes reglas que yo no haya acordado: si falta una decisión,
 déjala marcada como PENDIENTE y pregúntamela.
 ```
 
+Antes de aprobarla, pásenle la prueba de fuego: ¿alcanza para arrancar una
+sesión limpia de Claude Code sin volver a explicar nada de viva voz? Si hay
+que aclarar algo hablando, todavía no está lista.
+
 **Checkpoint 1 — Spec ready.** Captura que muestre ruta y justificación,
 reglas acordadas, criterios de aceptación, casos límite y fuera de alcance.
-Avanzas si están definidos estados, transiciones, idempotencia, error,
+
+**Responde en el portafolio:** ¿qué ambigüedad habría causado un error si
+Claude implementaba directo?
+
+Avanzan si están definidos estados, transiciones, idempotencia, error,
 compatibilidad y un "terminado" verificable.
 
 | Si pasa esto | Hagan esto |
@@ -117,7 +287,7 @@ compatibilidad y un "terminado" verificable.
 
 ---
 
-## Actividad 2 — Diseñar y planificar (20')
+### Actividad 2 — Diseñar y planificar (20')
 
 1. Pidan a Claude explorar el repositorio con la spec aprobada, sin
    modificar archivos.
@@ -141,11 +311,23 @@ Lee docs/changes/PAY-102-spec.md. No modifiques código en este turno.
    no responda a un criterio.
 ```
 
+El diseño cabe en seis líneas: responsabilidad del componente, opción
+seleccionada, alternativas descartadas, archivos o interfaces afectados,
+riesgos y estrategia de pruebas. Ni un documento arquitectónico, ni nada.
+
+Si las dos opciones que recibieron son en realidad la misma, pidan el
+trade-off explícito o quédense con una. Una segunda opción inventada para
+complacerlos es ruido, no diseño.
+
 **Checkpoint 2 — Plan ready.** Captura que muestre opción aprobada,
 archivos afectados, estrategia de pruebas, riesgos y comando de
-verificación. Avanzas si cada criterio tiene implementación o prueba, no
-hay cambios fuera de alcance, hay pruebas positivas y negativas, y `verify`
-está definido.
+verificación.
+
+**Responde en el portafolio:** ¿qué alternativa descartaron y por qué?
+
+Avanzan si cada criterio tiene implementación o prueba, no hay cambios
+fuera de alcance, hay pruebas positivas y negativas, y `verify` está
+definido.
 
 | Si pasa esto | Hagan esto |
 |---|---|
@@ -156,7 +338,7 @@ está definido.
 
 ---
 
-## Actividad 3 — Implementar (23')
+### Actividad 3 — Implementar (23')
 
 1. Pidan implementar la spec y el plan aprobados, nada más.
 2. Pasen las restricciones textuales.
@@ -194,7 +376,7 @@ pruebas en verde y un diff que ustedes puedan explicar línea por línea.
 
 ---
 
-## Actividad 4 — Review independiente (14')
+### Actividad 4 — Review independiente (14')
 
 Quien implementó tiene sesgo hacia sus propias decisiones. Abran **otra
 terminal en esta misma carpeta** y ejecuten `claude` para tener un contexto
@@ -217,10 +399,15 @@ Devuelve cada hallazgo como BLOQUEANTE o RECOMENDACIÓN, con archivo y línea, y
 con la frase de la spec que lo respalda.
 ```
 
-Después: clasifiquen cada hallazgo, **verifiquen cada bloqueante contra el
-código antes de aceptarlo** (el revisor también se equivoca), corrijan los
-confirmados y registren uno que aceptaron y uno que rechazaron, con el
-motivo. Ningún hallazgo se corrige por obediencia.
+Después:
+
+1. Clasifiquen cada hallazgo en bloqueante o recomendación.
+2. **Verifiquen cada bloqueante contra el código antes de aceptarlo.** El
+   revisor también se equivoca.
+3. Corrijan los confirmados.
+4. Registren uno que aceptaron y uno que rechazaron, con el motivo.
+
+La aceptación final es humana. Ningún hallazgo se corrige por obediencia.
 
 | Si pasa esto | Hagan esto |
 |---|---|
@@ -230,7 +417,14 @@ motivo. Ningún hallazgo se corrige por obediencia.
 
 ---
 
-## Actividad 5 — Verificar y documentar (8')
+### Actividad 5 — Verificar y documentar (8')
+
+1. Ejecuten `npm run verify`.
+2. Si falla, pásenle el output completo a Claude y pidan causa raíz, no un
+   parche.
+3. Comparen el diff final contra la spec, criterio por criterio.
+4. Actualicen la documentación que quedó desalineada.
+5. Pidan el resumen de evidencia, criterio por criterio.
 
 ```text
 Ejecuta npm run verify y muéstrame la salida completa.
@@ -243,11 +437,15 @@ nuevo, actualízalo. Cierra con un resumen de evidencia: un renglón por
 criterio, con la prueba y el comando que lo demuestran.
 ```
 
-**Checkpoint 3 — Done with evidence.** Captura que muestre `npm run verify`
-en verde, el resumen del diff y el review sin bloqueantes abiertos. Cierras
-si los criterios están cubiertos, `tests`/`lint`/`typecheck` pasan, la
-documentación está actualizada, no hay bloqueantes y el diff está dentro
-del alcance.
+**Checkpoint 3 — Done with evidence.** Capturas de `npm run verify` en
+verde, del resumen del diff y del review sin bloqueantes abiertos.
+
+**Responde en el portafolio:** ¿qué hallazgo aceptó o rechazó el equipo, y
+por qué?
+
+Cierran si los criterios están cubiertos, `tests`, `lint` y `typecheck`
+pasan, la documentación está actualizada, no hay bloqueantes y el diff está
+dentro del alcance.
 
 | Si pasa esto | Hagan esto |
 |---|---|
@@ -255,6 +453,21 @@ del alcance.
 | No llegaron a implementar | Suban spec y plan; el debrief cierra el caso con la rama de solución |
 
 ---
+
+## Cierre
+
+Tres preguntas al grupo, dos o tres respuestas al aire y el resto por
+escrito en el portafolio:
+
+- ¿En qué etapas Claude consultó, co-creó o ejecutó?
+- ¿Dónde fueron ustedes el gate?
+- ¿Qué decisión de negocio jamás debió delegarse?
+
+Y una tarea para la sesión 3: al entregar el portafolio, anoten **una
+instrucción que hayan repetido tres veces hoy**. Hoy escribieron a mano
+cosas que ya venían de la sesión 1, como explorar antes de preguntar o no
+debilitar pruebas. En la sesión 3 esas instrucciones se convierten en
+activos del equipo, con `CLAUDE.md`, rules, skills y MCP.
 
 ## Reglas duras de la sesión
 
@@ -264,6 +477,7 @@ del alcance.
 - Si cambia el comportamiento del flujo de pagos, `docs/payment-flow.md` se
   actualiza en el mismo cambio.
 - El resumen narrativo de Claude no sustituye la salida de `npm run verify`.
+  Si dice que pasa y no muestra el comando, todavía no pasó.
 
 ## Qué hay en esta carpeta
 
@@ -284,9 +498,6 @@ Completa [`docs/portafolio.md`](./docs/portafolio.md), renómbralo como
 `portafolio-sesion-2-<nombre-apellido>.md` y envíalo por el canal del
 programa. Cada persona entrega el suyo, aunque el trabajo haya sido en
 equipo.
-
-Regla de capturas: sin secretos, sin rutas personales completas y sin datos
-reales.
 
 ## Scripts disponibles
 
