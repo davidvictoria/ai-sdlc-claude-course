@@ -16,6 +16,7 @@ listos para copiar y pegar.
 - [Momentos en vivo](#momentos-en-vivo) — las siete cosas que se hacen con
   todo el grupo, antes de abrir salas
 - [El laboratorio](#el-laboratorio) — cinco actividades, tres checkpoints
+- [Si algo se rompe](#si-algo-se-rompe) — cómo volver atrás
 - [Cierre](#cierre)
 - [Reglas duras de la sesión](#reglas-duras-de-la-sesión)
 - [Entrega](#entrega)
@@ -344,41 +345,85 @@ compatibilidad y un "terminado" verificable.
 
 ### Actividad 2 — Diseñar y planificar (20')
 
-1. Pide a Claude explorar el repositorio con la spec aprobada, sin
-   modificar archivos.
-2. Pide dos opciones reales, con componentes afectados, ventajas, riesgos,
-   impacto en pruebas y compatibilidad.
-3. Elige una y escribe por qué descartaste la otra.
-4. Pide el plan trazable: criterio → archivo → cambio → prueba → comando.
-5. Verifica que cada criterio de la spec aparece en el plan.
+Cinco pasos: tres turnos con Claude y dos de decisión tuya.
+
+#### Paso 1 — Turno 1: dos opciones
 
 ```text
-Lee docs/changes/PAY-102-spec.md. No modifiques código en este turno.
+Lee docs/changes/PAY-102-spec.md. No modifiques ningún archivo en este turno.
 
-1. Propón dos opciones reales de diseño para cumplir la spec. Para cada una:
-   componentes afectados, ventajas, riesgos, impacto en las pruebas y en la
-   compatibilidad. Si no hay un trade-off real entre las dos, dímelo en vez de
-   inventar una segunda para complacerme.
-2. Espera mi elección antes de continuar.
-3. Con la opción elegida, escribe el plan en docs/changes/PAY-102-plan.md como
-   una tabla: criterio → archivo → cambio previsto → prueba → comando que
-   produce la evidencia. Una fila por criterio de la spec, y ninguna fila que
-   no responda a un criterio.
+Propón dos opciones reales de diseño para cumplir la spec. Para cada una:
+componentes afectados, ventajas, riesgos, impacto en las pruebas e impacto en
+la compatibilidad. Si no hay un trade-off real entre las dos, dímelo en vez de
+inventar una segunda para complacerme.
+
+No elijas por mí y no escribas código: espera mi decisión.
 ```
 
-El diseño cabe en seis líneas: responsabilidad del componente, opción
-seleccionada, alternativas descartadas, archivos o interfaces afectados,
-riesgos y estrategia de pruebas. Ni un documento arquitectónico, ni nada.
+#### Paso 2 — Elige, y di por qué
 
-Si las dos opciones que recibes son en realidad la misma, pide el trade-off
-explícito o quédate con una. Una segunda opción inventada para complacerte
-es ruido, no diseño.
+Lee las dos y decide tú. Contesta con este formato, que además te deja
+escrita la respuesta del checkpoint 2:
+
+```text
+Elijo la opción <1 o 2>.
+
+Descarto la otra porque <consecuencia concreta en pruebas, compatibilidad o
+mantenimiento>.
+```
+
+Si las dos opciones son en realidad la misma con otro nombre, no elijas
+todavía:
+
+```text
+Estas dos opciones me parecen la misma solución escrita distinto. Dime en una
+frase qué consecuencia distinta tiene cada una en las pruebas o en la
+compatibilidad. Si no la hay, dímelo y seguimos con una sola.
+```
+
+#### Paso 3 — Turno 2: el plan trazable
+
+```text
+Con la opción que elegí, escribe el plan en docs/changes/PAY-102-plan.md
+completando la plantilla.
+
+La tabla lleva una fila por criterio de aceptación de la spec: criterio →
+archivo → cambio previsto → prueba → comando que produce la evidencia.
+
+Ninguna fila que no responda a un criterio. Si crees que hace falta un cambio
+que ningún criterio pide, dímelo aparte en vez de meterlo en la tabla.
+```
+
+#### Paso 4 — Comprueba la cadena
+
+Abre `docs/changes/PAY-102-plan.md` y cuenta: **tantas filas como criterios
+tiene tu spec**. Ni una más.
+
+- Si sobra una fila, es alcance que nadie pidió. Fuera.
+- Si falta una fila, hay un criterio que nadie va a probar.
+- Si una celda de "prueba" o de "comando" está vacía, la cadena está rota y
+  el plan no se aprueba.
+
+```text
+Compara la tabla del plan contra los criterios de aceptación de la spec y
+dime: qué criterio no tiene fila, qué fila no corresponde a ningún criterio, y
+qué celda quedó vacía. Solo la lista, sin arreglar nada todavía.
+```
+
+#### Paso 5 — Aprueba en voz alta
+
+El diseño cabe en seis líneas: responsabilidad del componente, opción
+seleccionada, alternativa descartada, archivos afectados, riesgos y
+estrategia de pruebas. Ni un documento arquitectónico, ni nada.
+
+Entre "el plan me convence" y "ejecuta" hay una decisión, y es tuya. Tómala
+mirando la tabla, no el resumen.
 
 **Checkpoint 2 — Plan ready.** Captura que muestre opción aprobada,
 archivos afectados, estrategia de pruebas, riesgos y comando de
 verificación.
 
-**Responde en el portafolio:** ¿qué alternativa descartaron y por qué?
+**Responde en el portafolio:** ¿qué alternativa descartaste y por qué?
 
 Avanzas si cada criterio tiene implementación o prueba, no hay cambios
 fuera de alcance, hay pruebas positivas y negativas, y `verify` está
@@ -395,11 +440,10 @@ definido.
 
 ### Actividad 3 — Implementar (23')
 
-1. Pide implementar la spec y el plan aprobados, nada más.
-2. Pasa las restricciones textuales.
-3. Exige casos positivos, negativos, idempotentes y de regresión.
-4. Pide que ejecute las pruebas relevantes durante el trabajo.
-5. Revisa el diff mientras avanza; si se sale del alcance, detenlo.
+Es el único momento del día en que Claude escribe código. Un turno para
+empezar, y después tú vigilando el diff.
+
+#### Paso 1 — Turno 1: implementa, con las siete restricciones
 
 ```text
 Implementa docs/changes/PAY-102-spec.md siguiendo docs/changes/PAY-102-plan.md.
@@ -419,8 +463,39 @@ Escribe pruebas positivas, negativas, de idempotencia y de regresión. Ejecuta
 las pruebas relevantes mientras trabajas y muéstrame la salida. No hagas commit.
 ```
 
-No hay checkpoint aquí. El resultado esperado es un cambio candidato con
-pruebas en verde y un diff que puedas explicar línea por línea.
+#### Paso 2 — Mira el diff mientras avanza
+
+En **otra terminal**, en esta misma carpeta:
+
+```bash
+git diff --stat
+```
+
+Eso te dice qué archivos tocó y cuánto creció cada uno. Compáralo con la
+columna "archivo" de tu plan. Si aparece un archivo que no está en el plan,
+detén a Claude y pregúntale por qué lo tocó.
+
+Para leer el cambio completo:
+
+```bash
+git diff
+```
+
+#### Paso 3 — Revisa las pruebas, no solo el código
+
+```bash
+git diff tests/
+```
+
+Las líneas que empiezan con `-` en un archivo de `tests/` son aserciones que
+desaparecieron. Ninguna prueba existente se debilita para hacer pasar el
+cambio: si ves una, revierte y repite la restricción.
+
+#### Paso 4 — Cierra el turno
+
+Resultado esperado: un cambio candidato con las pruebas en verde y un diff
+que puedas explicar línea por línea. No hay checkpoint aquí; la evidencia se
+captura en la Actividad 5.
 
 | Si pasa esto | Haz esto |
 |---|---|
@@ -433,10 +508,29 @@ pruebas en verde y un diff que puedas explicar línea por línea.
 
 ### Actividad 4 — Review independiente (14')
 
-Quien implementó tiene sesgo hacia sus propias decisiones, y quien implementó
-eres tú. Abre **otra terminal en esta misma carpeta** y ejecuta `claude` para
-tener un contexto fresco, o pide un subagente. Dale solo la spec, el diff y
-la salida de los checks.
+Quien implementó tiene sesgo hacia sus propias decisiones, y quien
+implementó eres tú. El review lo hace un contexto que no vio la
+conversación.
+
+#### Paso 1 — Abre un contexto fresco
+
+Dos formas, elige una:
+
+```bash
+# En otra terminal, en esta misma carpeta
+claude
+```
+
+O, sin salir de tu sesión actual, pídele un subagente:
+
+```text
+Lanza un subagente de revisión con este encargo, y pásame su respuesta
+completa sin resumirla:
+```
+
+y a continuación, el prompt del paso 2.
+
+#### Paso 2 — El encargo del revisor
 
 ```text
 Actúas como revisor independiente. No implementaste este cambio y no tienes
@@ -454,15 +548,26 @@ Devuelve cada hallazgo como BLOQUEANTE o RECOMENDACIÓN, con archivo y línea, y
 con la frase de la spec que lo respalda.
 ```
 
-Después:
+#### Paso 3 — Verifica cada bloqueante antes de aceptarlo
 
-1. Clasifica cada hallazgo en bloqueante o recomendación.
-2. **Verifica cada bloqueante contra el código antes de aceptarlo.** El
-   revisor también se equivoca.
-3. Corrige los confirmados.
-4. Registra uno que aceptaste y uno que rechazaste, con el motivo.
+El revisor también se equivoca. Por cada bloqueante, abre el archivo y la
+línea que cita y comprueba que dice lo que él dice. Si no, lo rechazas.
 
-La aceptación final es humana. Ningún hallazgo se corrige por obediencia.
+En la sesión donde implementaste, no en la del revisor:
+
+```text
+El revisor dice: "<pega el hallazgo>".
+
+Abre el archivo y la línea que cita y dime si es cierto. Si lo es, arréglalo
+sin tocar nada más. Si no lo es, dime por qué no.
+```
+
+Ningún hallazgo se corrige por obediencia. La aceptación final es tuya.
+
+#### Paso 4 — Anota uno de cada
+
+Para el portafolio: un hallazgo que aceptaste y uno que rechazaste, con el
+motivo de cada uno. Si aceptaste todos, probablemente no verificaste ninguno.
 
 | Si pasa esto | Haz esto |
 |---|---|
@@ -474,26 +579,52 @@ La aceptación final es humana. Ningún hallazgo se corrige por obediencia.
 
 ### Actividad 5 — Verificar y documentar (8')
 
-1. Ejecuta `npm run verify`.
-2. Si falla, pásale el output completo a Claude y pide causa raíz, no un
-   parche.
-3. Compara el diff final contra la spec, criterio por criterio.
-4. Actualiza la documentación que quedó desalineada.
-5. Pide el resumen de evidencia, criterio por criterio.
+Ocho minutos y son justos. El orden importa: primero el gate, después la
+comparación, al final la documentación.
 
-```text
-Ejecuta npm run verify y muéstrame la salida completa.
+#### Paso 1 — El gate
 
-Si falla, no parches el síntoma: dime la causa raíz antes de proponer nada.
-
-Después compara git diff contra docs/changes/PAY-102-spec.md, criterio por
-criterio. Si docs/payment-flow.md quedó desalineado con el comportamiento
-nuevo, actualízalo. Cierra con un resumen de evidencia: un renglón por
-criterio, con la prueba y el comando que lo demuestran.
+```bash
+npm run verify
 ```
 
-**Checkpoint 3 — Done with evidence.** Capturas de `npm run verify` en
-verde, del resumen del diff y del review sin bloqueantes abiertos.
+Esta salida es la evidencia. El resumen de Claude no la sustituye.
+
+Si falla, no pidas un parche:
+
+```text
+npm run verify falló. Este es el output completo:
+
+<pega el output>
+
+Dime la causa raíz antes de proponer ningún cambio. No toques nada hasta que
+me la digas.
+```
+
+#### Paso 2 — Turno: compara el diff contra la spec
+
+```text
+Compara git diff contra docs/changes/PAY-102-spec.md, criterio por criterio.
+Dime qué archivo cubre cada criterio y qué parte del diff no responde a
+ninguno.
+
+Si docs/payment-flow.md quedó desalineado con el comportamiento nuevo,
+actualízalo en el mismo cambio.
+
+Cierra con un resumen de evidencia: un renglón por criterio, con la prueba y
+el comando que lo demuestran.
+```
+
+#### Paso 3 — Las tres capturas
+
+```bash
+npm run verify      # que se vea el verde y el número de tests
+git diff --stat     # el resumen del cambio
+```
+
+Más la salida del review sin bloqueantes abiertos.
+
+**Checkpoint 3 — Done with evidence.**
 
 **Responde en el portafolio:** ¿qué hallazgo aceptaste y cuál rechazaste, y
 por qué?
@@ -506,6 +637,37 @@ dentro del alcance.
 |---|---|
 | `verify` en rojo al minuto 6 | Captura el estado real y el error. Un checkpoint honesto vale más que uno maquillado |
 | No llegaste a implementar | Sube spec y plan; el debrief cierra el caso con la rama de solución |
+
+---
+
+## Si algo se rompe
+
+Todo esto se corre sin hacer commit, así que nada de lo que pase hoy es
+irreversible.
+
+**Claude tocó un archivo que no debía.** Devuélvelo a como estaba:
+
+```bash
+git restore <ruta/del/archivo>
+```
+
+**Quieres volver el código al punto de partida** sin perder tu spec ni tu
+plan, que viven en `docs/changes/`:
+
+```bash
+git restore src tests
+npm run verify        # debe volver a los 16 tests en verde
+```
+
+**No sabes qué cambió.** `git status` te dice qué archivos están tocados y
+`git diff` qué les pasó. Si el archivo aparece como `??`, es nuevo y
+`git restore` no lo borra: bórralo tú.
+
+**Claude se ofrece a hacer commit.** Dile que no. Hoy nadie commitea.
+
+**Te quedaste sin tiempo en una actividad.** Ninguna actividad se salta: se
+recorta. Cierra con lo que tengas, captura el estado real y sigue. Un
+checkpoint honesto vale más que uno maquillado.
 
 ---
 
