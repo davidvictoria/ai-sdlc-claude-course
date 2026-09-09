@@ -161,6 +161,15 @@ consignas están en el `README.md`, así que no repitas: recorre salas.
 | 1 · Aclarar y especificar | Minutos 10 y 18 | Quien volcó la tarjeta completa en el prompt |
 | 2 · Diseñar y planificar | Nadie sale al break sin la captura del checkpoint 2 | Dos opciones que en realidad son la misma |
 | 3 · Implementar | Minuto 18: el cierre es duro, la Actividad 4 no se recorta | Diffs inflados y pruebas modificadas. Es el error más formativo del día |
+
+**Lo que te van a preguntar en la Actividad 3.** La prueba
+`applies UNKNOWN when the raw status is not recognized` se pone en rojo
+en cuanto validan la transición, porque afirma el comportamiento viejo.
+Todos van a llegar con la misma duda: reescribirla, ¿no viola la regla de
+no debilitar pruebas? No. Reescribir una prueba cuyo comportamiento
+esperado cambió es correcto y va en el portafolio; borrar la aserción o
+ponerle `skip` no lo es. No lo anuncies antes de que aparezca: es el
+punto 3 del debrief.
 | 4 · Review independiente | — | Quien corrige hallazgos por obediencia, sin verificarlos |
 | 5 · Verificar y documentar | Minuto 5 | Capturas maquilladas |
 
