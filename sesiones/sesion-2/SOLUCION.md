@@ -19,30 +19,29 @@ conducir el debrief con material concreto en pantalla.
 
 ## 2. El brief que entregas en clase
 
-No está en ningún archivo visible para los participantes. Entrégalo en
-pantalla o en papel, tal cual, sin aclaraciones:
+No está en ningún archivo visible para los participantes. Va en pantalla
+(S13, S33), tal cual, sin aclaraciones:
 
 ```text
-Brief PAY-102 (ops): "Estamos viendo pagos que pasan de APPROVED a PENDING
-cuando el proveedor reenvía notificaciones viejas. Eso no debería pasar.
-Necesitamos que el servicio no acepte cambios de estado que no tienen
-sentido. Urgente para el cierre de mes."
+Evitar que un pago pueda regresar a un estado anterior.
 ```
 
-Es corto a propósito. Deja fuera todo lo que la tabla siguiente lista: si
-alguien no te pregunta, asume, y eso es lo que el debrief pone en
-evidencia. Cuando pregunten, responde con la columna "Respuesta en esta
-solución". Si alguien propone una respuesta distinta y la defiende
-(por ejemplo, permitir `APPROVED -> DECLINED` por una disputa), acéptala
-como decisión de producto documentada; la solución de referencia es una
-de las respuestas válidas, no la única.
+Una frase. Deja fuera todo lo que la tabla de la sección 3 lista, y esa es
+la razón de ser del laboratorio.
 
-## 3. Las decisiones que el brief no toma
+## 3. La tarjeta de decisiones de negocio
 
-El brief que entregas en clase es corto a propósito. Estas son las
-decisiones que la solución de referencia toma, y que cada participante debió
-preguntarte antes de implementar. Si el brief que uses difiere, ajusta la
-solución o el brief, no ambos a medias.
+Las respuestas del dueño del producto no las das tú en vivo: van en
+[`TARJETA-DECISIONES.md`](./TARJETA-DECISIONES.md), un archivo por equipo,
+impreso o compartido aparte. Nunca dentro del repositorio de los
+participantes.
+
+La regla de uso que anuncias en S38 y que conviene repetir en voz alta: no
+peguen la tarjeta completa en el prompt, ábranla solo cuando Claude
+pregunte y respondan únicamente lo preguntado.
+
+Estas son las seis decisiones que la tarjeta responde, con lo que hace la
+solución de referencia y dónde se ve en el código:
 
 | Decisión | Respuesta en esta solución | Dónde se ve |
 |---|---|---|
@@ -52,6 +51,12 @@ solución o el brief, no ambos a medias.
 | ¿Y si el proveedor envía un valor no reconocido? | `UNKNOWN` nunca es destino válido; lanza error y no escribe | Segundo `if` de `assertValidTransition` |
 | ¿Qué error se lanza? | `InvalidTransitionError extends DomainError`, con `from -> to` en el mensaje | `transitions.ts` |
 | ¿Cambia la firma de `applyProviderUpdate`? | No | `payment-service.ts` |
+
+La tarjeta está redactada en lenguaje de negocio, sin nombres de archivos
+ni de tipos: los equipos tienen que traducirla. Si un equipo propone una
+respuesta distinta y la defiende (permitir `APPROVED -> DECLINED` por una
+disputa, por ejemplo), es una decisión de producto documentada y vale. La
+solución de referencia es una de las respuestas válidas, no la única.
 
 ## 4. Qué mostrar en el debrief
 
