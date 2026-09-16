@@ -23,8 +23,10 @@ disable-model-invocation: true
      1. How to explore the repository before asking any question.
      2. How to separate facts, inferences, and human decisions.
      3. How to classify the request and justify the route.
-     4. How to define scope, non-goals, acceptance criteria, and edge cases.
-     5. How to map each criterion to files, tests, and verification.
+     4. How to define scope, non-goals, acceptance criteria, and edge cases
+        (the Spec ready gate).
+     5. How to map each criterion to files, tests, and verification (the
+        Plan ready gate).
      6. Where the output artifact is written (see Output below).
      7. Where this skill stops and asks for human approval. -->
 

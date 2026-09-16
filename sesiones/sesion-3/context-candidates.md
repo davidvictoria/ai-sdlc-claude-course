@@ -22,8 +22,9 @@ sesión.
 5. La convención de que los errores de dominio extienden `DomainError`.
 6. El token de acceso a un proveedor de pagos real (no existe en este
    laboratorio, pero aparecerá en proyectos reales).
-7. La lista de qué proveedores de pago ficticios puede notificar cada
-   estado (`PENDING`, `PROCESSING`, `APPROVED`, `DECLINED`).
+7. La tabla que traduce cada valor crudo del proveedor (`PENDING`,
+   `PROCESSING`, `APPROVED`, `DECLINED`) a un `PaymentStatus` interno. Hoy
+   vive en `normalizeProviderStatus` y en `docs/payment-flow.md`.
 8. El histórico de decisiones de arquitectura de una solicitud ya cerrada,
    como `PAY-101` o `PAY-102`.
 9. La regla de que el código y los mensajes de commit van en inglés y la
