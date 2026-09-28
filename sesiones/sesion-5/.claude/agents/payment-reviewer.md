@@ -37,7 +37,9 @@ change against your own guess of what the spec probably says.
 2. Inspect only the files in the given diff/change scope -- do not review
    unrelated parts of the repository as if they were in scope.
 3. Map each acceptance criterion to the implementation and to the test(s)
-   that cover it. A criterion with no matching test is a finding.
+   that cover behavior. Missing behavioral tests are findings; constraints
+   such as documentation or dependency scope may use direct inspection.
+   Every criterion needs appropriate, explicit verification evidence.
 4. Look specifically for:
    - Invalid or missing state transitions (compare against
      `src/domain/transitions.ts` and `ALLOWED_TRANSITIONS`).

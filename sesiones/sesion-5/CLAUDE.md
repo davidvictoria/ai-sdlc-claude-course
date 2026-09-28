@@ -4,14 +4,25 @@ Guía breve para trabajar en este repositorio con un agente de IA. Sesión 5:
 laboratorio integrado (capstone). El dominio ya incluye `REVERSED` completo
 y probado (sesiones 3-4). Construyes `PAY-105` sobre esta base.
 
+## Alcance y gates
+
+- Trabaja desde `sesiones/sesion-5`; limita los cambios a esta sesión.
+- Trabajo y entrega individuales; el humano asume producto, calidad y aceptación.
+- Workflow ready aprueba el diseño; Spec ready aprueba el contrato; Plan ready
+  aprueba el plan técnico. No implementes antes de las tres aprobaciones.
+- No inventes límites de la razón ni el contrato del conflicto de PAY-105:
+  pregunta al humano y registra su respuesta o el estado pendiente.
+- Guarda decisiones y evidencia real en el workflow A–I. Nunca declares
+  comandos ejecutados, revisión o aprobaciones que no ocurrieron.
+
 ## Comandos
 
 - `npm run typecheck` — `tsc --noEmit`.
-- `npm run lint` — ESLint sobre todo el repo.
+- `npm run lint` — ESLint sobre esta sesión.
 - `npm run test` — suite de Vitest.
 - `npm run verify` — **gate único de verificación** (typecheck + lint +
   test encadenados). Cualquier cambio debe dejar `npm run verify` en verde
-  antes de darse por terminado.
+  antes de darse por terminado. Desde la raíz usa `npm run verify:s5`.
 
 ## Convenciones del dominio
 
@@ -39,7 +50,7 @@ decisión incluso si los omites (ver `docs/workflows/ai-sdlc-team-workflow.md`,
 sección C):
 
 - Skill `.claude/skills/payment-change/SKILL.md`: convierte una solicitud
-  en un artefacto Plan-ready en `docs/changes/<id>-spec.md`. Se invoca
+  en una spec pendiente de aprobación humana (Spec ready) en `docs/changes/<id>-spec.md`. Se invoca
   explícitamente (`disable-model-invocation: true`).
 - Agente `.claude/agents/payment-reviewer.md`: revisión independiente de
   solo lectura contra una spec aprobada. No modifica archivos.
@@ -64,8 +75,13 @@ exploración del repositorio.
 
 1. `npm run verify` pasa en verde.
 2. Si el comportamiento cambió, `docs/payment-flow.md` está actualizado.
-3. Hay al menos un test que cubre el cambio (caso positivo, caso negativo
-   por cada transición inválida, e idempotencia donde aplique).
+3. Cada criterio está cubierto por una prueba o inspección apropiada. El
+   comportamiento tiene tests positivos, negativos, límites, idempotencia,
+   conflicto y regresiones; no basta con agregar un único test feliz.
 4. Un humano aceptó el diff (ver `docs/workflows/ai-sdlc-team-workflow.md`,
    sección E).
-5. `git status` queda limpio (todo commiteado, nada suelto).
+5. La revisión independiente está atendida y su evidencia está registrada.
+6. El portafolio H contiene CP1–CP3 y la decisión humana final. Si hay
+   bloqueos, registra "devuelto con pendientes", no Done.
+7. Se inspeccionaron el diff y los archivos nuevos. No se exige hacer commit
+   ni tener el árbol limpio; no incluyas cambios ajenos o de otras sesiones.

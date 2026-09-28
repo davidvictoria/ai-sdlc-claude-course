@@ -1,13 +1,13 @@
 ---
 name: payment-change
-description: Converts a payment-domain change request (e.g. PAY-105) into a Plan-ready spec artifact at docs/changes/<id>-spec.md. Explores the repository before asking questions, separates verified facts from inferences and human decisions, classifies the change route, and stops for human approval before any implementation. Use for payment-domain change requests that need a spec, not for implementing code directly.
+description: Converts a payment-domain change request (e.g. PAY-105) into a spec draft for the human Spec ready gate at docs/changes/<id>-spec.md. Explores the repository before asking questions, separates verified facts from inferences and human decisions, classifies the change route, and stops for human approval before any implementation. Use for payment-domain change requests that need a spec, not for implementing code directly.
 disable-model-invocation: true
 ---
 
 # Objective
 
 Turn the change request identified by `$ARGUMENTS` (a change id, e.g.
-`PAY-105`) into a single Plan-ready artifact at
+`PAY-105`) into a single spec draft for human approval at
 `docs/changes/<id>-spec.md`. This skill produces a spec: it explores,
 questions, and documents. It never edits `src/` or `tests/`, and it never
 proposes an architecture before the spec is approved.
@@ -17,14 +17,13 @@ anything else.
 
 # Input
 
-The change request lives outside this repository's versioned source. Two
-equivalent sources are available; use whichever the team selected for this
-lab:
+The synthetic change request is available through two equivalent sources.
+Use the source selected by the participant for this lab:
 
 1. **MCP (`course-context` server, if registered):** call the
    `get_change_request` tool with `{ "id": "<id>" }`. Confirm the server is
    registered first (`claude mcp list` / `/mcp`); if it is not connected,
-   fall back to option 2 without blocking the team.
+   fall back to option 2 without blocking the participant.
 2. **Local plan B:** read `scripts/fixtures/PAY-105-brief.md` (or the
    equivalent `scripts/fixtures/change-requests.json` entry for the given
    id) directly from disk.
@@ -79,14 +78,15 @@ finishing exploration.
    Produce a table: criterion -> file(s) expected to change -> test(s) that
    cover it -> how a reviewer verifies it (e.g. `npm run verify`, a specific
    `vitest` file, manual inspection). A criterion with no test or
-   verification method is not Plan-ready.
+   verification method is not ready for spec approval.
 7. **Write the artifact** to `docs/changes/<id>-spec.md` (create
    `docs/changes/` if it does not exist) using the Output structure below.
 8. **Stop.** Do not implement, do not edit `src/` or `tests/`, and do not
    propose a specific code design beyond what Step 6's mapping already
    states. Present the spec and any open human decisions, and explicitly
-   request human approval (Product/Scope owner) before any implementation
-   work begins.
+   request human approval (Product/Scope owner) for the Spec ready gate.
+   A separate technical plan must then be produced and approved at the
+   Plan ready gate before any implementation begins.
 
 # Guardrails
 
