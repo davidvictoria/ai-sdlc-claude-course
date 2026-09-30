@@ -136,7 +136,7 @@ extractos legibles y resultados reales, no solo rutas de tu computadora.
 Puedes enlazar artefactos si quien evalúa tiene acceso; de lo contrario,
 pega aquí lo necesario para comprobar la decisión. Nunca inventes salidas.
 
-### CP1 — Workflow ready · minuto 28
+### CP1 — Workflow ready · minuto 26
 
 - Ficha A–C: ruta y justificación, responsabilidades, capacidades y permisos:
 - Un control y el riesgo que atiende:
@@ -144,7 +144,7 @@ pega aquí lo necesario para comprobar la decisión. Nunca inventes salidas.
 - Decisión humana (aprobado / devuelto), quién y cuándo:
 - Ajuste solicitado o pendiente:
 
-### CP2 — Spec ready + Plan ready · minuto 56
+### CP2 — Spec ready + Plan ready · minuto 53
 
 - Decisiones humanas del brief, respuesta, responsable y fecha:
 - Evidencia de spec aprobada (extracto y ruta/acceso):
@@ -157,7 +157,7 @@ pega aquí lo necesario para comprobar la decisión. Nunca inventes salidas.
 - Decisión humana del gate (aprobado / devuelto), quién y cuándo:
 - Decisiones o criterios pendientes:
 
-### CP3 — Done with evidence · minuto 110
+### CP3 — Done with evidence · minuto 104
 
 - Diff o extractos relevantes, incluyendo archivos nuevos:
 - Comandos ejecutados, carpeta, fecha y resumen de salidas reales:
@@ -167,7 +167,7 @@ pega aquí lo necesario para comprobar la decisión. Nunca inventes salidas.
 - Aceptación humana (Done with evidence / devuelto), quién y cuándo:
 - Riesgos residuales, bloqueo y siguiente paso si no está terminado:
 
-### Revisión cruzada · minutos 110–116
+### Revisión cruzada · minutos 104–110
 
 - Persona que leyó el workflow (o revisión pendiente):
 - Observación recibida sobre claridad/reproducción:
