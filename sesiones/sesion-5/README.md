@@ -18,6 +18,7 @@ El servicio de pagos es ficticio. La base ya incluye `REVERSED` completo: no nec
 - [E. Review independiente](#e-review-independiente)
 - [F. Gate y documentación](#f-gate-y-documentación)
 - [Revisión cruzada por chat](#revisión-cruzada-por-chat)
+- [Open mic final](#open-mic-final)
 - [Adopción, reflexión y entrega](#adopción-reflexión-y-entrega)
 - [Cómo se evalúa](#cómo-se-evalúa)
 - [Si algo se atasca](#si-algo-se-atasca)
@@ -39,6 +40,18 @@ Completa progresivamente **un único archivo de trabajo**: [docs/workflows/ai-sd
 
 Al final haces una copia llamada `workflow-sesion-5-nombre-apellido.md` y la envías por el canal del programa. No esperes al cierre para escribir la evidencia: completa cada checkpoint cuando ocurra.
 
+### Cómo se integra lo aprendido
+
+| Lo trabajado | Cómo lo aplicas y dónde queda visible |
+|---|---|
+| S1: criterio humano y oportunidades de uso | Justificas qué delegar en B y eliges una práctica real de adopción en G. |
+| S2: cambio de extremo a extremo | Conectas spec, plan, implementación y pruebas en D y H. |
+| S3: contexto, skills y MCP | Seleccionas activos reutilizables y justificas MCP o brief local en C. |
+| S4: agentes, controles y quality gates | Usas el reviewer, verificas resultados y registras controles, hallazgos y aceptación en C, E, F y H. |
+| S5: integración y refinamiento | Ejecutas PAY-105, contrastas evidencia y mejoras el workflow tras review e intercambio. |
+
+El **AI-SDLC Team Workflow** concreta el entregable comprometido de agente funcional básico configurado, validado y refinado, acompañado de una **ficha de diseño funcional y técnico (A–C)**. La evidencia muestra qué ejecutaste, qué verificaste y qué mejoraste. El agente `payment-reviewer` es uno de los activos de ese workflow.
+
 ## Cómo se trabaja
 
 **Espera la indicación del practitioner para comenzar cada fase.** La dinámica es explicación breve → ejemplo o demostración puntual → práctica → validación/open mic. Mientras observas la demo, no tienes que ejecutar los pasos al mismo tiempo. Durante la práctica no se introduce el siguiente tema.
@@ -49,10 +62,13 @@ Al final haces una copia llamada `workflow-sesion-5-nombre-apellido.md` y la env
 | `text` | Conversación principal de Claude Code |
 | «Tú» | Lees, decides, revisas o completas el Markdown en tu editor |
 | «Chat» | Chat de la clase, para compartir evidencia o pedir ayuda |
+| «Open mic» | Micrófono de la clase, durante los cortes anunciados; comparte una decisión, evidencia o duda concreta |
 
 Mantén dos terminales en `sesiones/sesion-5`: una con Claude Code y otra para comandos. Si tienes una sola, `/exit` vuelve a la terminal y `claude` inicia otra conversación; vuelve a darle los archivos y la evidencia necesarios. Al pedir ayuda escribe **fase + paso + resultado o error**: `B2: la spec inventó el límite de la razón; aún no lo aprobé`.
 
 Los prompts son apoyos. Ajústalos a tu workflow y registra tus decisiones; copiarlos no sustituye revisar el resultado. No permitas que Claude se apruebe a sí mismo un gate.
+
+**Documenta mientras avanzas:** completa D al planificar y ejecutar, E durante las pruebas, F durante el review y H en cada checkpoint. En la fase F compruebas y consolidas esos registros. No esperes a los últimos minutos para reconstruir la evidencia.
 
 ## Preflight y materiales
 
@@ -105,7 +121,7 @@ Abre estos materiales en tu editor:
 | [CLAUDE.md](./CLAUDE.md) y [reglas](./.claude/rules/payments.md) | Contexto y límites del proyecto |
 | [Flujo de pagos](./docs/payment-flow.md) | Comportamiento actual que debes contrastar con el código |
 
-El practitioner muestra brief, plantilla y baseline en una demo de máximo 3 minutos. **Chat:** confirma `S5 lista: baseline verde` o comparte el error. Los 4 minutos de preparación en clase no incluyen instalar herramientas.
+El practitioner muestra brief, plantilla y baseline en una demo de máximo 3 minutos. Dentro de ese tiempo conecta S1–S4 con el entregable final en unos 45 segundos. **Chat:** confirma `S5 lista: baseline verde` o comparte el error. Los 4 minutos de preparación en clase no incluyen instalar herramientas.
 
 ## El reloj de la sesión
 
@@ -115,39 +131,43 @@ El practitioner muestra brief, plantilla y baseline en una demo de máximo 3 min
 |---|---|---|
 | 00–03 | Objetivo, caso y dinámica | Apertura breve |
 | 03–07 | Materiales y baseline | Demo ≤3 min y confirmación |
-| 07–11 | Activación | 2 responder + 2 contrastar |
-| 11–16 | Clasificar PAY-105 | 2 leer + 1 justificar + 2 validar |
-| 16–28 | A. Diseño del workflow | 1 orientar + 9 practicar + 2 validar CP1 |
-| 28–46 | B. Exploración y spec | 2 orientar + 13 practicar + 3 validar |
-| 46–56 | C. Plan y trazabilidad | 1 mostrar formato + 7 practicar + 2 validar CP2 |
-| 56–61 | Pausa | 5 minutos |
-| 61–85 | D. Implementación y pruebas | 2 orientar + 10 practicar + 2 validar + 8 practicar + 2 validar |
-| 85–99 | E. Review independiente | 2 orientar + 9 revisar/corregir + 3 validar |
-| 99–110 | F. Gate y documentación | 1 orientar + 8 practicar + 2 validar CP3 |
-| 110–116 | Revisión cruzada | 2 leer + 2 intercambiar + 2 ajustar |
-| 116–120 | Adopción, reflexión y entrega | 2 escribir + 2 revisar entrega |
+| 07–11 | Activación: el activo que te ayudó | 2 responder por chat + 2 contrastar ejemplos en open mic |
+| 11–16 | Clasificar PAY-105 | 2 analizar individualmente + 1 compartir por chat + 2 open mic y devolución |
+| 16–26 | A. Diseño del workflow | 1 orientar + 7 practicar + 2 validar CP1 |
+| 26–44 | B. Exploración y spec | 2 orientar + 13 practicar + 3 validar/open mic |
+| 44–53 | C. Plan y trazabilidad | 1 mostrar formato + 6 practicar + 2 validar CP2 |
+| 53–58 | Pausa | 5 minutos |
+| 58–82 | D. Implementación y pruebas | 2 orientar + 10 practicar + 2 open mic + 8 practicar + 2 validar |
+| 82–96 | E. Review independiente | 2 orientar + 9 revisar/corregir + 3 validar/open mic |
+| 96–104 | F. Gate y documentación | 1 orientar + 5 comprobar registros + 2 validar CP3 |
+| 104–110 | Revisión cruzada | 2 leer + 2 intercambiar + 2 ajustar |
+| 110–114 | Open mic final | 1 recoger dudas por chat + 2 intervenciones y respuestas + 1 síntesis |
+| 114–118 | Adopción y reflexión | 2 completar G + 2 escribir I |
+| 118–120 | Entrega y despedida | 1 revisar checklist + 1 guardar/enviar y cerrar |
 
 ## Activación y clasificación
 
-### Activación · 07–11
+### Activación: el activo que te ayudó · 07–11
 
-**Tú:** recuerda un mecanismo de S1–S4 que te ayudó y el caso en que lo usaste. Elige otro que usarías con cautela en PAY-105. **Chat:** comparte mecanismo + caso + razón. Comparamos dos ejemplos; no hace falta configurar nada todavía.
+**07–09, tú y el chat:** recuerda un mecanismo de S1–S4 que te ayudó y el caso en que lo usaste. Comparte mecanismo + caso + razón. **09–11, open mic:** dos participantes comparten un ejemplo breve y contrastamos las decisiones. Si nadie abre el micrófono, el practitioner recupera dos respuestas del chat. Como repregunta, identifica un mecanismo que usarías con cautela en PAY-105. No hace falta configurar nada todavía.
 
 ### Clasificar PAY-105 · 11–16
 
 1. **Tú:** lee el brief completo. Separa lo que pide Ops de lo que falta decidir.
 2. Elige ruta usando **ambigüedad, impacto y reversibilidad**: rápida para un cambio trivial, localizado e inequívoco; estándar para varios criterios/archivos y decisiones abiertas; reforzada cuando impacto, sensibilidad o dificultad de reversión exige controles adicionales.
 3. Escribe ruta + señal concreta + control necesario en B de la plantilla.
-4. **Chat:** comparte esa frase. Contrasta tu clasificación con la devolución del practitioner; conserva el razonamiento, aunque ajustes la ruta.
+4. **13–14, chat:** comparte esa frase. **14–16, open mic:** hasta dos participantes explican su razonamiento en 45 segundos cada uno; el practitioner usa los 30 segundos restantes para devolver el criterio. Puedes participar por chat si no usas micrófono. Conserva el razonamiento, aunque ajustes la ruta.
+
+Los pasos 1–3 corresponden a **11–13: análisis individual**. La sección B que escribiste se reutiliza en la fase A.
 
 **Resultado:** una decisión justificada. El caso sintético puede seguir una ruta estándar con controles explícitos; una cancelación en producción exigiría volver a evaluar el contexto real.
 
 ## A. Diseño del workflow
 
-**16–28 · 12 minutos. Abre:** A–C de la plantilla.
+**16–26 · 10 minutos. Abre:** A–C de la plantilla, tu ficha de diseño funcional y técnico.
 
 1. **Tú:** define quién usaría el workflow, para qué y cuándo no conviene usarlo.
-2. Completa ruta, riesgos y responsabilidades. Hoy tú asumes alcance, calidad, evidencia y aceptación; describe cómo se repartirían esas responsabilidades en tu equipo real.
+2. Reutiliza la ruta y la razón que ya registraste en B. Completa riesgos y responsabilidades. Hoy tú asumes alcance, calidad, evidencia y aceptación; describe cómo se repartirían esas responsabilidades en tu equipo real.
 3. Selecciona capacidades con una razón concreta:
 
 | Necesidad obligatoria | Opción disponible |
@@ -177,7 +197,7 @@ antes de proponer una actualización de la ficha.
 
 ## B. Exploración y spec
 
-**28–46 · 18 minutos. Abre:** brief, código y pruebas; después la spec generada.
+**26–44 · 18 minutos. Abre:** brief, código y pruebas; después la spec generada.
 
 1. En **Claude Code**, invoca explícitamente la skill:
 
@@ -202,11 +222,13 @@ No implementes ni redactes todavía un plan técnico.
 
 **Spec ready:** aprueba explícitamente el contrato o devuélvelo con cambios; registra decisión y fecha en la spec. No avances con una decisión de producto bloqueante pendiente. **Chat:** una decisión humana y el criterio que produce. Conserva la aprobación para H/CP2.
 
+**41–44, validación/open mic:** comparte una decisión que Claude no debía tomar por ti y qué criterio cambió. El practitioner recoge una o dos intervenciones breves y atiende la duda común antes de avanzar.
+
 ## C. Plan y trazabilidad
 
-**46–56 · 10 minutos. Abre:** spec aprobada y un nuevo `docs/changes/PAY-105-plan.md`.
+**44–53 · 9 minutos. Abre:** spec aprobada y un nuevo `docs/changes/PAY-105-plan.md`.
 
-1. Observa el ejemplo de formato del practitioner; no es la solución.
+1. Observa una fila de ejemplo del practitioner durante un minuto. Reutiliza los criterios de la spec aprobada; no vuelvas a redactarlos desde cero.
 2. Pide un plan en **Claude Code**:
 
 ```text
@@ -223,11 +245,11 @@ No implementes. Detente para mi aprobación del plan.
 
 **CP2 / Plan ready:** guarda en H/CP2 decisiones humanas, aprobaciones de spec y plan y un extracto legible de la trazabilidad. No basta con decir «aprobado» si no se ve qué aceptaste. **Chat:** criterio + prueba o inspección.
 
-**56–61: pausa de 5 minutos.** Guarda tus archivos antes de salir.
+**53–58: pausa de 5 minutos.** Guarda tus archivos antes de salir.
 
 ## D. Implementación y pruebas
 
-**61–85 · 24 minutos. Abre:** plan aprobado, diff y pruebas.
+**58–82 · 24 minutos. Abre:** plan aprobado, diff y pruebas.
 
 1. En **Claude Code**, solicita un incremento:
 
@@ -246,8 +268,8 @@ git diff -- .
 npm run test
 ```
 
-3. Revisa la salida real y autoriza el siguiente incremento. Repite hasta cubrir el plan. Actualiza `docs/payment-flow.md`. No cambies la spec para justificar una implementación que la incumple.
-4. En la pausa intermedia, **chat:** criterio completado + evidencia + bloqueo, si existe. Pregunta antes de acumular errores.
+3. Revisa la salida real y autoriza el siguiente incremento. Repite hasta cubrir el plan. Actualiza `docs/payment-flow.md` y los pasos de ejecución en D de la plantilla. Guarda resultados reales en E a medida que ejecutas pruebas. No cambies la spec para justificar una implementación que la incumple.
+4. **70–72, pausa de validación/open mic:** detén la ejecución nueva y comparte criterio completado + evidencia + bloqueo, si existe. Una o dos personas muestran un avance o explican una duda breve; el resto participa por chat. Después retoma el siguiente incremento. Pregunta antes de acumular errores.
 5. Ejecuta el gate completo en la **terminal**:
 
 ```bash
@@ -262,7 +284,7 @@ git status --short
 
 ## E. Review independiente
 
-**85–99 · 14 minutos. Abre:** spec, plan, diff y salida real de `verify`.
+**82–96 · 14 minutos. Abre:** spec, plan, diff y salida real de `verify`.
 
 1. Reúne los inputs. El reviewer tiene `Read`, `Glob` y `Grep`: **no ejecuta comandos**. Dale el diff o una lista explícita de archivos cambiados y los resultados reales.
 2. En **Claude Code**, pega esta instrucción y agrega después el diff/lista y la salida:
@@ -282,11 +304,13 @@ evidencia y veredicto. No afirmes que el reviewer ejecutó los checks.
 
 **Validación:** cada observación tiene respuesta verificable. **Chat:** un hallazgo útil y cómo cambió tu solución. Un veredicto no equivale a aprobación humana ni reemplaza tests.
 
+**93–96, validación/open mic:** una o dos personas comparten un hallazgo, la decisión que tomaron y su evidencia. Registra la respuesta en F durante esta fase.
+
 ## F. Gate y documentación
 
-**99–110 · 11 minutos. Abre:** workflow y evidencia final.
+**96–104 · 8 minutos. Abre:** workflow y evidencia final ya registrados durante C, D y E.
 
-1. Completa D–F: otra persona debe saber qué hacer, en qué orden, con qué entradas y cómo recuperarse si falla un paso.
+1. Comprueba D–F y completa huecos puntuales: otra persona debe saber qué hacer, en qué orden, con qué entradas y cómo recuperarse si falla un paso. Usa los registros que elaboraste durante la práctica; no reconstruyas toda la documentación aquí.
 2. Contrasta cada criterio con implementación y prueba/inspección. Confirma que el review está atendido y los checks corresponden al diff final.
 3. **Tú:** decide **Done with evidence** o **devuelto con pendientes**. Registra quién decide, cuándo, riesgos residuales y acciones pendientes.
 4. Completa H/CP3: extractos del diff, resultados de checks, hallazgos y respuestas del review, y decisión humana. No inventes ejecuciones.
@@ -295,7 +319,7 @@ evidencia y veredicto. No afirmes que el reviewer ejecutó los checks.
 
 ## Revisión cruzada por chat
 
-**110–116 · 6 minutos.** Comprueba claridad del workflow y complementa el review técnico.
+**104–110 · 6 minutos.** Comprueba claridad del workflow y complementa el review técnico.
 
 1. Comparte tu documento por el chat del curso y lee el de otra persona (2 min).
 2. Localiza cómo iniciar, verificar y devolver el cambio. Señala una instrucción ambigua o evidencia ausente; recibe otra observación (2 min).
@@ -303,13 +327,26 @@ evidencia y veredicto. No afirmes que el reviewer ejecutó los checks.
 
 Si no hay pareja disponible, publica la duda para el practitioner. Si no recibes revisión, anótala como pendiente; no inventes el intercambio.
 
+## Open mic final
+
+**110–114 · 4 minutos.** Este espacio ocurre antes de escribir la reflexión y entregar.
+
+1. **110–111, chat:** escribe una duda final o completa «Antes delegaba ___; ahora compruebo ___». Puedes vincular tu respuesta con una decisión o evidencia de tu workflow.
+2. **111–113, open mic:** el practitioner invita hasta dos intervenciones breves y responde a las dudas comunes. Cada intervención dura como máximo 30 segundos para dejar tiempo a la respuesta. Nadie tiene que hacer una demo completa ni exponer todo su código.
+3. **113–114, síntesis:** conecta los ejemplos con criterio humano, contexto reutilizable y verificación. Si una duda requiere depuración extensa, conserva fase, error y siguiente paso para el canal de apoyo indicado por el programa.
+
+Mantén disponible el documento. Las observaciones útiles pueden mejorar G o I. Este espacio complementa la revisión cruzada y no sustituye una evidencia técnica pendiente.
+
 ## Adopción, reflexión y entrega
 
-**116–120 · 4 minutos.**
+### Adopción y reflexión · 114–118
 
-1. Completa G: práctica acotada, tipo/cantidad de tareas, señal a observar y condición para ajustar o abandonar. Retoma una oportunidad de S1; si no tienes el mapa, usa una actividad real de tu SDLC y justifica la elección.
-2. Escribe I en **máximo 100 palabras**: una decisión que no delegaste, el control más útil y qué probarás después.
-3. Revisa el checklist:
+1. **114–116:** completa G: práctica acotada, tipo/cantidad de tareas, señal a observar y condición para ajustar o abandonar. Retoma una oportunidad de S1; si no tienes el mapa, usa una actividad real de tu SDLC y justifica la elección.
+2. **116–118:** escribe I en **máximo 100 palabras**: una decisión que no delegaste, el control más útil y qué probarás después. Usa un ejemplo de tu trabajo, no una lista de herramientas.
+
+### Entrega y despedida · 118–120
+
+**118–119:** revisa el checklist:
 
 - [ ] A–C explica tu diseño; D–G permite repetir el workflow.
 - [ ] H contiene CP1, CP2 y CP3 con evidencia legible y decisiones humanas.
@@ -318,7 +355,7 @@ Si no hay pareja disponible, publica la duda para el practitioner. Si no recibes
 - [ ] I tiene máximo 100 palabras.
 - [ ] Se ve si llegaste a Done o qué falta; no hay datos reales ni secretos.
 
-4. **Tú, en el editor:** guarda una copia como `workflow-sesion-5-nombre-apellido.md`, reemplazando nombre y apellido por los tuyos. Conserva el archivo de trabajo en su ruta original. Envía la copia por el canal indicado por el programa. Spec, plan y código permanecen en tu clon; incorpora su evidencia necesaria en H.
+**119–120, tú en el editor:** guarda una copia como `workflow-sesion-5-nombre-apellido.md`, reemplazando nombre y apellido por los tuyos. Conserva el archivo de trabajo en su ruta original. Envía la copia por el canal indicado por el programa. Spec, plan y código permanecen en tu clon; incorpora su evidencia necesaria en H. El practitioner confirma la entrega o recoge el bloqueo y cierra el programa.
 
 `docs/lab-notes.md` es apoyo opcional, no una segunda entrega. No tienes que publicar tu solución en `main` del curso.
 
