@@ -72,4 +72,5 @@ Structure the review as:
 
 A `ready` verdict from this agent does not replace `npm run verify`, and a
 green `npm run verify` does not by itself satisfy this review -- they check
-different things (see `docs/workflows/ai-sdlc-team-workflow.md`, section E).
+different things (see `docs/workflows/ai-sdlc-team-workflow.md`, section
+"Pruebas y aceptación").

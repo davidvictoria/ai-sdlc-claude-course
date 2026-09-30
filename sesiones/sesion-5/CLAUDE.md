@@ -12,7 +12,8 @@ y probado (sesiones 3-4). Construyes `PAY-105` sobre esta base.
   aprueba el plan técnico. No implementes antes de las tres aprobaciones.
 - No inventes límites de la razón ni el contrato del conflicto de PAY-105:
   pregunta al humano y registra su respuesta o el estado pendiente.
-- Guarda decisiones y evidencia real en el workflow A–I. Nunca declares
+- Guarda decisiones y evidencia real en `docs/workflows/ai-sdlc-team-workflow.md`,
+  en los apartados que indica el README. Nunca declares
   comandos ejecutados, revisión o aprobaciones que no ocurrieron.
 
 ## Comandos
@@ -47,7 +48,7 @@ y probado (sesiones 3-4). Construyes `PAY-105` sobre esta base.
 
 Están disponibles, pero tú decides cuáles usar y debes registrar la
 decisión incluso si los omites (ver `docs/workflows/ai-sdlc-team-workflow.md`,
-sección C):
+apartado «Herramientas y límites»):
 
 - Skill `.claude/skills/payment-change/SKILL.md`: convierte una solicitud
   en una spec pendiente de aprobación humana (Spec ready) en `docs/changes/<id>-spec.md`. Se invoca
@@ -79,9 +80,10 @@ exploración del repositorio.
    comportamiento tiene tests positivos, negativos, límites, idempotencia,
    conflicto y regresiones; no basta con agregar un único test feliz.
 4. Un humano aceptó el diff (ver `docs/workflows/ai-sdlc-team-workflow.md`,
-   sección E).
+   apartado «Pruebas y aceptación»).
 5. La revisión independiente está atendida y su evidencia está registrada.
-6. El portafolio H contiene CP1–CP3 y la decisión humana final. Si hay
+6. «Registro de avances» contiene CP1–CP3 con referencias a la evidencia
+   del propio documento; «Pruebas y aceptación» contiene la decisión final. Si hay
    bloqueos, registra "devuelto con pendientes", no Done.
 7. Se inspeccionaron el diff y los archivos nuevos. No se exige hacer commit
    ni tener el árbol limpio; no incluyas cambios ajenos o de otras sesiones.

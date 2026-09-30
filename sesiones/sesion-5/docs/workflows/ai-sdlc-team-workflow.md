@@ -1,182 +1,226 @@
-# AI-SDLC Team Workflow
+# Mi workflow para PAY-105
 
-> Plantilla vacía y **entrega individual**. Completa cada sección con tus
-> propias decisiones para `PAY-105`. No copies texto de otra sesión ni
-> inventes respuestas: cada campo vacío es una decisión que tienes que
-> tomar. No se evalúa cuánta IA usaste, sino si otra persona puede repetir
-> el workflow y verificar el resultado.
->
-> Al terminar, conserva este archivo de trabajo y guarda una copia como
-> `workflow-sesion-5-<nombre-apellido>.md` y envíalo por el canal del
-> programa.
+Este es tu **documento de entrega individual**. Ábrelo en tu editor y completa cada apartado cuando lo indique el [README](../../README.md). No necesitas llenarlo todo al comenzar. Escribe tus decisiones y conserva resultados reales; marca como pendiente lo que aún no ocurrió.
 
 - Nombre:
 - Fecha:
-- Roles del workflow (quién decide alcance, quién verifica, quién acepta el
-  diff) y a qué puesto real corresponden en tu equipo de trabajo:
 
----
+| Durante la práctica | Apartados que completas |
+|---|---|
+| Clasificar y diseñar | Identidad; Ruta y decisiones; Herramientas y límites; Diseño aprobado |
+| Aprobar especificación y plan | Decisiones de producto; Spec y plan aprobados; primeras filas de Pasos para repetir el trabajo |
+| Implementar y verificar | Pruebas y aceptación; nuevas filas de Pasos para repetir el trabajo |
+| Revisar y aceptar | Revisión técnica; decisión final en Pruebas y aceptación; Cambio verificado |
+| Cerrar | Intercambio con otra persona; Próximo uso en tu equipo; Reflexión |
 
-## A. Identidad
+**Escribe cada evidencia una vez.** Los registros de avance indican dónde encontrarla dentro de este mismo documento. Pega extractos de la spec, del plan y de los comandos; no tienes que volver a redactarlos. Puedes usar enlaces externos solo si quien evalúa tendrá acceso. Evita rutas locales como única evidencia.
 
-*Nota: las secciones A, B y C constituyen la ficha de diseño funcional y
-técnico de este workflow.*
+Al terminar, conserva este archivo y guarda una copia como `workflow-sesion-5-nombre-apellido.md` para enviarla por el canal del programa. El código, la spec y el plan quedan en tu clon.
 
-- Nombre del workflow y actividad del SDLC que cubre:
-- Usuario principal (quién lo ejecuta o lo solicita):
-- Cuándo usar este workflow:
-- Cuándo NO usar este workflow:
+<a id="a-identidad"></a>
 
-## B. Ruta y decisiones
+## Identidad
 
-*Nota: esta sección forma parte de la ficha de diseño funcional y técnico.*
+**Completa en el paso 3.** Este apartado, «Ruta y decisiones» y «Herramientas y límites» forman tu ficha de diseño funcional y técnico. Responde cada campo brevemente.
 
-- Ruta elegida (rápida / estándar / reforzada) y justificación en una frase:
-- Riesgos identificados para este cambio:
-- Decisiones humanas (lista cada decisión, quién la resuelve, y su
-  respuesta o el estado "pendiente"):
-  1.
-  2.
-- Condición para escalar la ruta (de estándar a reforzada, por ejemplo) o
-  para detenerse por completo:
+- Nombre del workflow y tarea del SDLC que resuelve:
+- Quién lo usaría o solicitaría:
+- Cuándo lo usarías:
+- Cuándo evitarías usarlo:
 
-## C. Arquitectura
+<a id="b-ruta-y-decisiones"></a>
 
-*Nota: esta sección forma parte de la ficha de diseño funcional y técnico.*
+## Ruta y decisiones
 
-- Contexto de proyecto usado y su ubicación (`CLAUDE.md`, `.claude/rules/`,
-  otros):
-- Capacidades seleccionadas (marca las que usas y dónde vive cada una):
-  - [ ] Skill: `.claude/skills/payment-change/SKILL.md`
-  - [ ] Agente de revisión: `.claude/agents/payment-reviewer.md`
-  - [ ] Hook de protección: `.claude/hooks/protect-files.mjs`
-  - [ ] MCP local: `scripts/course-mcp-server.mjs`
-  - [ ] Otro (especificar):
-- Capacidades omitidas y motivo (o "ninguna", con justificación; no es
-  obligatorio omitir una capacidad):
-- Para el hook: ¿estaba configurado?, ¿lo observaste en ejecución?, ¿lo
-  seleccionas para tu workflow? Distingue las tres respuestas:
-- Tools y permisos habilitados para cada mecanismo (por ejemplo, tools del
-  agente de revisión, alcance del hook):
-- Gates: evidencia exigida, humano que decide y condición de devolución
-  para Workflow ready, Spec ready, Plan ready y Done with evidence:
-- Trust boundaries: qué contenido se trata como dato no confiable (por
-  ejemplo, lo recuperado por MCP) y qué contenido se trata como instrucción
-  confiable:
+**Empieza en el paso 2 y completa en los pasos 3 y 4.**
 
-## D. Flujo reproducible
+- Ruta elegida y razón (rápida, estándar o reforzada; una frase):
+- Riesgos y controles (riesgo concreto → cómo lo reduces o verificas):
+- Qué haría que escales la ruta o detengas el trabajo:
 
-Completa la tabla con las etapas mínimas: intake, exploración, spec,
-diseño/plan, implementación, tests/checks, review y cierre. Agrega filas si
-usas etapas adicionales.
+### Responsabilidades
 
-| Etapa | Claude | Humano | Input | Output | Gate/check |
+En este laboratorio tú asumes las decisiones humanas. Indica quién las asumiría en tu equipo real.
+
+| Decisión | Persona responsable en el laboratorio | Puesto en tu equipo real |
+|---|---|---|
+| Definir alcance y comportamiento | | |
+| Comprobar calidad y evidencia | | |
+| Aceptar el resultado final | | |
+
+### Decisiones de producto
+
+**Completa cuando respondas a Claude en el paso 4.** Puedes pegar aquí el extracto correspondiente de tu spec. Si sigue abierto, escribe «pendiente».
+
+| Pregunta | Tu respuesta | Quién decidió y cuándo |
+|---|---|---|
+| ¿Longitud mínima y máxima del motivo normalizado? | | |
+| ¿Qué error, mensaje y datos devuelve una repetición con otro motivo? | | |
+| Otras decisiones necesarias, si existen | | |
+
+<a id="c-arquitectura"></a>
+
+## Herramientas y límites
+
+**Completa en el paso 3.** Registra tu selección y su razón. No es obligatorio usar todas las herramientas ni omitir alguna artificialmente.
+
+| Recurso y ubicación | Cómo lo usarás, o por qué lo omites | Permisos y límites |
+|---|---|---|
+| `CLAUDE.md` y `.claude/rules/payments.md` | | |
+| Skill `.claude/skills/payment-change/SKILL.md` | | |
+| Reviewer `.claude/agents/payment-reviewer.md` | | |
+| Hook `.claude/hooks/protect-files.mjs` | | |
+| Solicitud local `scripts/fixtures/PAY-105-brief.md` o MCP `scripts/course-mcp-server.mjs` | | |
+| Verificación `npm run verify` | | |
+| Otro recurso o equivalente, si lo eliges | | |
+
+- Hook: ¿está configurado?, ¿lo observaste actuar?, ¿lo seleccionaste para tu workflow? Responde las tres preguntas por separado:
+- Si usaste MCP: ¿qué comprobaste realmente —self-test, conexión, llamada— y qué fuente recuperaste? Si no lo usaste, indícalo:
+- Qué contenido externo tratarás como dato y qué harás si pide saltarse reglas o aprobaciones:
+
+### Condiciones para avanzar
+
+En cada fila, indica qué evidencia necesita la persona responsable y cuándo debe devolver el trabajo. Estas aprobaciones también se llaman *gates*.
+
+| Aprobación | Evidencia exigida | Quién decide | Cuándo devolver o detener |
+|---|---|---|---|
+| Diseño aprobado — Workflow ready | | | |
+| Especificación aprobada — Spec ready | | | |
+| Plan aprobado — Plan ready | | | |
+| Cambio aceptado — Done with evidence | | | |
+
+<a id="d-flujo-reproducible"></a>
+
+## Pasos para repetir el trabajo
+
+**Empieza en el paso 5 y actualiza hasta el paso 8.** Escribe lo que hiciste, de forma que otra persona pueda repetirlo. Una frase o referencia precisa por celda es suficiente. Los resultados de pruebas se guardan en «Pruebas y aceptación».
+
+- Prerrequisitos y cómo comprobar la base antes de empezar:
+- Carpeta y primera acción o comando:
+- Qué hacer si un paso falla y cómo retomar:
+
+| Etapa | Qué hace Claude | Qué decides o compruebas tú | Entrada | Resultado | Aprobación necesaria |
 |---|---|---|---|---|---|
-| Intake | | | | | |
-| Exploración | | | | | |
-| Spec | | | | | |
-| Diseño/Plan | | | | | |
-| Implementación | | | | | |
-| Tests/checks | | | | | |
-| Review | | | | | |
-| Cierre | | | | | |
+| Leer la solicitud | | | | | |
+| Explorar el proyecto | | | | | |
+| Escribir la especificación | | | | | |
+| Planificar | | | | | |
+| Implementar | | | | | |
+| Ejecutar pruebas | | | | | |
+| Revisar y corregir | | | | | |
+| Aceptar o devolver | | | | | |
 
-## E. Definition of done
+<a id="e-definition-of-done"></a>
 
-- Criterios de la spec cubiertos (lista o referencia a la tabla de
-  trazabilidad del plan):
-- Tests positivos, negativos y de regresión presentes (sí/no y dónde
-  viven):
-- Comando, carpeta, fecha y resultado real de `npm run verify` (o error):
-- Estado del gate final (Done with evidence / devuelto con pendientes):
+## Pruebas y aceptación
+
+**Registra resultados en el paso 6, actualízalos tras corregir en el paso 7 y decide la aceptación en el paso 8.**
+
+### Cambios y pruebas
+
+- Archivos modificados y nuevos:
+- Extractos relevantes del diff o enlaces accesibles para quien evalúa:
+- Pruebas del comportamiento nuevo y de regresión (ubicación y qué comprueban: casos válidos, inválidos, límites, idempotencia y conflicto):
+- Criterios cubiertos y pendientes (usa los identificadores de la spec; la tabla prevista está en «Spec y plan aprobados»):
+
+### Resultados reales
+
+Incluye `npm run verify` y `git diff --check -- .`, y otras comprobaciones relevantes. Pega la parte de la salida que permite verificar el resultado. Tras corregir, identifica qué ejecución corresponde al diff final; no presentes resultados anteriores como si comprobaran ese estado.
+
+| Comando o inspección | Carpeta y fecha | Resultado y salida relevante | ¿Corresponde al estado final? |
+|---|---|---|---|
+| | | | |
+
+### Decisión final
+
+Completa al llegar al paso 8. Para aceptar: criterios satisfechos, `npm run verify` aprobado, review atendido y aceptación humana del diff. La respuesta a cada hallazgo está en «Revisión técnica»; no hace falta copiarla aquí.
+
+- Estado: **Done with evidence** / **devuelto con pendientes**:
+- Persona que acepta o devuelve el diff y fecha:
+- Criterios incumplidos, bloqueos o evidencia que falta (o «ninguno», si lo comprobaste):
 - Riesgos residuales y siguiente acción:
-- Blockers del review resueltos (lista, o "ninguno"):
-- Diff aceptado por un humano (quién, cuándo):
-- Evidencia registrada sin datos sensibles (confirmar):
+- Confirmación de que la evidencia no contiene datos reales ni secretos:
 
-## F. Review y reproducción
+<a id="f-review-y-reproducción"></a>
 
-- Revisor independiente utilizado y contexto que recibió:
-- Veredicto y limitaciones de la revisión:
+## Revisión técnica
 
-| Hallazgo y criterio | Decisión humana | Corrección o razón para no aplicar | Evidencia posterior |
+**Completa en el paso 7.**
+
+- Revisor independiente usado:
+- Contexto proporcionado (spec, plan, diff/lista de archivos y resultados de comandos):
+- Veredicto recibido y limitaciones:
+
+| Hallazgo y criterio afectado | Tu decisión y razón | Corrección aplicada, si corresponde | Evidencia posterior o referencia a Resultados reales |
 |---|---|---|---|
 | | | | |
 
-Si no hubo hallazgos, indica ese resultado y conserva evidencia del review.
-No afirmes que el reviewer ejecutó comandos si solo recibió sus salidas.
+Si no hubo hallazgos, indícalo y conserva el veredicto y sus limitaciones. El reviewer no ejecuta comandos; registra lo que recibió y revisó realmente.
 
+<a id="g-adopción-acotada"></a>
 
-- Prerrequisitos y baseline (cómo confirmar que el entorno está listo antes
-  de empezar):
-- Instrucción de inicio (el primer comando o acción que ejecuta otra
-  persona):
-- Orden de los gates (Workflow ready → Spec ready → Plan ready → Done
-  with evidence, o el orden real que usaste):
-- Comandos y resultado observable esperado en cada uno:
-- Qué hacer si un paso falla (recuperación):
+## Próximo uso en tu equipo
 
-## G. Adopción acotada
+**Completa en el paso 11, minutos 114–116.** Retoma una oportunidad de S1; si no tienes ese mapa, elige una tarea real de tu SDLC y explica por qué.
 
-- Práctica a probar en tu equipo de trabajo (retoma un quick win del mapa
-  priorizado de oportunidades de la sesión 1,
-  `sesiones/sesion-1/docs/portafolio.md`; si no tienes ese mapa, elige una
-  actividad real de tu SDLC y justifícala en dos frases):
-- Tipo y cantidad de tareas donde se probará:
-- Plazo acotado de la prueba y fecha para revisar resultados:
-- Señal a observar para saber si funciona:
-- Condición para ajustar el workflow o abandonarlo:
+- Práctica a probar y razón:
+- Tipo y cantidad de tareas:
+- Plazo de la prueba y fecha para revisar resultados:
+- Señal observable para saber si ayuda:
+- Condición para ajustar o abandonar la prueba:
 
----
+<a id="h-portafolio-de-evidencia"></a>
 
-## H. Portafolio de evidencia
+## Registro de avances
 
-Completa cada checkpoint al terminar la fase correspondiente. Incluye
-extractos legibles y resultados reales, no solo rutas de tu computadora.
-Puedes enlazar artefactos si quien evalúa tiene acceso; de lo contrario,
-pega aquí lo necesario para comprobar la decisión. Nunca inventes salidas.
+Este es tu portafolio. Los checkpoints son **momentos para comprobar el trabajo**. Completa cada uno cuando ocurra; usa las evidencias del mismo documento y no vuelvas a pegarlas.
 
-### CP1 — Workflow ready · minuto 26
+### Diseño aprobado (CP1)
 
-- Ficha A–C: ruta y justificación, responsabilidades, capacidades y permisos:
-- Un control y el riesgo que atiende:
-- Evidencia de revisión de la ficha (extracto o referencia accesible):
-- Decisión humana (aprobado / devuelto), quién y cuándo:
-- Ajuste solicitado o pendiente:
+**Paso 3 · minuto 26.** La evidencia está en «Identidad», «Ruta y decisiones» y «Herramientas y límites».
 
-### CP2 — Spec ready + Plan ready · minuto 53
+- [ ] Revisé alcance, responsables, herramientas, permisos y condiciones para avanzar.
+- Mi decisión: aprobado / devuelto:
+- Quién decide y cuándo:
+- Ajuste necesario o pendiente (o «ninguno»):
 
-- Decisiones humanas del brief, respuesta, responsable y fecha:
-- Evidencia de spec aprobada (extracto y ruta/acceso):
-- Evidencia de plan aprobado (extracto y ruta/acceso):
+### Spec y plan aprobados (CP2)
 
-| Criterio de la spec | Archivo o cambio previsto | Prueba o inspección | Cómo verificarlo |
+**Paso 5 · minuto 53.** Las respuestas de producto están en «Ruta y decisiones». Incorpora los siguientes extractos de los archivos originales; no los redactes otra vez.
+
+- Extracto o enlace accesible a **Approval** de `docs/changes/PAY-105-spec.md` (qué se aprobó, por quién y cuándo, o qué quedó pendiente):
+- Extracto o enlace accesible a **Approval** de `docs/changes/PAY-105-plan.md`:
+- Tabla de trazabilidad del plan (pega sus filas o usa un enlace accesible):
+
+| Criterio de la spec | Archivo previsto | Prueba o inspección | Comando o método para verificar |
 |---|---|---|---|
 | | | | |
 
-- Decisión humana del gate (aprobado / devuelto), quién y cuándo:
-- Decisiones o criterios pendientes:
+### Cambio verificado (CP3)
 
-### CP3 — Done with evidence · minuto 104
+**Paso 8 · minuto 104.** La evidencia está en «Pruebas y aceptación» y «Revisión técnica»; la decisión final se escribe únicamente en «Pruebas y aceptación».
 
-- Diff o extractos relevantes, incluyendo archivos nuevos:
-- Comandos ejecutados, carpeta, fecha y resumen de salidas reales:
-- Pruebas positivas, negativas, de límites, idempotencia y regresión:
-- Review: hallazgos, respuestas y verificación posterior (sección F):
-- Criterios satisfechos y brechas de evidencia:
-- Aceptación humana (Done with evidence / devuelto), quién y cuándo:
-- Riesgos residuales, bloqueo y siguiente paso si no está terminado:
+- [ ] Inspeccioné el diff y los archivos nuevos y registré evidencia relevante.
+- [ ] Registré las salidas reales de checks correspondientes al estado final, incluidos fallos.
+- [ ] Contrasté los criterios con las pruebas y registré qué falta.
+- [ ] Documenté el review y mi respuesta a sus hallazgos o limitaciones.
+- [ ] Registré mi aceptación o devolución, fecha, riesgos y siguiente acción.
 
-### Revisión cruzada · minutos 104–110
+Marca solo lo que hiciste. Un cambio incompleto puede quedar correctamente documentado como «devuelto con pendientes».
 
-- Persona que leyó el workflow (o revisión pendiente):
-- Observación recibida sobre claridad/reproducción:
-- Respuesta y mejora aplicada, o razón para no aplicarla:
-- ¿Qué pudo localizar sin explicación oral: inicio, checks y recuperación?:
+### Intercambio con otra persona
 
-## I. Reflexión (máximo 100 palabras)
+**Paso 9 · minutos 104–110.**
 
-Una decisión que no delegaste a Claude, el control que te resultó más
-útil, y la práctica que probarás después de esta sesión.
+- Persona que leyó mi documento, o «revisión pendiente»:
+- Observación recibida sobre claridad o reproducción:
+- Mejora aplicada o razón para no aplicarla:
+- ¿Pudo localizar el inicio, los checks y la recuperación sin explicación oral?:
 
->
+<a id="i-reflexión-máximo-100-palabras"></a>
+
+## Reflexión
+
+**Paso 11 · minutos 116–118. Máximo 100 palabras.** Escribe una decisión que no delegaste a Claude, el control que más te ayudó y qué probarás después. Usa un ejemplo de tu trabajo.
+
+Escribe aquí tu reflexión:
